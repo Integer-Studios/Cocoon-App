@@ -89,7 +89,6 @@
                                         <rect key="frame" x="8" y="235" width="257" height="30"/>
                                         <state key="normal" title="Register"/>
                                         <connections>
-                                            <action selector="login:" destination="spy-Ww-qeV" eventType="touchUpInside" id="6wc-HX-bqd"/>
                                             <segue destination="vpv-m6-2AB" kind="show" id="Twb-Na-kzL"/>
                                         </connections>
                                     </button>
