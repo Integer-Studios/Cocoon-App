@@ -37,9 +37,9 @@ class TodoViewController: UITableViewController {
         
         NSOperationQueue.mainQueue().addOperationWithBlock {
             
-            var navigation = self.storyboard?.instantiateViewControllerWithIdentifier("login") as! NavigationViewController
+            var login = self.storyboard?.instantiateViewControllerWithIdentifier("login") as! LoginViewController
             
-            UIApplication.sharedApplication().keyWindow!.rootViewController = navigation
+            UIApplication.sharedApplication().keyWindow!.rootViewController = login
             
         }
         
