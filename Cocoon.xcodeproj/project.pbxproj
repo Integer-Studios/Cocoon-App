@@ -19,6 +19,7 @@
 		E419C8521B3880BF0015FCC2 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E419C8511B3880BE0015FCC2 /* KeychainWrapper.m */; };
 		F628BEDD1B3884CB005E4002 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F628BEDC1B3884CB005E4002 /* RegisterViewController.swift */; };
 		F628BEDF1B388A35005E4002 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F628BEDE1B388A35005E4002 /* icon.png */; };
+		F628BF151B38AD10005E4002 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F628BF131B38AD10005E4002 /* SWRevealViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,9 @@
 		E419C8511B3880BE0015FCC2 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
 		F628BEDC1B3884CB005E4002 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = ViewControllers/RegisterViewController.swift; sourceTree = "<group>"; };
 		F628BEDE1B388A35005E4002 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		F628BF121B38AD10005E4002 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		F628BF131B38AD10005E4002 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		F628BF141B38AD10005E4002 /* Slide Menu-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Slide Menu-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,9 @@
 		E419C81D1B3873710015FCC2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F628BF121B38AD10005E4002 /* SWRevealViewController.h */,
+				F628BF131B38AD10005E4002 /* SWRevealViewController.m */,
+				F628BF141B38AD10005E4002 /* Slide Menu-Bridging-Header.h */,
 				E419C81E1B3873720015FCC2 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -254,6 +261,7 @@
 				E419C84E1B387B980015FCC2 /* TodoViewController.swift in Sources */,
 				E419C84B1B3877DE0015FCC2 /* RequestManager.swift in Sources */,
 				E419C8451B3876D40015FCC2 /* NavigationViewController.swift in Sources */,
+				F628BF151B38AD10005E4002 /* SWRevealViewController.m in Sources */,
 				E419C8521B3880BF0015FCC2 /* KeychainWrapper.m in Sources */,
 				F628BEDD1B3884CB005E4002 /* RegisterViewController.swift in Sources */,
 				E419C8401B3876890015FCC2 /* LoginViewController.swift in Sources */,
