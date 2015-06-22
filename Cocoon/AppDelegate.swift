@@ -17,30 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        var login = storyboard.instantiateViewControllerWithIdentifier("login") as! LoginViewController
-        var nav = storyboard.instantiateViewControllerWithIdentifier("navigation") as! NavigationViewController
-        
-        if checkAuthentication() {
-            
-            self.window?.rootViewController = nav
-            
-        } else {
-            
-            self.window?.rootViewController = login
-            
-        }
+        determineRootViewController()
         
         self.window?.makeKeyAndVisible()
         
         return true
-    }
-    
-    func checkAuthentication() -> Bool {
-        
-        return false;
-        
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -64,7 +46,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    
+    // Cocoon
 
 
+    func determineRootViewController() {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var login = storyboard.instantiateViewControllerWithIdentifier("login") as! LoginViewController
+        var nav = storyboard.instantiateViewControllerWithIdentifier("navigation") as! NavigationViewController
+        
+        if checkAuthentication() {
+            
+            self.window?.rootViewController = nav
+            
+        } else {
+            
+            self.window?.rootViewController = login
+            
+        }
+    }
+    
+    func checkAuthentication() -> Bool {
+        
+        return false;
+        
+    }
+    
 }
 
