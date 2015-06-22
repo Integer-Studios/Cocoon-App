@@ -1,13 +1,14 @@
 //
-//  NavigationViewController.swift
+//  Bridge.h
 //  Cocoon
 //
 //  Created by Quinn Finney on 6/22/15.
 //  Copyright (c) 2015 Integer Studios. All rights reserved.
 //
 
-import UIKit
+#ifndef Cocoon_Bridge_h
+#define Cocoon_Bridge_h
 
-class NavigationViewController: UINavigationController {
+#import <CommonCrypto/CommonCrypto.h>
 
-}
+#endif

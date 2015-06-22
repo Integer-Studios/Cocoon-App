@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RsH-ux-sl2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RsH-ux-sl2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -62,7 +62,25 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JiT-Vx-94g">
                                 <rect key="frame" x="164" y="108" width="273" height="273"/>
-                                <color key="backgroundColor" red="1" green="0.4463935246127847" blue="0.56309280850658228" alpha="1" colorSpace="calibratedRGB"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KGS-yp-MQI">
+                                        <rect key="frame" x="8" y="125" width="257" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eqs-nW-9ze">
+                                        <rect key="frame" x="8" y="163" width="257" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAn-NU-4x2">
+                                        <rect key="frame" x="8" y="201" width="257" height="30"/>
+                                        <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="login:" destination="spy-Ww-qeV" eventType="touchUpInside" id="LRR-Yq-LjI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JiT-Vx-94g" secondAttribute="height" multiplier="1:1" id="AVa-0t-38i"/>
                                     <constraint firstAttribute="height" constant="273" id="aiw-Zm-D7a"/>
@@ -76,6 +94,10 @@
                             <constraint firstItem="JiT-Vx-94g" firstAttribute="top" secondItem="1FQ-iZ-LHM" secondAttribute="bottom" constant="88" id="J9h-Nk-mkT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordField" destination="Eqs-nW-9ze" id="jFO-Ua-0Rs"/>
+                        <outlet property="usernameField" destination="KGS-yp-MQI" id="vbu-Rx-Clk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BKZ-hO-uW1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
