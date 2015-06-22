@@ -31,11 +31,11 @@ class LoginViewController: UIViewController {
         
     }
     
-    func handleLoginResponse(data: ResponseData) {
+    func handleLoginResponse(data: AnyObject?) {
         
-        if let content = data.toDictionary() {
+        if let content = data as? [String: AnyObject] {
             
-            if let token = content["access-token"] as? ResponseData {
+            if let token = content["access-token"] as? String {
                 NSOperationQueue.mainQueue().addOperationWithBlock {
                     
                     var navigation = self.storyboard?.instantiateViewControllerWithIdentifier("navigation") as! NavigationViewController
@@ -43,7 +43,7 @@ class LoginViewController: UIViewController {
                     UIApplication.sharedApplication().keyWindow!.rootViewController = navigation
                     
                 }
-                println("The access token is: " + token.toString()!)
+                println("The access token is: " + token)
                 
             } else {
                 
