@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--To Do-->
         <scene sceneID="Bud-Xg-XZU">
             <objects>
                 <tableViewController id="KjC-Am-BhG" customClass="TodoViewController" customModule="Cocoon" customModuleProvider="target" sceneMemberID="viewController">
@@ -25,8 +25,9 @@
                             <outlet property="delegate" destination="KjC-Am-BhG" id="jOf-qD-jH5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="XEE-0K-tG8">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="CD2-ab-hxJ">
+                    <navigationItem key="navigationItem" title="To Do" id="XEE-0K-tG8">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="tgg-uY-zvF"/>
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="CD2-ab-hxJ">
                             <connections>
                                 <action selector="logout:" destination="KjC-Am-BhG" id="DGt-Sg-ebY"/>
                             </connections>
