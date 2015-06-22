@@ -39,9 +39,7 @@ class LoginViewController: UIViewController {
             if let token = content["access-token"] as? String {
                 NSOperationQueue.mainQueue().addOperationWithBlock {
                     
-                    var navigation = self.storyboard?.instantiateViewControllerWithIdentifier("navigation") as! NavigationViewController
-                    
-                    UIApplication.sharedApplication().keyWindow!.rootViewController = navigation
+                    Cocoon.setRootViewController("navigation")
                     
                 }
                 println("The access token is: " + token)

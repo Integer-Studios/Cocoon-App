@@ -11,5 +11,6 @@
 
 #import <CommonCrypto/CommonCrypto.h>
 #import "KeychainWrapper.h"
+#import "SWRevealViewController.h"
 
 #endif

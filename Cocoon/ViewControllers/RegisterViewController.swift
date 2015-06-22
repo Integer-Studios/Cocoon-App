@@ -46,9 +46,7 @@ class RegisterViewController: UIViewController {
                 
                 NSOperationQueue.mainQueue().addOperationWithBlock {
                     
-                    var navigation = self.storyboard?.instantiateViewControllerWithIdentifier("navigation") as! NavigationViewController
-                    
-                    UIApplication.sharedApplication().keyWindow!.rootViewController = navigation
+                    Cocoon.setRootViewController("navigation")
                     
                 }
                 

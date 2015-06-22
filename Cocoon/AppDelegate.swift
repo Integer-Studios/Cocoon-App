@@ -18,9 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        
-        determineRootViewController()
-        
+        Cocoon.determineInitialView()
         self.window?.makeKeyAndVisible()
         
         return true
@@ -50,39 +48,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     // Cocoon
-
-
-    func determineRootViewController() {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var login = storyboard.instantiateViewControllerWithIdentifier("login") as! LoginViewController
-        var nav = storyboard.instantiateViewControllerWithIdentifier("navigation") as! NavigationViewController
-        
-        if checkAuthentication() {
-            
-            self.window?.rootViewController = nav
-            
-        } else {
-            
-            self.window?.rootViewController = login
-            
-        }
-    }
-    
-    func checkAuthentication() -> Bool {
-        
-        if NSUserDefaults.standardUserDefaults().boolForKey("authenticated") {
-            
-            println(keychain.myObjectForKey("v_Data") as? String)
-            return true
-            
-        } else {
-            
-            return false
-            
-        }
-            
-    }
+//    
+//    func determineRootViewController() {
+//        
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        var login = storyboard.instantiateViewControllerWithIdentifier("login") as! LoginViewController
+//        var nav = storyboard.instantiateViewControllerWithIdentifier("navigation") as! UIViewController
+//        
+//        if checkAuthentication() {
+//            
+//            self.window?.rootViewController = nav
+//            
+//        } else {
+//            
+//            self.window?.rootViewController = login
+//            
+//        }
+//    }
+//    
+//    func checkAuthentication() -> Bool {
+//        
+//        if NSUserDefaults.standardUserDefaults().boolForKey("authenticated") {
+//            
+//            println(keychain.myObjectForKey("v_Data") as? String)
+//            return true
+//            
+//        } else {
+//            
+//            return false
+//            
+//        }
+//            
+//    }
     
 }
 
