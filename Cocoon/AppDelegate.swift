@@ -15,8 +15,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        var login = storyboard.instantiateViewControllerWithIdentifier("login") as! LoginViewController
+        var nav = storyboard.instantiateViewControllerWithIdentifier("navigation") as! NavigationViewController
+        
+        if checkAuthentication() {
+            
+            self.window?.rootViewController = nav
+            
+        } else {
+            
+            self.window?.rootViewController = login
+            
+        }
+        
+        self.window?.makeKeyAndVisible()
+        
         return true
+    }
+    
+    func checkAuthentication() -> Bool {
+        
+        return false;
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {
