@@ -87,7 +87,6 @@
 		E419C81C1B3873710015FCC2 /* Cocoon */ = {
 			isa = PBXGroup;
 			children = (
-				E419C84F1B3880A50015FCC2 /* Keychain */,
 				E419C8411B3876920015FCC2 /* ViewControllers */,
 				E419C81F1B3873720015FCC2 /* AppDelegate.swift */,
 				E419C84A1B3877DE0015FCC2 /* RequestManager.swift */,
@@ -96,6 +95,7 @@
 				E419C8261B3873720015FCC2 /* Images.xcassets */,
 				E419C8281B3873720015FCC2 /* LaunchScreen.xib */,
 				E419C81D1B3873710015FCC2 /* Supporting Files */,
+				E419C84F1B3880A50015FCC2 /* Keychain */,
 			);
 			path = Cocoon;
 			sourceTree = "<group>";
