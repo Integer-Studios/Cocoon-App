@@ -9,7 +9,9 @@
 import UIKit
 
 class TodoViewController: UITableViewController {
-
+    
+    let keychain = KeychainWrapper()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +27,24 @@ class TodoViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func logout(sender: AnyObject) {
+        
+        keychain.mySetObject("", forKey:kSecValueData)
+        keychain.writeToKeychain()
+        NSUserDefaults.standardUserDefaults().setObject("", forKey: "username")
+        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "authenticated")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        NSOperationQueue.mainQueue().addOperationWithBlock {
+            
+            var navigation = self.storyboard?.instantiateViewControllerWithIdentifier("login") as! NavigationViewController
+            
+            UIApplication.sharedApplication().keyWindow!.rootViewController = navigation
+            
+        }
+        
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
