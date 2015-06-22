@@ -14,7 +14,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var retypePassword: UITextField!
     @IBOutlet weak var name: UITextField!
-    
+    let keychain = KeychainWrapper()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,14 +37,37 @@ class RegisterViewController: UIViewController {
         
         //send register request
         let requestManager = RequestManager()
-        requestManager.sendRequest("/user/register/", parameters: ["email": email.text, "password": password.text.sha1(), "name": name.text], responseHandler: handleRegisterResponse)
+        requestManager.sendRequest("/user/register/", parameters: ["register-email": email.text, "register-password": password.text.sha1(), "register-name": name.text], responseHandler: handleRegisterResponse)
     }
     
     func handleRegisterResponse(data: AnyObject?) {
         if let content = data as? [String: AnyObject] {
-            print(content)
+            if let token = content["access-token"] as? String {
+                
+                NSOperationQueue.mainQueue().addOperationWithBlock {
+                    
+                    var navigation = self.storyboard?.instantiateViewControllerWithIdentifier("navigation") as! NavigationViewController
+                    
+                    UIApplication.sharedApplication().keyWindow!.rootViewController = navigation
+                    
+                }
+                
+                keychain.mySetObject(token, forKey:kSecValueData)
+                keychain.writeToKeychain()
+                NSUserDefaults.standardUserDefaults().setObject(email.text, forKey: "username")
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "authenticated")
+                NSUserDefaults.standardUserDefaults().synchronize()
+                
+            } else {
+                
+                println("Failed to parse access-token")
+                
+            }
+            
         } else {
-            println("Failed tp parse registration response")
+            
+            println("Failed to parse registration response")
+        
         }
     }
     /*

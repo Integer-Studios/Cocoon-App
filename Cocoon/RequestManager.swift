@@ -67,6 +67,7 @@ class RequestManager {
                     
 //                    println(returnData.description)
 
+                    print(returnData.description)
                     let content: AnyObject? = returnData["content"]
                     
                     if (content != nil) {
