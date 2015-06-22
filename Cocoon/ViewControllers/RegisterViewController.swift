@@ -23,7 +23,12 @@ class RegisterViewController: UIViewController {
     
 
     @IBAction func register(sender: AnyObject) {
-        
+        //send regiter request
+        let requestManager = RequestManager()
+        requestManager.sendRequest("/user/register/", parameters: [/*register shit*/"blah": "blah"], responseHandler: handleRegisterResponse)
+    }
+    
+    func handleRegisterResponse(data: AnyObject?) {
         
     }
     /*
