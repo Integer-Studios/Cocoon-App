@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RsH-ux-sl2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RsH-ux-sl2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
         <!--Root View Controller-->
@@ -199,6 +199,12 @@
                             <constraint firstItem="JiN-ag-roa" firstAttribute="top" secondItem="xtO-sy-x8X" secondAttribute="bottom" constant="8" id="wdj-HK-bjd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="xtO-sy-x8X" id="5eh-L7-5uv"/>
+                        <outlet property="name" destination="OCV-3t-bSW" id="y8z-xV-e5L"/>
+                        <outlet property="password" destination="JiN-ag-roa" id="0aE-6c-a3b"/>
+                        <outlet property="retypePassword" destination="gFE-Jd-3Pv" id="xD4-hg-4lT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3vr-gA-aZs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

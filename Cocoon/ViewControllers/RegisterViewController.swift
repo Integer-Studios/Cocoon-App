@@ -10,6 +10,11 @@ import UIKit
 
 class RegisterViewController: UIViewController {
 
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var retypePassword: UITextField!
+    @IBOutlet weak var name: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,13 +28,23 @@ class RegisterViewController: UIViewController {
     
 
     @IBAction func register(sender: AnyObject) {
-        //send regiter request
+        //check password
+        if password.text != retypePassword.text {
+            println("Passwords don't match.")
+            return
+        }
+        
+        //send register request
         let requestManager = RequestManager()
-        requestManager.sendRequest("/user/register/", parameters: [/*register shit*/"blah": "blah"], responseHandler: handleRegisterResponse)
+        requestManager.sendRequest("/user/register/", parameters: ["email": email.text, "password": password.text.sha1(), "name": name.text], responseHandler: handleRegisterResponse)
     }
     
     func handleRegisterResponse(data: AnyObject?) {
-        
+        if let content = data as? [String: AnyObject] {
+            print(content)
+        } else {
+            println("Failed tp parse registration response")
+        }
     }
     /*
     // MARK: - Navigation
