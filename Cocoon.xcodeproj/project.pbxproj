@@ -16,6 +16,7 @@
 		E419C8451B3876D40015FCC2 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E419C8441B3876D40015FCC2 /* NavigationViewController.swift */; };
 		E419C84B1B3877DE0015FCC2 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E419C84A1B3877DE0015FCC2 /* RequestManager.swift */; };
 		E419C84E1B387B980015FCC2 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E419C84D1B387B980015FCC2 /* TodoViewController.swift */; };
+		F628BEDD1B3884CB005E4002 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F628BEDC1B3884CB005E4002 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		E419C84A1B3877DE0015FCC2 /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		E419C84C1B387A780015FCC2 /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		E419C84D1B387B980015FCC2 /* TodoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodoViewController.swift; path = ViewControllers/TodoViewController.swift; sourceTree = "<group>"; };
+		F628BEDC1B3884CB005E4002 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = ViewControllers/RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				E419C83F1B3876890015FCC2 /* LoginViewController.swift */,
 				E419C8441B3876D40015FCC2 /* NavigationViewController.swift */,
 				E419C84D1B387B980015FCC2 /* TodoViewController.swift */,
+				F628BEDC1B3884CB005E4002 /* RegisterViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				E419C84E1B387B980015FCC2 /* TodoViewController.swift in Sources */,
 				E419C84B1B3877DE0015FCC2 /* RequestManager.swift in Sources */,
 				E419C8451B3876D40015FCC2 /* NavigationViewController.swift in Sources */,
+				F628BEDD1B3884CB005E4002 /* RegisterViewController.swift in Sources */,
 				E419C8401B3876890015FCC2 /* LoginViewController.swift in Sources */,
 				E419C8201B3873720015FCC2 /* AppDelegate.swift in Sources */,
 			);
@@ -433,6 +437,7 @@
 				E419C83B1B3873730015FCC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E419C83C1B3873730015FCC2 /* Build configuration list for PBXNativeTarget "CocoonTests" */ = {
 			isa = XCConfigurationList;
@@ -441,6 +446,7 @@
 				E419C83E1B3873730015FCC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
