@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let keychain = KeychainWrapper()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
@@ -70,8 +71,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func checkAuthentication() -> Bool {
         
-        return false;
-        
+        if NSUserDefaults.standardUserDefaults().boolForKey("authenticated") {
+            
+            println(keychain.myObjectForKey("v_Data") as? String)
+            return true
+            
+        } else {
+            
+            return false
+            
+        }
+            
     }
     
 }
