@@ -10,5 +10,6 @@
 #define Cocoon_Bridge_h
 
 #import <CommonCrypto/CommonCrypto.h>
+#import "KeychainWrapper.h"
 
 #endif

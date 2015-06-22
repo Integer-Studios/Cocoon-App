@@ -94,6 +94,7 @@
 				E419C8261B3873720015FCC2 /* Images.xcassets */,
 				E419C8281B3873720015FCC2 /* LaunchScreen.xib */,
 				E419C81D1B3873710015FCC2 /* Supporting Files */,
+				E419C84F1B3880A50015FCC2 /* Keychain */,
 			);
 			path = Cocoon;
 			sourceTree = "<group>";
@@ -132,6 +133,15 @@
 				F628BEDC1B3884CB005E4002 /* RegisterViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E419C84F1B3880A50015FCC2 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				E419C8501B3880BE0015FCC2 /* KeychainWrapper.h */,
+				E419C8511B3880BE0015FCC2 /* KeychainWrapper.m */,
+			);
+			name = Keychain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

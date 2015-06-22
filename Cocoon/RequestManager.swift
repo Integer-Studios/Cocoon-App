@@ -31,7 +31,7 @@ class RequestManager {
     
     }
     
-    func sendRequest(requestURL: String, parameters: [String: AnyObject], responseHandler: (ResponseData) -> ()) {
+    func sendRequest(requestURL: String, parameters: [String: AnyObject], responseHandler: (AnyObject?) -> ()) {
         
         let endpoint: String = "http://cocoon.integerstudios.com" + requestURL
         var request = NSMutableURLRequest(URL: NSURL(string: endpoint)!)
@@ -53,26 +53,25 @@ class RequestManager {
             if let anError = error {
                 // got an error, need to handle it
                 println("Error calling POST request")
-                responseHandler(ResponseData())
+                responseHandler([])
             } else {
                 var jsonError: NSError?
                 let returnData = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as! NSDictionary
                 if let aJSONError = jsonError {
                     // got an error while parsing the data, need to handle it
                     println("Error Parsing JSON From Response")
-                    responseHandler(ResponseData())
+                    responseHandler([])
                     
                 } else  {
                     // we should get the post back, so print it to make sure all the fields are as we set & to see the id
                     
 //                    println(returnData.description)
 
-                    let content = returnData["content"] as? ResponseData
+                    let content: AnyObject? = returnData["content"]
                     
-                    if content != nil {
+                    if (content != nil) {
                        
-                        println("A")
-                        responseHandler(content!)
+                        responseHandler(content)
                         
                     } else {
                         
@@ -83,22 +82,6 @@ class RequestManager {
             }
         })
         
-    }
-    
-}
-
-class ResponseData: AnyObject {
-    
-    func toDictionary() -> ([String: AnyObject]?){
-    
-        return (self as AnyObject) as? [String: AnyObject]
-        
-    }
-    
-    func toString() -> (String?){
-        
-        return (self as AnyObject) as? String
-      
     }
     
 }
