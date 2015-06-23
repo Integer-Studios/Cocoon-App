@@ -21,13 +21,6 @@ class User {
         
     }
     
-    struct Authentication {
-        
-        var username: String
-        var accessToken: String
-        
-    }
-    
     func loadInfo() {
         //request for kids friends and groups
         Cocoon.requestManager.sendRequest("/user/info/", parameters: ["":""], responseHandler: handleInfoResponse)
@@ -58,6 +51,13 @@ class User {
         NSUserDefaults.standardUserDefaults().setObject("", forKey: "username")
         NSUserDefaults.standardUserDefaults().setBool(false, forKey: "authenticated")
         NSUserDefaults.standardUserDefaults().synchronize()
+        
+    }
+    
+    struct Authentication {
+        
+        var username: String
+        var accessToken: String
         
     }
     
