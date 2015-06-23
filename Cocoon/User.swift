@@ -19,7 +19,6 @@ class User {
     init (username: String, accessToken: String) {
         
         authentication = Authentication(username: username, accessToken: accessToken)
-        loadInfo()
         
     }
     
@@ -29,15 +28,22 @@ class User {
         
     }
     
-    func handleInfoResponse(data : AnyObject?) {
-        print(data)
-    }
-    
-    
-    
-    func handleInfoResponse(data : AnyObject?) {
-     
+    func handleInfoResponse(data : NSMutableDictionary) {
         
+        if (data.count != 0) {
+            
+            name = data["name"] as! String
+            
+            let kidsResponse = data["kids"] as! NSArray
+            
+            for kidObject in kidsResponse {
+                
+                var kid = kidObject as! NSMutableDictionary
+                kids.append(Link(id: (kid["id"] as! String).toInt()!, displayName: kid["name"] as! String))
+                
+            }
+                        
+        }
         
     }
     

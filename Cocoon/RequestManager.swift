@@ -10,7 +10,7 @@ import Foundation
 
 class RequestManager {
     
-    func sendRequest(requestURL: String, parameters: NSMutableDictionary, responseHandler: (AnyObject?) -> ()) {
+    func sendRequest(requestURL: String, parameters: NSMutableDictionary, responseHandler: (NSMutableDictionary) -> ()) {
         
         let endpoint: String = "http://cocoon.integerstudios.com" + requestURL
         var request = NSMutableURLRequest(URL: NSURL(string: endpoint)!)
@@ -40,7 +40,7 @@ class RequestManager {
             if let anError = error {
                 // got an error, need to handle it
                 println("Error calling POST request")
-                responseHandler([])
+                responseHandler(NSMutableDictionary())
             } else {
                 var dataString = NSString(data: data, encoding:NSUTF8StringEncoding)
 //                println("Received response:" + (dataString as! String))
@@ -49,16 +49,16 @@ class RequestManager {
                 if let aJSONError = jsonError {
                     // got an error while parsing the data, need to handle it
                     println("Error Parsing JSON From Response")
-                    responseHandler([])
+                    responseHandler(NSMutableDictionary())
                     
                 } else  {
 
-                    println(returnData.description)
+//                    println(returnData.description)
                     let content: AnyObject? = returnData["content"]
                     
-                    if (content != nil) {
+                    if (content != nil && content is NSMutableDictionary) {
                        
-                        responseHandler(content)
+                        responseHandler(content as! NSMutableDictionary)
                         
                     } else {
                         

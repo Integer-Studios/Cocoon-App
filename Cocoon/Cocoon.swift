@@ -49,7 +49,6 @@ class Cocoon {
         
         if NSUserDefaults.standardUserDefaults().boolForKey("authenticated") {
             
-            println(keychain.myObjectForKey("v_Data") as? String)
             return true
             
         } else {

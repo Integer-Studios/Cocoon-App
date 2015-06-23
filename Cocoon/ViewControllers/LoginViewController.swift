@@ -29,33 +29,25 @@ class LoginViewController: UIViewController {
         
     }
     
-    func handleLoginResponse(data: AnyObject?) {
+    func handleLoginResponse(data: NSMutableDictionary) {
         
-        if let content = data as? [String: AnyObject] {
-            
-            if let token = content["access-token"] as? String {
+        if let token = data["access-token"] as? String {
                
-                NSOperationQueue.mainQueue().addOperationWithBlock {
+            NSOperationQueue.mainQueue().addOperationWithBlock {
                     
-                    Cocoon.setRootViewController("navigation")
+                Cocoon.setRootViewController("navigation")
                     
-                }
-                
-                println("The access token is: " + token)
-                
-                Cocoon.user = User(username: usernameField.text, accessToken: token)
-                Cocoon.user?.saveAuthentication()
-
-            } else {
-                
-                println("Failed to parse access-token")
-                
             }
-            
+                
+            println("The access token is: " + token)
+                
+            Cocoon.user = User(username: usernameField.text, accessToken: token)
+            Cocoon.user?.saveAuthentication()
+
         } else {
-            
-            println("Failed to parse login response")
-            
+                
+            println("Failed to parse access-token")
+                
         }
         
     }
