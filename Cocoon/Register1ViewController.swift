@@ -24,6 +24,7 @@ class Register1ViewController: UIViewController {
     @IBAction func newFamily(sender: AnyObject) {
         
         //register family request
+        Cocoon.requestManager.sendRequest("/family/register/", parameters: ["name": email.text], responseHandler: handleFamilyRegisterResponse)
         
         NSOperationQueue.mainQueue().addOperationWithBlock {
             
@@ -37,6 +38,27 @@ class Register1ViewController: UIViewController {
         //existing family stuff?
         
         (self.navigationController as! NavigationController).pushView("register2")
+        
+    }
+    
+    func handleFamilyRegisterResponse(data: NSMutableDictionary) {
+        
+        if let status = data["status"] as? Int {
+            
+            if status == 200 {
+                NSOperationQueue.mainQueue().addOperationWithBlock {
+                    Cocoon.setRootViewController("navigation")
+                }
+            } else {
+                println("Server Error: \(status)")
+            }
+            
+            
+        } else {
+            
+            println("Failed to parse access-token")
+            
+        }
         
     }
 
