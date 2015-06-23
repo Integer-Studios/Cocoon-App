@@ -32,7 +32,6 @@ class Cocoon {
             
         }
         
-        
     }
     
     static func setRootViewController(identifier: String) {

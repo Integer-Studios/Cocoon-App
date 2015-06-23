@@ -14,8 +14,6 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var retypePassword: UITextField!
     @IBOutlet weak var name: UITextField!
-    
-    let keychain = KeychainWrapper()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,14 +48,8 @@ class RegisterViewController: UIViewController {
                     
                 }
                 
-                keychain.mySetObject(token, forKey:kSecValueData)
-                keychain.writeToKeychain()
-                NSUserDefaults.standardUserDefaults().setObject(email.text, forKey: "username")
-                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "authenticated")
-                NSUserDefaults.standardUserDefaults().synchronize()
-                
                 Cocoon.user = User(username: email.text, accessToken: token)
-
+                Cocoon.user?.saveAuthentication()
                 
             } else {
                 

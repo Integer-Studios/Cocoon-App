@@ -9,9 +9,7 @@
 import Foundation
 
 class User {
-    var email = ""
     var name = ""
-    var token = ""
     var kids : [Int] = []
     var friends : [Int] = []
     var groups : [Int] = []
@@ -32,8 +30,27 @@ class User {
     
     func loadInfo() {
         //request for kids friends and groups
-        let requestManager = RequestManager()
-        requestManager.sendRequest("/user/info/", parameters: ["":""], responseHandler: handleInfoResponse)
+        Cocoon.requestManager.sendRequest("/user/info/", parameters: ["":""], responseHandler: handleInfoResponse)
+    }
+    
+    func saveAuthentication() {
+        
+        Cocoon.keychain.mySetObject(authentication.accessToken, forKey:kSecValueData)
+        Cocoon.keychain.writeToKeychain()
+        NSUserDefaults.standardUserDefaults().setObject(authentication.username, forKey: "username")
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "authenticated")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+    }
+    
+    func deauthenticate() {
+        
+        Cocoon.keychain.mySetObject("", forKey:kSecValueData)
+        Cocoon.keychain.writeToKeychain()
+        NSUserDefaults.standardUserDefaults().setObject("", forKey: "username")
+        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "authenticated")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
     }
     
     func handleInfoResponse(data : AnyObject?) {
