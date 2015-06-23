@@ -33,14 +33,6 @@ class User {
         print(data)
     }
     
-    
-    
-    func handleInfoResponse(data : AnyObject?) {
-     
-        
-        
-    }
-    
     func saveAuthentication() {
         
         Cocoon.keychain.mySetObject(authentication.accessToken, forKey:kSecValueData)
