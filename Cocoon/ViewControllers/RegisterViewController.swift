@@ -36,32 +36,27 @@ class RegisterViewController: UIViewController {
         Cocoon.requestManager.sendRequest("/user/register/", parameters: ["register-email": email.text, "register-password": password.text.sha1(), "register-name": name.text], responseHandler: handleRegisterResponse)
     }
     
-    func handleRegisterResponse(data: AnyObject?) {
+    func handleRegisterResponse(data: NSMutableDictionary) {
         
-        if let content = data as? [String: AnyObject] {
+        if let token = data["access-token"] as? String {
             
-            if let token = content["access-token"] as? String {
+            NSOperationQueue.mainQueue().addOperationWithBlock {
                 
-                NSOperationQueue.mainQueue().addOperationWithBlock {
-                    
-                    Cocoon.setRootViewController("navigation")
-                    
-                }
-                
-                Cocoon.user = User(username: email.text, accessToken: token)
-                Cocoon.user?.saveAuthentication()
-                
-            } else {
-                
-                println("Failed to parse access-token")
+                Cocoon.setRootViewController("navigation")
                 
             }
             
+            println("The access token is: " + token)
+            
+            Cocoon.user = User(username: email.text, accessToken: token)
+            Cocoon.user?.saveAuthentication()
+            
         } else {
             
-            println("Failed to parse registration response")
-        
+            println("Failed to parse access-token")
+            
         }
+        
     }
 
 }

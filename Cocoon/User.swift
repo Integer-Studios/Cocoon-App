@@ -19,7 +19,6 @@ class User {
     init (username: String, accessToken: String) {
         
         authentication = Authentication(username: username, accessToken: accessToken)
-        loadInfo()
         
     }
     
