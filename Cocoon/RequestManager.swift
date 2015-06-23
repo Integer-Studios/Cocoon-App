@@ -54,11 +54,13 @@ class RequestManager {
                 } else  {
 
 //                    println(returnData.description)
-                    let content: AnyObject? = returnData["content"]
+                    let content = returnData["content"] as? NSMutableDictionary
                     
-                    if (content != nil && content is NSMutableDictionary) {
-                       
-                        responseHandler(content as! NSMutableDictionary)
+                    if (content != nil) {
+                        
+                        
+                        content["status"] = (returnData["status"] as String).toInt()
+                        responseHandler(content)
                         
                     } else {
                         
