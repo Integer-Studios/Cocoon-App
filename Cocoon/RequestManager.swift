@@ -10,22 +10,15 @@ import Foundation
 
 class RequestManager {
     
-    var authentication: Authentication
+    var authentication: Authentication?
     
     init() {
         
-        authentication = Authentication(username: "", accessToken: "")
 
     }
     
-    init(username: String, accessToken: String) {
-        
-        authentication = Authentication(username: username, accessToken: accessToken)
-        
-    }
-    
     struct Authentication {
-    
+        
         var username: String
         var accessToken: String
     
@@ -38,6 +31,9 @@ class RequestManager {
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         var error: NSError?
+      
+        
+        
         let requestBody = NSJSONSerialization.dataWithJSONObject(parameters, options: nil, error: &error)
         if (requestBody == nil) {
             
