@@ -15,7 +15,7 @@ class Cocoon {
     static var isAuthenticated = false
     static var user : User?
     
-    static func determineInitialView() {
+    static func initializeApplication() {
         
         self.isAuthenticated = checkAuthentication()
         
