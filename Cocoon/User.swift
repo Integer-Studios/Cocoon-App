@@ -16,8 +16,14 @@ class User {
     var friends : [Int] = []
     var groups : [Int] = []
     
-    func loadUserData() {
+    func loadInfo() {
         //request for kids friends and groups
+        let requestManager = RequestManager()
+        requestManager.sendRequest("/user/info/", parameters: ["":""], responseHandler: handleInfoResponse)
+    }
+    
+    func handleInfoResponse(data : AnyObject?) {
+        
     }
     
 }
