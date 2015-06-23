@@ -15,13 +15,10 @@ class LoginViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func login(sender: AnyObject) {
@@ -41,6 +38,7 @@ class LoginViewController: UIViewController {
                     Cocoon.setRootViewController("navigation")
                     
                 }
+                
                 println("The access token is: " + token)
                 
                 Cocoon.user = User(username: usernameField.text, accessToken: token)
@@ -48,13 +46,13 @@ class LoginViewController: UIViewController {
 
             } else {
                 
-                println("Login Failed")
+                println("Failed to parse access-token")
                 
             }
             
         } else {
             
-            println("Login Failed 2")
+            println("Failed to parse login response")
             
         }
         
