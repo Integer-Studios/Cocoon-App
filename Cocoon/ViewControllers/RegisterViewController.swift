@@ -58,6 +58,9 @@ class RegisterViewController: UIViewController {
                 NSUserDefaults.standardUserDefaults().setBool(true, forKey: "authenticated")
                 NSUserDefaults.standardUserDefaults().synchronize()
                 
+                Cocoon.user = User(username: email.text, accessToken: token)
+
+                
             } else {
                 
                 println("Failed to parse access-token")

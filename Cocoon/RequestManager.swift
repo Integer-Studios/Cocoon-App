@@ -10,34 +10,21 @@ import Foundation
 
 class RequestManager {
     
-    var authentication: Authentication
-    
-    init() {
-        
-        authentication = Authentication(username: "", accessToken: "")
-
-    }
-    
-    init(username: String, accessToken: String) {
-        
-        authentication = Authentication(username: username, accessToken: accessToken)
-        
-    }
-    
-    struct Authentication {
-    
-        var username: String
-        var accessToken: String
-    
-    }
-    
-    func sendRequest(requestURL: String, parameters: [String: AnyObject], responseHandler: (AnyObject?) -> ()) {
+    func sendRequest(requestURL: String, parameters: NSMutableDictionary, responseHandler: (AnyObject?) -> ()) {
         
         let endpoint: String = "http://cocoon.integerstudios.com" + requestURL
         var request = NSMutableURLRequest(URL: NSURL(string: endpoint)!)
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         var error: NSError?
+      
+        if (Cocoon.user != nil) {
+            
+            parameters["username"] = Cocoon.user!.authentication.username;
+            parameters["access-token"] = Cocoon.user!.authentication.accessToken;
+
+        }
+        
         let requestBody = NSJSONSerialization.dataWithJSONObject(parameters, options: nil, error: &error)
         if (requestBody == nil) {
             
@@ -55,6 +42,8 @@ class RequestManager {
                 println("Error calling POST request")
                 responseHandler([])
             } else {
+                var dataString = NSString(data: data, encoding:NSUTF8StringEncoding)
+                println("Received response:" + (dataString as! String))
                 var jsonError: NSError?
                 let returnData = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as! NSDictionary
                 if let aJSONError = jsonError {
@@ -63,11 +52,8 @@ class RequestManager {
                     responseHandler([])
                     
                 } else  {
-                    // we should get the post back, so print it to make sure all the fields are as we set & to see the id
-                    
-//                    println(returnData.description)
 
-                    print(returnData.description)
+                    println(returnData.description)
                     let content: AnyObject? = returnData["content"]
                     
                     if (content != nil) {
