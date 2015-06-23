@@ -51,6 +51,7 @@ class User {
         NSUserDefaults.standardUserDefaults().setBool(false, forKey: "authenticated")
         NSUserDefaults.standardUserDefaults().synchronize()
         
+        
     }
     
     struct Authentication {
