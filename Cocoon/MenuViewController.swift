@@ -8,10 +8,7 @@
 
 import UIKit
 
-class MenuViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
-
-    /*move to user class*/ var items : [String] = ["Family", "Friends", "Groups", "Settings", "Invite"]
-    
+class MenuViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,13 +25,13 @@ class MenuViewController: UITableViewController, UITableViewDataSource, UITableV
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items.count
+        return Cocoon.user!.menuItems.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("menuCell", forIndexPath: indexPath) as! UITableViewCell
 
-        cell.textLabel?.text = self.items[indexPath.row];
+        cell.textLabel?.text = Cocoon.user!.menuItems[indexPath.row];
 
         return cell
     }

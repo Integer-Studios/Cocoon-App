@@ -10,27 +10,27 @@ import Foundation
 
 class User {
     var name = ""
-    var kids : [Int] = []
-    var friends : [Int] = []
-    var groups : [Int] = []
-    let authentication: Authentication;
+    var kids : [Link] = []
+    var friends : [Link] = []
+    var groups : [Link] = []
+    var menuItems : [String] = ["Family", "Friends", "Groups", "Settings", "Invite"]
+    let authentication: Authentication
     
     init (username: String, accessToken: String) {
         
         authentication = Authentication(username: username, accessToken: accessToken)
-        
-    }
-    
-    struct Authentication {
-        
-        var username: String
-        var accessToken: String
+        loadInfo()
         
     }
     
     func loadInfo() {
-        //request for kids friends and groups
+
         Cocoon.requestManager.sendRequest("/user/info/", parameters: ["":""], responseHandler: handleInfoResponse)
+        
+    }
+    
+    func handleInfoResponse(data : AnyObject?) {
+        print(data)
     }
     
     func saveAuthentication() {
@@ -53,7 +53,17 @@ class User {
         
     }
     
-    func handleInfoResponse(data : AnyObject?) {
+    struct Authentication {
+        
+        var username: String
+        var accessToken: String
+        
+    }
+    
+    struct Link {
+        
+        var id: Int
+        var displayName: String
         
     }
     
