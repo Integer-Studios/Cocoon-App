@@ -12,17 +12,15 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    
     let keychain = KeychainWrapper()
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func login(sender: AnyObject) {
@@ -37,11 +35,13 @@ class LoginViewController: UIViewController {
         if let content = data as? [String: AnyObject] {
             
             if let token = content["access-token"] as? String {
+                
                 NSOperationQueue.mainQueue().addOperationWithBlock {
                     
                     Cocoon.setRootViewController("navigation")
                     
                 }
+                
                 println("The access token is: " + token)
                 
                 keychain.mySetObject(token, forKey:kSecValueData)
@@ -52,13 +52,13 @@ class LoginViewController: UIViewController {
                 
             } else {
                 
-                println("Login Failed")
+                println("Failed to parse access-token")
                 
             }
             
         } else {
             
-            println("Login Failed 2")
+            println("Failed to parse login response")
             
         }
         
