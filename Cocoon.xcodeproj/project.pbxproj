@@ -104,14 +104,14 @@
 				E419C8411B3876920015FCC2 /* ViewControllers */,
 				E419C81F1B3873720015FCC2 /* AppDelegate.swift */,
 				E419C84A1B3877DE0015FCC2 /* RequestManager.swift */,
+				F628BF1E1B38B7E4005E4002 /* User.swift */,
+				F628BF221B38C70C005E4002 /* Cocoon.swift */,
 				E419C84C1B387A780015FCC2 /* Bridge.h */,
 				E419C8231B3873720015FCC2 /* Main.storyboard */,
 				E419C8261B3873720015FCC2 /* Images.xcassets */,
 				E419C8281B3873720015FCC2 /* LaunchScreen.xib */,
 				E419C81D1B3873710015FCC2 /* Supporting Files */,
 				E419C84F1B3880A50015FCC2 /* Keychain */,
-				F628BF1E1B38B7E4005E4002 /* User.swift */,
-				F628BF221B38C70C005E4002 /* Cocoon.swift */,
 			);
 			path = Cocoon;
 			sourceTree = "<group>";
