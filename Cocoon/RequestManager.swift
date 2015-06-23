@@ -17,9 +17,9 @@ class RequestManager {
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         var error: NSError?
-      
+
         if (Cocoon.user != nil) {
-            
+
             parameters["username"] = Cocoon.user!.authentication.username;
             parameters["access-token"] = Cocoon.user!.authentication.accessToken;
 
@@ -43,7 +43,7 @@ class RequestManager {
                 responseHandler([])
             } else {
                 var dataString = NSString(data: data, encoding:NSUTF8StringEncoding)
-                println("Received response:" + (dataString as! String))
+//                println("Received response:" + (dataString as! String))
                 var jsonError: NSError?
                 let returnData = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as! NSDictionary
                 if let aJSONError = jsonError {
