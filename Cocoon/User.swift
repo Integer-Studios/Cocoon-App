@@ -13,7 +13,7 @@ class User {
     var kids : [Link] = []
     var friends : [Link] = []
     var groups : [Link] = []
-    var menuItems : [String] = ["Family", "Friends", "Groups", "Settings", "Invite"]
+    var menuItems : [Link] = []
     let authentication: Authentication
     
     init (username: String, accessToken: String) {
@@ -39,11 +39,41 @@ class User {
             for kidObject in kidsResponse {
                 
                 var kid = kidObject as! NSMutableDictionary
-                kids.append(Link(id: (kid["id"] as! String).toInt()!, displayName: kid["name"] as! String))
+                kids.append(Link(id: (kid["id"] as! String).toInt()!, type: "kid", displayName: kid["name"] as! String))
                 
             }
+            
+            updateMenuItems()
                         
         }
+        
+    }
+    
+    func updateMenuItems() {
+        
+        menuItems = [];
+        
+        
+        for kid in kids {
+            menuItems.append(kid)
+        }
+        
+        menuItems.append(Link(id: 0, type: "default", displayName: "Family"))
+        
+        for friend in friends {
+            menuItems.append(friend)
+        }
+        
+        menuItems.append(Link(id: 1, type: "default", displayName: "Friends"))
+        
+        for group in groups {
+            menuItems.append(group)
+        }
+        
+        menuItems.append(Link(id: 2, type: "default", displayName: "Groups"))
+
+        menuItems.append(Link(id: 3, type: "default", displayName: "Settings"))
+        menuItems.append(Link(id: 4, type: "default", displayName: "Invite"))
         
     }
     
@@ -72,13 +102,6 @@ class User {
         
         var username: String
         var accessToken: String
-        
-    }
-    
-    struct Link {
-        
-        var id: Int
-        var displayName: String
         
     }
     
