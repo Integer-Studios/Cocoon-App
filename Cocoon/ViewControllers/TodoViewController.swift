@@ -11,9 +11,7 @@ import UIKit
 class TodoViewController: UITableViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    
-    let keychain = KeychainWrapper()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,17 +26,12 @@ class TodoViewController: UITableViewController {
 
     @IBAction func logout(sender: AnyObject) {
         
-        keychain.mySetObject("", forKey:kSecValueData)
-        keychain.writeToKeychain()
-        NSUserDefaults.standardUserDefaults().setObject("", forKey: "username")
-        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "authenticated")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        Cocoon.user?.deauthenticate()
+        Cocoon.user = nil;
         
         NSOperationQueue.mainQueue().addOperationWithBlock {
             
-            var login = self.storyboard?.instantiateViewControllerWithIdentifier("login") as! LoginViewController
-            
-            UIApplication.sharedApplication().keyWindow!.rootViewController = login
+            Cocoon.setRootViewController("login")
             
         }
         

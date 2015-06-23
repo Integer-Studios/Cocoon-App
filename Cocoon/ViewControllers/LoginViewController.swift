@@ -12,7 +12,6 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    let keychain = KeychainWrapper()
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +35,7 @@ class LoginViewController: UIViewController {
         if let content = data as? [String: AnyObject] {
             
             if let token = content["access-token"] as? String {
+               
                 NSOperationQueue.mainQueue().addOperationWithBlock {
                     
                     Cocoon.setRootViewController("navigation")
@@ -43,14 +43,9 @@ class LoginViewController: UIViewController {
                 }
                 println("The access token is: " + token)
                 
-                keychain.mySetObject(token, forKey:kSecValueData)
-                keychain.writeToKeychain()
-                NSUserDefaults.standardUserDefaults().setObject(usernameField.text, forKey: "username")
-                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "authenticated")
-                NSUserDefaults.standardUserDefaults().synchronize()
-                
                 Cocoon.user = User(username: usernameField.text, accessToken: token)
-                
+                Cocoon.user?.saveAuthentication()
+
             } else {
                 
                 println("Login Failed")
