@@ -15,6 +15,20 @@ class User {
     var kids : [Int] = []
     var friends : [Int] = []
     var groups : [Int] = []
+    let authentication: Authentication;
+    
+    init (username: String, accessToken: String) {
+        
+        authentication = Authentication(username: username, accessToken: accessToken)
+        
+    }
+    
+    struct Authentication {
+        
+        var username: String
+        var accessToken: String
+        
+    }
     
     func loadInfo() {
         //request for kids friends and groups

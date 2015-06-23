@@ -27,8 +27,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func login(sender: AnyObject) {
         
-        let requestManager = RequestManager()
-        requestManager.sendRequest("/user/login/", parameters: ["username": usernameField.text, "password": passwordField.text.sha1()], responseHandler: handleLoginResponse)
+        Cocoon.requestManager.sendRequest("/user/login/", parameters: ["username": usernameField.text, "password": passwordField.text.sha1()], responseHandler: handleLoginResponse)
         
     }
     
@@ -49,6 +48,8 @@ class LoginViewController: UIViewController {
                 NSUserDefaults.standardUserDefaults().setObject(usernameField.text, forKey: "username")
                 NSUserDefaults.standardUserDefaults().setBool(true, forKey: "authenticated")
                 NSUserDefaults.standardUserDefaults().synchronize()
+                
+                Cocoon.user = User(username: usernameField.text, accessToken: token)
                 
             } else {
                 

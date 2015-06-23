@@ -11,6 +11,7 @@ import Foundation
 class Cocoon {
     
     static let keychain = KeychainWrapper()
+    static let requestManager = RequestManager()
     static var isAuthenticated = false
     static var user : User?
     
@@ -20,6 +21,9 @@ class Cocoon {
         
         if self.isAuthenticated {
             
+            let username = NSUserDefaults.standardUserDefaults().objectForKey("username") as? String;
+            let token = keychain.myObjectForKey("v_Data") as? String;
+            user = User(username: username!, accessToken: token!);
             setRootViewController("navigation")
             
         } else {
@@ -27,6 +31,8 @@ class Cocoon {
             setRootViewController("login")
             
         }
+        
+        
     }
     
     static func setRootViewController(identifier: String) {

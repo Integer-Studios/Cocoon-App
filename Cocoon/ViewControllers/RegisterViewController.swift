@@ -36,8 +36,7 @@ class RegisterViewController: UIViewController {
         }
         
         //send register request
-        let requestManager = RequestManager()
-        requestManager.sendRequest("/user/register/", parameters: ["register-email": email.text, "register-password": password.text.sha1(), "register-name": name.text], responseHandler: handleRegisterResponse)
+        Cocoon.requestManager.sendRequest("/user/register/", parameters: ["register-email": email.text, "register-password": password.text.sha1(), "register-name": name.text], responseHandler: handleRegisterResponse)
     }
     
     func handleRegisterResponse(data: AnyObject?) {
@@ -55,6 +54,9 @@ class RegisterViewController: UIViewController {
                 NSUserDefaults.standardUserDefaults().setObject(email.text, forKey: "username")
                 NSUserDefaults.standardUserDefaults().setBool(true, forKey: "authenticated")
                 NSUserDefaults.standardUserDefaults().synchronize()
+                
+                Cocoon.user = User(username: email.text, accessToken: token)
+
                 
             } else {
                 
