@@ -33,6 +33,14 @@ class User {
         Cocoon.requestManager.sendRequest("/user/info/", parameters: ["":""], responseHandler: handleInfoResponse)
     }
     
+    
+    
+    func handleInfoResponse(data : AnyObject?) {
+     
+        
+        
+    }
+    
     func saveAuthentication() {
         
         Cocoon.keychain.mySetObject(authentication.accessToken, forKey:kSecValueData)
@@ -50,10 +58,6 @@ class User {
         NSUserDefaults.standardUserDefaults().setObject("", forKey: "username")
         NSUserDefaults.standardUserDefaults().setBool(false, forKey: "authenticated")
         NSUserDefaults.standardUserDefaults().synchronize()
-        
-    }
-    
-    func handleInfoResponse(data : AnyObject?) {
         
     }
     
