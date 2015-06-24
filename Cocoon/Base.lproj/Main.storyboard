@@ -362,11 +362,11 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAn-NU-4x2">
-                                        <rect key="frame" x="8" y="201" width="257" height="30"/>
-                                        <state key="normal" title="Login"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YA6-P0-DFH">
+                                        <rect key="frame" x="142" y="201" width="123" height="30"/>
+                                        <state key="normal" title="Facebook"/>
                                         <connections>
-                                            <action selector="login:" destination="spy-Ww-qeV" eventType="touchUpInside" id="LRR-Yq-LjI"/>
+                                            <action selector="facebookLogin:" destination="spy-Ww-qeV" eventType="touchUpInside" id="9j8-4W-keA"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0g-dM-8ut">
@@ -374,6 +374,13 @@
                                         <state key="normal" title="Register"/>
                                         <connections>
                                             <segue destination="WRT-wO-FBj" kind="show" id="nCL-D7-tCq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAn-NU-4x2">
+                                        <rect key="frame" x="8" y="201" width="123" height="30"/>
+                                        <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="login:" destination="spy-Ww-qeV" eventType="touchUpInside" id="LRR-Yq-LjI"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -390,6 +397,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="facebookButton" destination="YA6-P0-DFH" id="OYC-7T-iLE"/>
                         <outlet property="passwordField" destination="Eqs-nW-9ze" id="jFO-Ua-0Rs"/>
                         <outlet property="usernameField" destination="KGS-yp-MQI" id="vbu-Rx-Clk"/>
                     </connections>

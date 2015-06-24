@@ -14,14 +14,13 @@ class User {
     var groups : [Link] = []
     var menuItems : [Link] = []
     let authentication: Authentication
-    var firstName: String
-    var lastName: String
+    var firstName: String = "";
+    var lastName: String = "";
+    var facebook: Bool = false;
     
     init (username: String, accessToken: String) {
         
         authentication = Authentication(username: username, accessToken: accessToken)
-        firstName = "";
-        lastName = "";
         
     }
     
@@ -42,8 +41,8 @@ class User {
             
             for kidObject in kidsResponse {
                 
-                var kid = kidObject as! NSMutableDictionary
-                kids.append(Link(id: (kid["id"] as! String).toInt()!, type: "kid", displayName: kid["name"] as! String))
+                var kid = kidObject as! NSMutableDictionary                
+                kids.append(Link(id: (kid["id"] as! String).toInt()!, type: "kid", displayName: kid["first-name"] as! String))
                 
             }
             
@@ -97,6 +96,7 @@ class User {
         Cocoon.keychain.writeToKeychain()
         NSUserDefaults.standardUserDefaults().setObject(authentication.username, forKey: "username")
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "authenticated")
+        NSUserDefaults.standardUserDefaults().setBool(facebook, forKey: "facebook")
         NSUserDefaults.standardUserDefaults().synchronize()
         
     }
@@ -107,6 +107,7 @@ class User {
         Cocoon.keychain.writeToKeychain()
         NSUserDefaults.standardUserDefaults().setObject("", forKey: "username")
         NSUserDefaults.standardUserDefaults().setBool(false, forKey: "authenticated")
+        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "facebook")
         NSUserDefaults.standardUserDefaults().synchronize()
         
         

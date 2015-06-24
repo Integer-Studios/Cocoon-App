@@ -12,5 +12,6 @@
 #import <CommonCrypto/CommonCrypto.h>
 #import "KeychainWrapper.h"
 #import "SWRevealViewController.h"
-
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 #endif
