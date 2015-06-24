@@ -30,7 +30,7 @@ class Register1ViewController: UIViewController {
             
             NSOperationQueue.mainQueue().addOperationWithBlock {
             
-                Cocoon.setRootViewController("navigation")
+                Cocoon.setRootViewController("main")
             
             }
             
@@ -41,7 +41,7 @@ class Register1ViewController: UIViewController {
         
         //existing family stuff?
         
-        (self.navigationController as! NavigationController).pushView("register2")
+        (self.navigationController as! NavigationController).pushView("register.2")
         
     }
     
@@ -49,7 +49,7 @@ class Register1ViewController: UIViewController {
         
         if status == 200 {
             NSOperationQueue.mainQueue().addOperationWithBlock {
-                Cocoon.setRootViewController("navigation")
+                Cocoon.setRootViewController("main")
             }
         } else {
             println("Server Error: \(status)")

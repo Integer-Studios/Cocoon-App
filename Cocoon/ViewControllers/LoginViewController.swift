@@ -145,7 +145,7 @@ class LoginViewController: UIViewController {
                
                 NSOperationQueue.mainQueue().addOperationWithBlock {
                     
-                    Cocoon.setRootViewController("navigation")
+                    Cocoon.setRootViewController("main")
                     
                 }
                 
@@ -153,6 +153,7 @@ class LoginViewController: UIViewController {
                 
                 Cocoon.user = User(username: usernameField.text, accessToken: token)
                 Cocoon.user?.saveAuthentication()
+                Cocoon.user?.loadInfo()
                 
             } else {
                 

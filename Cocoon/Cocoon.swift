@@ -25,7 +25,7 @@ class Cocoon {
             let token = keychain.myObjectForKey("v_Data") as? String;
             user = User(username: username!, accessToken: token!);
             user?.loadInfo()
-            setRootViewController("navigation")
+            setRootViewController("main")
             
         } else {
             

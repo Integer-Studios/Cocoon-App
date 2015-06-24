@@ -10,8 +10,6 @@ import UIKit
 
 class RegisterViewController: UIViewController {
     
-    //THIS CLASS IS FUCKING DISABLED
-
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var retypePassword: UITextField!
@@ -54,7 +52,7 @@ class RegisterViewController: UIViewController {
             Cocoon.user?.saveAuthentication()
             NSOperationQueue.mainQueue().addOperationWithBlock {
 
-                (self.navigationController as! NavigationController).pushView("register1")
+                (self.navigationController as! NavigationController).pushView("register.1")
             
             }
             
