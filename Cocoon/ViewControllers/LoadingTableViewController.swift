@@ -53,8 +53,9 @@ class LoadingTableViewController: UITableViewController, UITableViewDataSource, 
     }
     
     func handleTableResponse(response: Response) {
-        println("responded: \(items.count)")
+
         self.tableView.reloadData()
+        
     }
     
     func handleTableError(error: Error) {

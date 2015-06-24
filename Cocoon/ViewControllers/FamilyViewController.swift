@@ -14,9 +14,9 @@ class FamilyViewController: LoadingTableViewController {
         
         
         super.viewDidLoad()
-        println("yo")
+
         if let fam = Cocoon.user?.getFamily() {
-            self.requestData("family/info", parameters: ["family": fam.id] )
+            self.requestData("/family/info", parameters: ["family": fam.id] )
         }
         
     }
