@@ -146,13 +146,9 @@ class LoginViewController: UIViewController {
         
         if response.content != nil {
         
-            if let token = data["access-token"] as? String {
-               
-                NSOperationQueue.mainQueue().addOperationWithBlock {
-                    
-                    Cocoon.setRootViewController("main")
-                    
-                }
+            if let token = response.content!["access-token"] as? String {
+        
+                Cocoon.setRootViewController("main")
                 
                 println("The access token is: " + token)
                 

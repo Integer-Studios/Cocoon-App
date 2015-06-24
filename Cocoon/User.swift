@@ -49,14 +49,8 @@ class User {
             updateMenuItems()
                         
         } else {
-                        
-            deauthenticate()
-            Cocoon.user = nil
-            NSOperationQueue.mainQueue().addOperationWithBlock {
-                
-                Cocoon.setRootViewController("main")
-                
-            }
+            
+            println("No content")
             
         }
         
@@ -67,7 +61,7 @@ class User {
         deauthenticate()
         Cocoon.user = nil
         
-        Cocoon.setRootViewController("navigation")
+        Cocoon.setRootViewController("main")
         
     }
     

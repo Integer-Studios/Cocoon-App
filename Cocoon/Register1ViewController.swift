@@ -47,13 +47,13 @@ class Register1ViewController: UIViewController {
     
     func handleFamilyRegisterResponse(response: Response) {
         
-        if status == 200 {
-            NSOperationQueue.mainQueue().addOperationWithBlock {
-                Cocoon.setRootViewController("main")
-            }
-        } else {
-            println("Server Error: \(status)")
-        }
+        Cocoon.setRootViewController("navigation")
+        
+    }
+    
+    func handleFamilyRegisterError(error: Error) {
+        
+        println("Server Error: \(error.errorCode)")
         
     }
 

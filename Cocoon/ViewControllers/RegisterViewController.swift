@@ -51,7 +51,7 @@ class RegisterViewController: UIViewController {
             Cocoon.user?.lastName = lastName.text
             Cocoon.user?.saveAuthentication()
 
-                (self.navigationController as! NavigationController).pushView("register.1")
+            (self.navigationController as! NavigationController).pushView("register.1")
             
             
         } else {
