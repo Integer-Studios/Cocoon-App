@@ -49,6 +49,7 @@ class MenuViewController: UITableViewController, UITableViewDataSource, UITableV
             
         } else if type == "kid" {
             //open kid with (id)
+            println(id)
         }
     }
 

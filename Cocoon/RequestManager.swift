@@ -17,11 +17,16 @@ class RequestManager {
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         var error: NSError?
-
+        println("Sending Request: " + requestURL)
         if (Cocoon.user != nil) {
-
-            parameters["username"] = Cocoon.user!.authentication.username;
-            parameters["access-token"] = Cocoon.user!.authentication.accessToken;
+            if (Cocoon.user!.facebook) {
+                parameters["facebook-id"] = Cocoon.user!.authentication.username;
+                parameters["facebook-token"] = Cocoon.user!.authentication.accessToken;
+            } else {
+                parameters["username"] = Cocoon.user!.authentication.username;
+                parameters["access-token"] = Cocoon.user!.authentication.accessToken;
+                
+            }
 
         }
         
@@ -53,7 +58,7 @@ class RequestManager {
                     
                 } else  {
 
-                    println(returnData.description)
+//                    println(returnData.description)
                     let content = returnData["content"] as? NSMutableDictionary
                     
                     if (content != nil) {

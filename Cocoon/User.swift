@@ -14,14 +14,13 @@ class User {
     var groups : [Link] = []
     var menuItems : [Link] = []
     let authentication: Authentication
-    var firstName: String
-    var lastName: String
+    var firstName: String = "";
+    var lastName: String = "";
+    var facebook: Bool = false;
     
     init (username: String, accessToken: String) {
         
         authentication = Authentication(username: username, accessToken: accessToken)
-        firstName = "";
-        lastName = "";
         
     }
     
@@ -33,7 +32,7 @@ class User {
     
     func handleInfoResponse(data : NSMutableDictionary, status: Int) {
         
-        if (data.count != 0) {
+        if (status == 200) {
             
             firstName = data["first-name"] as! String
             lastName = data["last-name"] as! String
@@ -42,13 +41,23 @@ class User {
             
             for kidObject in kidsResponse {
                 
-                var kid = kidObject as! NSMutableDictionary
-                kids.append(Link(id: (kid["id"] as! String).toInt()!, type: "kid", displayName: kid["name"] as! String))
+                var kid = kidObject as! NSMutableDictionary                
+                kids.append(Link(id: (kid["id"] as! String).toInt()!, type: "kid", displayName: kid["first-name"] as! String))
                 
             }
             
             updateMenuItems()
                         
+        } else {
+            
+            deauthenticate()
+            Cocoon.user = nil
+            NSOperationQueue.mainQueue().addOperationWithBlock {
+                
+                Cocoon.setRootViewController("navigation")
+                
+            }
+            
         }
         
     }
@@ -87,6 +96,7 @@ class User {
         Cocoon.keychain.writeToKeychain()
         NSUserDefaults.standardUserDefaults().setObject(authentication.username, forKey: "username")
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "authenticated")
+        NSUserDefaults.standardUserDefaults().setBool(facebook, forKey: "facebook")
         NSUserDefaults.standardUserDefaults().synchronize()
         
     }
@@ -97,6 +107,7 @@ class User {
         Cocoon.keychain.writeToKeychain()
         NSUserDefaults.standardUserDefaults().setObject("", forKey: "username")
         NSUserDefaults.standardUserDefaults().setBool(false, forKey: "authenticated")
+        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "facebook")
         NSUserDefaults.standardUserDefaults().synchronize()
         
         

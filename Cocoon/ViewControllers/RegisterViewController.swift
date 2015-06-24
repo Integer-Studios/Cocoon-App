@@ -43,8 +43,9 @@ class RegisterViewController: UIViewController {
     
     func handleRegisterResponse(data: NSMutableDictionary, status: Int) {
         
-        if let token = data["access-token"] as? String {
-            
+        if status == 200 {
+           
+            let token = data["access-token"] as! String;
             println("The access token is: " + token)
             
             Cocoon.user = User(username: email.text, accessToken: token)
