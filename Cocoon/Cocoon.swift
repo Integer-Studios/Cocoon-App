@@ -60,7 +60,7 @@ class Cocoon {
     }
     
     static func updateMenu() {
-        menuView?.tableView.reloadData()
+//        menuView?.tableView.reloadData()
     }
     
 }

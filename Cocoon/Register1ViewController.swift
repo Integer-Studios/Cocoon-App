@@ -24,11 +24,15 @@ class Register1ViewController: UIViewController {
     @IBAction func newFamily(sender: AnyObject) {
         
         //register family request
-        Cocoon.requestManager.sendRequest("/family/register/", parameters: ["name": email.text], responseHandler: handleFamilyRegisterResponse)
-        
-        NSOperationQueue.mainQueue().addOperationWithBlock {
+        if (Cocoon.user != nil) {
             
-            Cocoon.setRootViewController("navigation")
+            Cocoon.requestManager.sendRequest("/family/register/", parameters: ["name": Cocoon.user!.lastName, "relationship": "father"], responseHandler: handleFamilyRegisterResponse)
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock {
+            
+                Cocoon.setRootViewController("navigation")
+            
+            }
             
         }
     }
@@ -41,23 +45,14 @@ class Register1ViewController: UIViewController {
         
     }
     
-    func handleFamilyRegisterResponse(data: NSMutableDictionary) {
+    func handleFamilyRegisterResponse(data: NSMutableDictionary, status: Int) {
         
-        if let status = data["status"] as? Int {
-            
-            if status == 200 {
-                NSOperationQueue.mainQueue().addOperationWithBlock {
-                    Cocoon.setRootViewController("navigation")
-                }
-            } else {
-                println("Server Error: \(status)")
+        if status == 200 {
+            NSOperationQueue.mainQueue().addOperationWithBlock {
+                Cocoon.setRootViewController("navigation")
             }
-            
-            
         } else {
-            
-            println("Failed to parse access-token")
-            
+            println("Server Error: \(status)")
         }
         
     }
