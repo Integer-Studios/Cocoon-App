@@ -28,7 +28,9 @@ class Register1ViewController: UIViewController {
         
         NSOperationQueue.mainQueue().addOperationWithBlock {
             
-            Cocoon.setRootViewController("navigation")
+                Cocoon.setRootViewController("navigation")
+            
+            }
             
         }
     }
@@ -41,23 +43,14 @@ class Register1ViewController: UIViewController {
         
     }
     
-    func handleFamilyRegisterResponse(data: NSMutableDictionary) {
+    func handleFamilyRegisterResponse(data: NSMutableDictionary, status: Int) {
         
-        if let status = data["status"] as? Int {
-            
-            if status == 200 {
-                NSOperationQueue.mainQueue().addOperationWithBlock {
-                    Cocoon.setRootViewController("navigation")
-                }
-            } else {
-                println("Server Error: \(status)")
+        if status == 200 {
+            NSOperationQueue.mainQueue().addOperationWithBlock {
+                Cocoon.setRootViewController("navigation")
             }
-            
-            
         } else {
-            
-            println("Failed to parse access-token")
-            
+            println("Server Error: \(status)")
         }
         
     }

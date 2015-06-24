@@ -13,7 +13,7 @@ class MenuViewController: UITableViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "menuCell")
-        Cocoon.menuView = self
+
     }
 
     override func didReceiveMemoryWarning() {

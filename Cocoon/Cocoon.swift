@@ -14,7 +14,6 @@ class Cocoon {
     static let requestManager = RequestManager()
     static var isAuthenticated = false
     static var user : User?
-    static var menuView : MenuViewController?
     
     static func initializeApplication() {
         
@@ -61,7 +60,7 @@ class Cocoon {
     }
     
     static func updateMenu() {
-        menuView?.tableView.reloadData()
+//        menuView?.tableView.reloadData()
     }
     
 }

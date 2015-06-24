@@ -9,16 +9,19 @@
 import Foundation
 
 class User {
-    var name = ""
     var kids : [Link] = []
     var friends : [Link] = []
     var groups : [Link] = []
     var menuItems : [Link] = []
     let authentication: Authentication
+    var firstName: String
+    var lastName: String
     
     init (username: String, accessToken: String) {
         
         authentication = Authentication(username: username, accessToken: accessToken)
+        firstName = "";
+        lastName = "";
         
     }
     
@@ -28,12 +31,13 @@ class User {
         
     }
     
-    func handleInfoResponse(data : NSMutableDictionary) {
+    func handleInfoResponse(data : NSMutableDictionary, status: Int) {
         
         if (data.count != 0) {
             
-            name = data["name"] as! String
-            
+            firstName = data["first-name"] as! String
+            lastName = data["last-name"] as! String
+
             let kidsResponse = data["kids"] as! NSArray
             
             for kidObject in kidsResponse {

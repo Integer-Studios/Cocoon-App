@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
         
     }
     
-    func handleLoginResponse(data: NSMutableDictionary) {
+    func handleLoginResponse(data: NSMutableDictionary, status: Int) {
         
         if let token = data["access-token"] as? String {
                

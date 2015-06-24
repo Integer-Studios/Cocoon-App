@@ -10,7 +10,7 @@ import Foundation
 
 class RequestManager {
     
-    func sendRequest(requestURL: String, parameters: NSMutableDictionary, responseHandler: (NSMutableDictionary) -> ()) {
+    func sendRequest(requestURL: String, parameters: NSMutableDictionary, responseHandler: (NSMutableDictionary, Int) -> ()) {
         
         let endpoint: String = "http://cocoon.integerstudios.com" + requestURL
         var request = NSMutableURLRequest(URL: NSURL(string: endpoint)!)
@@ -40,7 +40,7 @@ class RequestManager {
             if let anError = error {
                 // got an error, need to handle it
                 println("Error calling POST request")
-                responseHandler(NSMutableDictionary())
+                responseHandler(NSMutableDictionary(), 700)
             } else {
                 var dataString = NSString(data: data, encoding:NSUTF8StringEncoding)
 //                println("Received response:" + (dataString as! String))
@@ -49,16 +49,17 @@ class RequestManager {
                 if let aJSONError = jsonError {
                     // got an error while parsing the data, need to handle it
                     println("Error Parsing JSON From Response")
-                    responseHandler(NSMutableDictionary())
+                    responseHandler(NSMutableDictionary(), 600)
                     
                 } else  {
 
-//                    println(returnData.description)
-                    let content: AnyObject? = returnData["content"]
+                    println(returnData.description)
+                    let content = returnData["content"] as? NSMutableDictionary
                     
-                    if (content != nil && content is NSMutableDictionary) {
-                       
-                        responseHandler(content as! NSMutableDictionary)
+                    if (content != nil) {
+                        
+                        let status: Int = (returnData["status"] as! String).toInt()!
+                        responseHandler(content!, status)
                         
                     } else {
                         
