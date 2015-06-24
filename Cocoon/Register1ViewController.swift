@@ -24,7 +24,7 @@ class Register1ViewController: UIViewController {
     @IBAction func newFamily(sender: AnyObject) {
         
         //register family request
-        Cocoon.requestManager.sendRequest("/family/register/", parameters: ["name": email.text], responseHandler: handleFamilyRegisterResponse)
+        Cocoon.requestManager.sendRequest("/family/register/", parameters: ["name": ""], responseHandler: handleFamilyRegisterResponse)
         
         NSOperationQueue.mainQueue().addOperationWithBlock {
             
