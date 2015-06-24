@@ -8,45 +8,42 @@
 
 import UIKit
 
-class FamilyViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
-    
-    var items = ["Fuck", "Kids"]
+class FamilyViewController: LoadingTableViewController {
     
     override func viewDidLoad() {
+        
+        
         super.viewDidLoad()
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        println("yo")
+        if let fam = Cocoon.user?.getFamily() {
+            self.requestData("family/info", parameters: ["family": fam.id] )
+        }
         
-        //load dem kids
+    }
+    
+    override func handleTableResponse(response: Response) {
+        
+        var kidsResponse = response.content!["kids"] as! NSArray
+        for kidObject in kidsResponse {
+            
+            var kid = kidObject as! NSMutableDictionary
+            self.items.append(Link(id: (kid["id"] as! String).toInt()!, type: "kid", displayName: kid["first-name"] as! String))
+            
+        }
+        
+        super.handleTableResponse(response)
+    }
+    
+    override func handleTableError(error: Error) {
+        
+        super.handleTableError(error)
         
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return items.count
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UITableViewCell
-        
-        cell.textLabel?.text = items[indexPath.row]
-        
-        return cell
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("selected: \(items[indexPath.row])")
-    }
-    
+
     @IBAction func close(sender: AnyObject) {
+        
         self.navigationController!.dismissViewControllerAnimated(true, completion: nil)
+        
     }
     
 

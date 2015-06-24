@@ -13,10 +13,14 @@ class User {
     var friends : [Link] = []
     var groups : [Link] = []
     var menuItems : [Link] = []
+    var families : [Link] = []
+    
+    var family : Link?
+    
     let authentication: Authentication
-    var firstName: String = "";
-    var lastName: String = "";
-    var facebook: Bool = false;
+    var firstName: String = ""
+    var lastName: String = ""
+    var facebook: Bool = false
     
     init (username: String, accessToken: String) {
         
@@ -27,6 +31,22 @@ class User {
     func loadInfo() {
 
         Cocoon.requestManager.sendRequest("/user/info/", parameters: ["":""], responseHandler: handleInfoResponse, errorHandler: handleInfoError)
+        
+    }
+    
+    func getFamily() -> Link? {
+        
+        return self.family
+        
+    }
+    
+    func setFamily(id: Int) {
+        
+        for fam in families {
+            if fam.id == id {
+                self.family = fam
+            }
+        }
         
     }
     
@@ -45,6 +65,18 @@ class User {
                 kids.append(Link(id: (kid["id"] as! String).toInt()!, type: "kid", displayName: kid["first-name"] as! String))
                 
             }
+            
+            let familyResponse = response.content!["families"] as! NSArray
+            
+            for familyObject in familyResponse {
+                
+                var fam = familyObject as! NSMutableDictionary
+                families.append(Link(id: (fam["id"] as! String).toInt()!, type: "family", displayName: fam["name"] as! String))
+                
+            }
+            
+            family = families[0]
+            //or load from data
             
             updateMenuItems()
                         

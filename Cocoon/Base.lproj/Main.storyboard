@@ -91,10 +91,10 @@
             </objects>
             <point key="canvasLocation" x="544" y="1436"/>
         </scene>
-        <!--Family View Controller-->
+        <!--Family-->
         <scene sceneID="MmP-yJ-Zju">
             <objects>
-                <tableViewController id="HZf-Bc-keZ" customClass="FamilyViewController" customModule="Cocoon" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="family.0" id="HZf-Bc-keZ" customClass="FamilyViewController" customModule="Cocoon" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1hC-hX-LBT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,7 +112,7 @@
                             <outlet property="delegate" destination="HZf-Bc-keZ" id="Mu7-JM-Z86"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="b4t-Pv-WLq">
+                    <navigationItem key="navigationItem" title="Family" id="b4t-Pv-WLq">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="XHI-Az-Id4">
                             <connections>
                                 <action selector="close:" destination="HZf-Bc-keZ" id="Qcy-uk-PdQ"/>
