@@ -53,7 +53,7 @@ class RequestManager {
                     
                 } else  {
 
-                    println(returnData.description)
+//                    println(returnData.description)
                     let content = returnData["content"] as? NSMutableDictionary
                     
                     if (content != nil) {

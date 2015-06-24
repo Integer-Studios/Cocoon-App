@@ -33,7 +33,7 @@ class User {
     
     func handleInfoResponse(data : NSMutableDictionary, status: Int) {
         
-        if (data.count != 0) {
+        if (status == 200) {
             
             firstName = data["first-name"] as! String
             lastName = data["last-name"] as! String
@@ -49,6 +49,16 @@ class User {
             
             updateMenuItems()
                         
+        } else {
+            
+            deauthenticate()
+            Cocoon.user = nil
+            NSOperationQueue.mainQueue().addOperationWithBlock {
+                
+                Cocoon.setRootViewController("navigation")
+                
+            }
+            
         }
         
     }

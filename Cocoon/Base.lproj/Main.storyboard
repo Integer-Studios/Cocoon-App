@@ -441,15 +441,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JiN-ag-roa">
-                                <rect key="frame" x="166" y="222" width="270" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="270" id="RbA-Hy-AFk"/>
-                                    <constraint firstAttribute="height" constant="30" id="rPb-fu-SG8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-Enter Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gFE-Jd-3Pv">
                                 <rect key="frame" x="166" y="260" width="270" height="30"/>
                                 <constraints>
@@ -462,9 +453,8 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OCV-3t-bSW">
                                 <rect key="frame" x="166" y="298" width="270" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="E6t-XB-lKR"/>
+                                    <constraint firstAttribute="width" constant="270" id="E6t-XB-lKR"/>
                                     <constraint firstAttribute="height" constant="30" id="JZZ-m4-2RF"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="k9C-wM-0jD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -490,23 +480,31 @@
                                     <action selector="register:" destination="vpv-m6-2AB" eventType="touchUpInside" id="oN3-k9-gyz"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JiN-ag-roa">
+                                <rect key="frame" x="166" y="222" width="270" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="RbA-Hy-AFk"/>
+                                    <constraint firstAttribute="height" constant="30" id="rPb-fu-SG8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ewl-25-20M" firstAttribute="centerX" secondItem="Ws6-JG-Knt" secondAttribute="centerX" constant="4.5" id="1kg-tI-pQj"/>
                             <constraint firstItem="Ewl-25-20M" firstAttribute="top" secondItem="p8b-SM-kXF" secondAttribute="bottom" constant="8" id="A3t-Yh-ZLJ"/>
-                            <constraint firstAttribute="centerX" secondItem="Ws6-JG-Knt" secondAttribute="centerX" id="Bjb-sh-iCS"/>
-                            <constraint firstItem="JiN-ag-roa" firstAttribute="centerX" secondItem="Ws6-JG-Knt" secondAttribute="centerX" constant="0.5" id="KoN-7g-GWO"/>
-                            <constraint firstItem="gFE-Jd-3Pv" firstAttribute="centerX" secondItem="Ws6-JG-Knt" secondAttribute="centerX" constant="0.5" id="Smf-2Z-SBY"/>
-                            <constraint firstItem="OCV-3t-bSW" firstAttribute="centerX" secondItem="Ws6-JG-Knt" secondAttribute="centerX" constant="0.5" id="b0Z-oy-GRF"/>
-                            <constraint firstItem="OCV-3t-bSW" firstAttribute="centerX" secondItem="p8b-SM-kXF" secondAttribute="centerX" id="cCN-mP-EGi"/>
+                            <constraint firstAttribute="centerX" secondItem="gFE-Jd-3Pv" secondAttribute="centerX" constant="-1" id="SfU-0p-wpQ"/>
+                            <constraint firstAttribute="centerX" secondItem="xtO-sy-x8X" secondAttribute="centerX" constant="-1" id="Soi-Vq-tCC"/>
+                            <constraint firstAttribute="centerX" secondItem="Ewl-25-20M" secondAttribute="centerX" constant="-4.5" id="WqP-dJ-VW5"/>
+                            <constraint firstAttribute="centerX" secondItem="Ws6-JG-Knt" secondAttribute="centerX" id="b2i-5u-42r"/>
                             <constraint firstItem="p8b-SM-kXF" firstAttribute="top" secondItem="OCV-3t-bSW" secondAttribute="bottom" constant="8" id="cgu-4Y-SQt"/>
-                            <constraint firstItem="p8b-SM-kXF" firstAttribute="centerX" secondItem="Ewl-25-20M" secondAttribute="centerX" constant="-3.5" id="dj2-PN-bJJ"/>
+                            <constraint firstAttribute="centerX" secondItem="p8b-SM-kXF" secondAttribute="centerX" constant="-1" id="d9J-3p-RCm"/>
                             <constraint firstItem="xtO-sy-x8X" firstAttribute="top" secondItem="Ws6-JG-Knt" secondAttribute="bottom" constant="29" id="eUV-ah-97d"/>
                             <constraint firstItem="Ws6-JG-Knt" firstAttribute="top" secondItem="der-ZG-c5d" secondAttribute="bottom" constant="70" id="fqY-3E-4jE"/>
                             <constraint firstItem="gFE-Jd-3Pv" firstAttribute="top" secondItem="JiN-ag-roa" secondAttribute="bottom" constant="8" id="iCr-KM-iMr"/>
-                            <constraint firstItem="Ws6-JG-Knt" firstAttribute="centerX" secondItem="xtO-sy-x8X" secondAttribute="centerX" constant="-0.5" id="mJ5-X0-6t1"/>
+                            <constraint firstAttribute="centerX" secondItem="OCV-3t-bSW" secondAttribute="centerX" constant="-1" id="oG3-Rp-8Oe"/>
                             <constraint firstItem="OCV-3t-bSW" firstAttribute="top" secondItem="gFE-Jd-3Pv" secondAttribute="bottom" constant="8" id="uhB-cG-2SW"/>
+                            <constraint firstAttribute="centerX" secondItem="JiN-ag-roa" secondAttribute="centerX" constant="-1" id="viV-9L-SsR"/>
                             <constraint firstItem="JiN-ag-roa" firstAttribute="top" secondItem="xtO-sy-x8X" secondAttribute="bottom" constant="8" id="wdj-HK-bjd"/>
                         </constraints>
                     </view>
