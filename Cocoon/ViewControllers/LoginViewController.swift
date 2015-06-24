@@ -72,7 +72,9 @@ class LoginViewController: UIViewController {
                             let firstName = (userName as String).componentsSeparatedByString(" ").first
                             let lastName = (userName as String).componentsSeparatedByString(" ").last
                             let userEmail : NSString = result.valueForKey("email") as! NSString
-                         
+                            println(fbToken)
+                            Cocoon.facebook = Facebook(id: fbUserID, firstName: firstName!, lastName: lastName!, email: userEmail as String, token: fbToken)
+                            
                             Cocoon.requestManager.sendRequest("/user/facebook/", parameters: ["facebook-id": fbUserID, "facebook-token": fbToken, "facebook-email": userEmail], responseHandler: self.handleFacebookLoginResponse, errorHandler: self.handleFacebookLoginError)
                         }
                     })
@@ -124,7 +126,7 @@ class LoginViewController: UIViewController {
             
             //new user
             println("New User")
-            
+            performSegueWithIdentifier("registerPush", sender: nil)
             
         }
         

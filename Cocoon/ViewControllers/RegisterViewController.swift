@@ -18,6 +18,15 @@ class RegisterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (Cocoon.facebook != nil) {
+            
+            email.text = Cocoon.facebook?.email
+            firstName.text = Cocoon.facebook?.firstName
+            lastName.text = Cocoon.facebook?.lastName
+            
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,8 +42,19 @@ class RegisterViewController: UIViewController {
             return
         }
         
+        var requestURL = "/user/register/auth/"
+        var params: NSMutableDictionary = ["register-email": email.text, "register-password": password.text.sha1(), "register-first-name": firstName.text, "register-last-name": lastName.text]
+        
+        if (Cocoon.facebook != nil) {
+            
+            requestURL = "/user/register/facebook/"
+            params["register-facebook-id"] = Cocoon.facebook?.id
+            params["register-facebook-token"] = Cocoon.facebook?.token
+
+        }
+        
         //send register request
-        Cocoon.requestManager.sendRequest("/user/register/", parameters: ["register-email": email.text, "register-password": password.text.sha1(), "register-first-name": firstName.text, "register-last-name": lastName.text], responseHandler: handleRegisterResponse, errorHandler: handleRegisterError)
+        Cocoon.requestManager.sendRequest(requestURL, parameters: params, responseHandler: handleRegisterResponse, errorHandler: handleRegisterError)
         
         //maybe loading gif?
     }

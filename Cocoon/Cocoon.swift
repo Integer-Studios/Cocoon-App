@@ -12,6 +12,8 @@ class Cocoon {
     
     static let keychain = KeychainWrapper()
     static let requestManager = RequestManager()
+    static let responseManager = ResponseManager()
+    static var facebook: Facebook?
     static var isAuthenticated = false
     static var user : User?
     
@@ -24,6 +26,9 @@ class Cocoon {
             let username = NSUserDefaults.standardUserDefaults().objectForKey("username") as? String;
             let token = keychain.myObjectForKey("v_Data") as? String;
             user = User(username: username!, accessToken: token!);
+            if (NSUserDefaults.standardUserDefaults().boolForKey("facebook")) {
+                user?.facebook = true
+            }
             user?.loadInfo()
             setRootViewController("main")
             
@@ -62,6 +67,16 @@ class Cocoon {
     static func updateMenu() {
 //        menuView?.tableView.reloadData()
     }
+    
+}
+
+struct Facebook {
+    
+    var id: String
+    var firstName: String
+    var lastName: String
+    var email: String
+    var token: String
     
 }
 

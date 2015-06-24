@@ -13,11 +13,42 @@ class RequestManager {
     func sendRequest(requestURL: String, parameters: NSMutableDictionary, debug: Bool = false, responseHandler: (Response) -> (), errorHandler: ((Error) -> ())?)  {
         
         let endpoint: String = "http://cocoon.integerstudios.com" + requestURL
+        var parameters = authenticateParameters(parameters)
+        var error: NSError?
+        var urlRequest = generateRequest(endpoint, parameters: parameters)
+        var request = Request(url: requestURL, responseHandler: responseHandler, errorHandler: errorHandler, debug: debug, parameters: parameters)
+
+        println("Sending Request: " + requestURL)
+                
+        NSURLConnection.sendAsynchronousRequest(urlRequest, queue: NSOperationQueue(),
+            
+            completionHandler: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+               
+                Cocoon.responseManager.handleResponse(request, responseURL: response, data: data, error: error)
+            })
+        
+    }
+    
+    func generateRequest(endpoint: String, parameters: NSMutableDictionary) -> NSMutableURLRequest {
+        
         var request = NSMutableURLRequest(URL: NSURL(string: endpoint)!)
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        var error: NSError?
-        println("Sending Request: " + requestURL)
+        var error: NSError?;
+        let requestJSON = NSJSONSerialization.dataWithJSONObject(parameters, options: nil, error: &error)
+        if (requestJSON == nil) {
+            
+            //error with json
+            
+        }
+        
+        request.HTTPBody = requestJSON
+        return request
+        
+    }
+    
+    func authenticateParameters(parameters: NSMutableDictionary) -> NSMutableDictionary {
+        
         if (Cocoon.user != nil) {
             if (Cocoon.user!.facebook) {
                 parameters["facebook-id"] = Cocoon.user!.authentication.username;
@@ -25,171 +56,23 @@ class RequestManager {
             } else {
                 parameters["username"] = Cocoon.user!.authentication.username;
                 parameters["access-token"] = Cocoon.user!.authentication.accessToken;
-                
-            }
-
-        }
-        
-        let requestBody = NSJSONSerialization.dataWithJSONObject(parameters, options: nil, error: &error)
-        if (requestBody == nil) {
-            
-            //error with json
-            
-        }
-        
-        request.HTTPBody = requestBody
-        var errorHandlerFunction:((Error) -> ());
-       
-        if (errorHandler != nil) {
-            
-            errorHandlerFunction = errorHandler!
-            
-        } else {
-            
-            errorHandlerFunction = self.handleError
-            
-        }
-        
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(),
-            
-            completionHandler: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-                self.handleResponse(requestURL, responseURL: response, data: data, error: error, debug: debug, responseHandler: responseHandler, errorHandler: errorHandlerFunction)
-            })
-        
-    }
-    
-    func handleResponse(requestURL: String, responseURL: NSURLResponse!, data: NSData!, error: NSError!, debug: Bool, responseHandler: (Response) -> (), errorHandler: (Error) -> ()) {
-        var error: Error?;
-        var response: Response?;
-
-        if error != nil {
-
-            println("Error calling POST request")
-            error = Error(error: 900)
-        
-        } else {
-            var dataString = NSString(data: data, encoding:NSUTF8StringEncoding)
-            var jsonError: NSError?
-            let returnData = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as! NSDictionary
-            if jsonError != nil {
-                // got an error while parsing the data, need to handle it
-                if debug {
-                    println("Error Parsing JSON from response string: \(dataString)")
-                } else {
-                    println("Error Parsing JSON From Response")
-                }
-                error = Error(error: 800)
-                
-            } else  {
-                
-                if let status: Int = (returnData["status"] as! String).toInt() {
-
-                    let errorHeader: String? = (returnData["error-header"] as? String)
-
-                    if let content: NSDictionary = (returnData["content"] as? NSDictionary) {
-                        
-                        if (status == 200) {
-                            response = Response(contentData: content)
-                            NSOperationQueue.mainQueue().addOperationWithBlock {
-                                responseHandler(response!)
-                            }
-                        } else {
-                            
-                            error = Error(error: status, header: errorHeader, contentData: content)
-                            
-                        }
-                    } else {
-                        
-                        if (status == 200) {
-                            response = Response()
-                            NSOperationQueue.mainQueue().addOperationWithBlock {
-                                responseHandler(response!)
-                            }
-                        } else {
-                            
-                            error = Error(error: status, header: errorHeader)
-                            
-                        }
-                        
-                    }
-                    
-                } else {
-                    
-                    error = Error(error: 600)
-                    
-                }
             }
         }
         
-        if (error == nil && response == nil) {
-            error = Error(error:700)
-            
-        }
-        
-        if (error != nil) {
-            NSOperationQueue.mainQueue().addOperationWithBlock {
-                errorHandler(error!)
-            }
-        }
+        return parameters
         
     }
-    
-    func handleError(error: Error) {
         
-        println("Received Error: \(error.errorCode)")
-        
-    }
-    
 }
 
-struct Error {
+struct Request {
     
-    var errorHeader: String?;
-    var content: NSDictionary?;
-    var errorCode: Int;
+    var url: String;
+    var responseHandler: (Response) -> ();
+    var errorHandler: ((Error) -> ())?;
+    var debug: Bool;
+    var parameters: NSMutableDictionary;
     
-    init (error: Int, header: String? = nil) {
-        
-        content = nil
-        errorCode = error
-        errorHeader = header
-        
-    }
-    
-    init (error: Int, header: String?, contentData: NSDictionary) {
-        
-        if (contentData.count == 0) {
-            content = nil
-        } else {
-            content = contentData
-        }
-        errorCode = error
-        errorHeader = header
-        
-    }
-
-}
-
-struct Response {
-    
-    var content: NSDictionary?;
-
-    init() {
-        
-        content = nil
-        
-    }
-    
-    init (contentData: NSDictionary) {
-        
-        if (contentData.count == 0) {
-            content = nil
-        } else {
-            content = contentData
-        }
-        
-    }
-
 }
 
 extension String {

@@ -25,7 +25,7 @@ class User {
     }
     
     func loadInfo() {
-
+        
         Cocoon.requestManager.sendRequest("/user/info/", parameters: ["":""], responseHandler: handleInfoResponse, errorHandler: handleInfoError)
         
     }
