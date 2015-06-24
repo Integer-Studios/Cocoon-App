@@ -29,6 +29,7 @@
 		F6431D5C1B3A172700BBD20D /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6431D5B1B3A172700BBD20D /* NavigationController.swift */; };
 		F6431D5E1B3A19CB00BBD20D /* Register1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6431D5D1B3A19CB00BBD20D /* Register1ViewController.swift */; };
 		F6431D601B3A19E300BBD20D /* Register2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6431D5F1B3A19E300BBD20D /* Register2ViewController.swift */; };
+		F66B48CE1B3B48A5006FD3EA /* LoadingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66B48CD1B3B48A5006FD3EA /* LoadingTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		F6431D5B1B3A172700BBD20D /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationController.swift; path = ViewControllers/NavigationController.swift; sourceTree = "<group>"; };
 		F6431D5D1B3A19CB00BBD20D /* Register1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Register1ViewController.swift; sourceTree = "<group>"; };
 		F6431D5F1B3A19E300BBD20D /* Register2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Register2ViewController.swift; path = ViewControllers/Register2ViewController.swift; sourceTree = "<group>"; };
+		F66B48CD1B3B48A5006FD3EA /* LoadingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingTableViewController.swift; path = ViewControllers/LoadingTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				F6431D5B1B3A172700BBD20D /* NavigationController.swift */,
 				F6431D5D1B3A19CB00BBD20D /* Register1ViewController.swift */,
 				F6431D5F1B3A19E300BBD20D /* Register2ViewController.swift */,
+				F66B48CD1B3B48A5006FD3EA /* LoadingTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				F6431D5C1B3A172700BBD20D /* NavigationController.swift in Sources */,
 				F6431D561B39FCFC00BBD20D /* FamilyViewController.swift in Sources */,
 				E419C8521B3880BF0015FCC2 /* KeychainWrapper.m in Sources */,
+				F66B48CE1B3B48A5006FD3EA /* LoadingTableViewController.swift in Sources */,
 				F628BEDD1B3884CB005E4002 /* RegisterViewController.swift in Sources */,
 				E46E36241B3B499D00FE92C0 /* ResponseManager.swift in Sources */,
 				E419C8401B3876890015FCC2 /* LoginViewController.swift in Sources */,
