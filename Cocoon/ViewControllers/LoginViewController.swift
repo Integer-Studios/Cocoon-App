@@ -73,7 +73,7 @@ class LoginViewController: UIViewController {
                             let lastName = (userName as String).componentsSeparatedByString(" ").last
                             let userEmail : NSString = result.valueForKey("email") as! NSString
                          
-                            Cocoon.requestManager.sendRequest("/user/facebook/", parameters: ["facebook-id": fbUserID, "facebook-token": fbToken, "facebook-email": userEmail], responseHandler: self.handleFacebookLoginResponse)
+                            Cocoon.requestManager.sendRequest("/user/facebook/", parameters: ["facebook-id": fbUserID, "facebook-token": fbToken, "facebook-email": userEmail], responseHandler: self.handleFacebookLoginResponse, errorHandler: self.handleFacebookLoginError)
                         }
                     })
                     
@@ -89,11 +89,11 @@ class LoginViewController: UIViewController {
         
     }
     
-    func handleFacebookLoginResponse(data: NSMutableDictionary, status: Int) {
+    func handleFacebookLoginResponse(response: Response) {
         
-        if (status == 200) {
-            let facebookID = data["facebook-id"] as? String
-            let facebookToken = data["facebook-token"] as? String;
+        if (response.content != nil) {
+            let facebookID = response.content!["facebook-id"] as? String
+            let facebookToken = response.content!["facebook-token"] as? String;
             
             if (facebookID != nil && facebookToken != nil) {
 
@@ -104,22 +104,27 @@ class LoginViewController: UIViewController {
                 
             }
             
-        } else if (status == 401) {
+        }
+        
+    }
+    
+    func handleFacebookLoginError(error: Error) {
+        
+        if (error.errorCode == 401) {
             
             //email exists, not connected
             println("Email Exists")
-            println(data["issue"] as? String)
-            usernameField.text = data["issue"] as? String
+            usernameField.text = error.content!["email"] as? String
             facebookButton.highlighted = false
             facebookButton.setTitle("Connect", forState: UIControlState.Normal)
             facebookButton.removeTarget(nil, action: nil, forControlEvents: UIControlEvents.AllEvents)
             facebookButton.addTarget(self, action: "facebookConnect:", forControlEvents: UIControlEvents.TouchUpInside)
             
-        } else if (status == 501) {
+        } else if (error.errorCode == 501) {
             
             //new user
             println("New User")
-
+            
             
         }
         
@@ -133,13 +138,13 @@ class LoginViewController: UIViewController {
      
     @IBAction func login(sender: AnyObject) {
         
-        Cocoon.requestManager.sendRequest("/user/login/auth/", parameters: ["username": usernameField.text, "password": passwordField.text.sha1()], responseHandler: handleLoginResponse)
+        Cocoon.requestManager.sendRequest("/user/login/auth/", parameters: ["username": usernameField.text, "password": passwordField.text.sha1()], responseHandler: handleLoginResponse, errorHandler: handleLoginError)
         
     }
     
-    func handleLoginResponse(data: NSMutableDictionary, status: Int) {
+    func handleLoginResponse(response: Response) {
         
-        if status == 200 {
+        if response.content != nil {
         
             if let token = data["access-token"] as? String {
                
@@ -163,9 +168,15 @@ class LoginViewController: UIViewController {
             
         } else {
             
-            println("Login Failed")
+            println("No Token Received")
             
         }
+        
+    }
+    
+    func handleLoginError(error: Error) {
+
+        println("Login Failed: \(error.errorCode)")
         
     }
         

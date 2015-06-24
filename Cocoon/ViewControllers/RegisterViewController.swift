@@ -34,33 +34,37 @@ class RegisterViewController: UIViewController {
         }
         
         //send register request
-        Cocoon.requestManager.sendRequest("/user/register/", parameters: ["register-email": email.text, "register-password": password.text.sha1(), "register-first-name": firstName.text, "register-last-name": lastName.text], responseHandler: handleRegisterResponse)
+        Cocoon.requestManager.sendRequest("/user/register/", parameters: ["register-email": email.text, "register-password": password.text.sha1(), "register-first-name": firstName.text, "register-last-name": lastName.text], responseHandler: handleRegisterResponse, errorHandler: handleRegisterError)
         
         //maybe loading gif?
     }
     
-    func handleRegisterResponse(data: NSMutableDictionary, status: Int) {
+    func handleRegisterResponse(response: Response) {
         
-        if status == 200 {
+        if response.content != nil {
            
-            let token = data["access-token"] as! String;
+            let token = response.content!["access-token"] as! String;
             println("The access token is: " + token)
             
             Cocoon.user = User(username: email.text, accessToken: token)
             Cocoon.user?.firstName = firstName.text
             Cocoon.user?.lastName = lastName.text
             Cocoon.user?.saveAuthentication()
-            NSOperationQueue.mainQueue().addOperationWithBlock {
 
                 (self.navigationController as! NavigationController).pushView("register.1")
             
-            }
             
         } else {
             
-            println("Failed to parse access-token, status: \(status)")
+            println("Failed to parse access-token")
             
         }
+        
+    }
+    
+    func handleRegisterError(error: Error) {
+        
+        println("Failed to register: \(error.errorCode)")
         
     }
 
