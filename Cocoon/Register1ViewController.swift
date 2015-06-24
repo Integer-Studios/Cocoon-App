@@ -24,9 +24,11 @@ class Register1ViewController: UIViewController {
     @IBAction func newFamily(sender: AnyObject) {
         
         //register family request
-        Cocoon.requestManager.sendRequest("/family/register/", parameters: ["name": ""], responseHandler: handleFamilyRegisterResponse)
-        
-        NSOperationQueue.mainQueue().addOperationWithBlock {
+        if (Cocoon.user != nil) {
+            
+            Cocoon.requestManager.sendRequest("/family/register/", parameters: ["name": Cocoon.user!.lastName, "relationship": "father"], responseHandler: handleFamilyRegisterResponse)
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock {
             
                 Cocoon.setRootViewController("navigation")
             
