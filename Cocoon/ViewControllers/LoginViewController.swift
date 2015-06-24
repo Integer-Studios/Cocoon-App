@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func facebookLogin(sender: AnyObject) {
-        
+
         FBSDKLoginManager().logInWithReadPermissions(self.facebookReadPermissions, handler: { (result:FBSDKLoginManagerLoginResult!, error:NSError!) -> Void in
             if error != nil {
                 //According to Facebook:

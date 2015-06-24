@@ -21,6 +21,7 @@ class ResponseManager {
             
         } else {
             var dataString = NSString(data: data, encoding:NSUTF8StringEncoding)
+//            println(dataString)
             var jsonError: NSError?
             let returnData = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as! NSDictionary
             if jsonError != nil {
