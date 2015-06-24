@@ -47,39 +47,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    // Cocoon
-//    
-//    func determineRootViewController() {
-//        
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        var login = storyboard.instantiateViewControllerWithIdentifier("login") as! LoginViewController
-//        var nav = storyboard.instantiateViewControllerWithIdentifier("navigation") as! UIViewController
-//        
-//        if checkAuthentication() {
-//            
-//            self.window?.rootViewController = nav
-//            
-//        } else {
-//            
-//            self.window?.rootViewController = login
-//            
-//        }
-//    }
-//    
-//    func checkAuthentication() -> Bool {
-//        
-//        if NSUserDefaults.standardUserDefaults().boolForKey("authenticated") {
-//            
-//            println(keychain.myObjectForKey("v_Data") as? String)
-//            return true
-//            
-//        } else {
-//            
-//            return false
-//            
-//        }
-//            
-//    }
-    
 }
 
