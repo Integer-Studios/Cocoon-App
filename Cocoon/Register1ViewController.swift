@@ -26,7 +26,7 @@ class Register1ViewController: UIViewController {
         //register family request
         if (Cocoon.user != nil) {
             
-            Cocoon.requestManager.sendRequest("/family/register/", parameters: ["name": Cocoon.user!.lastName, "relationship": "father"], responseHandler: handleFamilyRegisterResponse)
+            Cocoon.requestManager.sendRequest("/family/register/", parameters: ["name": Cocoon.user!.lastName, "relationship": "father"], responseHandler: handleFamilyRegisterResponse, errorHandler: handleFamilyRegisterError)
             
             NSOperationQueue.mainQueue().addOperationWithBlock {
             
@@ -45,15 +45,15 @@ class Register1ViewController: UIViewController {
         
     }
     
-    func handleFamilyRegisterResponse(data: NSMutableDictionary, status: Int) {
+    func handleFamilyRegisterResponse(response: Response) {
         
-        if status == 200 {
-            NSOperationQueue.mainQueue().addOperationWithBlock {
-                Cocoon.setRootViewController("navigation")
-            }
-        } else {
-            println("Server Error: \(status)")
-        }
+        Cocoon.setRootViewController("navigation")
+        
+    }
+    
+    func handleFamilyRegisterError(error: Error) {
+        
+        println("Server Error: \(error.errorCode)")
         
     }
 

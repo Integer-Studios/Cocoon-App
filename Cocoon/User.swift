@@ -26,18 +26,18 @@ class User {
     
     func loadInfo() {
 
-        Cocoon.requestManager.sendRequest("/user/info/", parameters: ["":""], responseHandler: handleInfoResponse)
+        Cocoon.requestManager.sendRequest("/user/info/", parameters: ["":""], responseHandler: handleInfoResponse, errorHandler: handleInfoError)
         
     }
     
-    func handleInfoResponse(data : NSMutableDictionary, status: Int) {
+    func handleInfoResponse(response: Response) {
         
-        if (status == 200) {
+        if (response.content != nil) {
             
-            firstName = data["first-name"] as! String
-            lastName = data["last-name"] as! String
+            firstName = response.content!["first-name"] as! String
+            lastName = response.content!["last-name"] as! String
 
-            let kidsResponse = data["kids"] as! NSArray
+            let kidsResponse = response.content!["kids"] as! NSArray
             
             for kidObject in kidsResponse {
                 
@@ -50,15 +50,18 @@ class User {
                         
         } else {
             
-            deauthenticate()
-            Cocoon.user = nil
-            NSOperationQueue.mainQueue().addOperationWithBlock {
-                
-                Cocoon.setRootViewController("navigation")
-                
-            }
+            println("No content")
             
         }
+        
+    }
+    
+    func handleInfoError(error: Error) {
+        
+        deauthenticate()
+        Cocoon.user = nil
+        
+        Cocoon.setRootViewController("navigation")
         
     }
     
