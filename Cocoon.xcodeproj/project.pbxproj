@@ -31,6 +31,7 @@
 		F6431D601B3A19E300BBD20D /* Register2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6431D5F1B3A19E300BBD20D /* Register2ViewController.swift */; };
 		F66B48CE1B3B48A5006FD3EA /* LoadingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66B48CD1B3B48A5006FD3EA /* LoadingTableViewController.swift */; };
 		F6C954491B3B5B0200B07C1B /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C954481B3B5B0200B07C1B /* Link.swift */; };
+		F6C9544D1B3C758900B07C1B /* RegisterKidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C9544C1B3C758900B07C1B /* RegisterKidViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		F6431D5F1B3A19E300BBD20D /* Register2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Register2ViewController.swift; path = ViewControllers/Register2ViewController.swift; sourceTree = "<group>"; };
 		F66B48CD1B3B48A5006FD3EA /* LoadingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingTableViewController.swift; path = ViewControllers/LoadingTableViewController.swift; sourceTree = "<group>"; };
 		F6C954481B3B5B0200B07C1B /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
+		F6C9544C1B3C758900B07C1B /* RegisterKidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterKidViewController.swift; path = ViewControllers/RegisterKidViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				F6431D5D1B3A19CB00BBD20D /* Register1ViewController.swift */,
 				F6431D5F1B3A19E300BBD20D /* Register2ViewController.swift */,
 				F66B48CD1B3B48A5006FD3EA /* LoadingTableViewController.swift */,
+				F6C9544C1B3C758900B07C1B /* RegisterKidViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				F6431D601B3A19E300BBD20D /* Register2ViewController.swift in Sources */,
 				E419C84E1B387B980015FCC2 /* TodoViewController.swift in Sources */,
 				E419C84B1B3877DE0015FCC2 /* RequestManager.swift in Sources */,
+				F6C9544D1B3C758900B07C1B /* RegisterKidViewController.swift in Sources */,
 				F628BF1B1B38B054005E4002 /* SWRevealViewController.m in Sources */,
 				F628BF1D1B38B23E005E4002 /* MenuViewController.swift in Sources */,
 				F628BF231B38C70C005E4002 /* Cocoon.swift in Sources */,

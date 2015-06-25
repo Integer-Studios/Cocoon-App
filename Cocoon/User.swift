@@ -103,22 +103,22 @@ class User {
             Cocoon.menuItems.append(kid)
         }
         
-       Cocoon.menuItems.append(Link(id: 0, type: "default", displayName: "Family"))
+       Cocoon.menuItems.append(Link(id: 0, type: "menu", displayName: "Family"))
         
         for friend in friends {
             Cocoon.menuItems.append(friend)
         }
         
-        Cocoon.menuItems.append(Link(id: 1, type: "default", displayName: "Friends"))
+        Cocoon.menuItems.append(Link(id: 1, type: "menu", displayName: "Friends"))
         
         for group in groups {
             Cocoon.menuItems.append(group)
         }
         
-        Cocoon.menuItems.append(Link(id: 2, type: "default", displayName: "Groups"))
+        Cocoon.menuItems.append(Link(id: 2, type: "menu", displayName: "Groups"))
 
-        Cocoon.menuItems.append(Link(id: 3, type: "default", displayName: "Settings"))
-        Cocoon.menuItems.append(Link(id: 4, type: "default", displayName: "Invite"))
+        Cocoon.menuItems.append(Link(id: 3, type: "menu", displayName: "Settings"))
+        Cocoon.menuItems.append(Link(id: 4, type: "menu", displayName: "Invite"))
         
         Cocoon.reloadMenu()
     }

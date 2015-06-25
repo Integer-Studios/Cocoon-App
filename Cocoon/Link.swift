@@ -22,6 +22,43 @@ class Link {
         
     }
     
+    func open(viewController: UIViewController) {
+        switch type {
+        case "kid":
+            break
+        case "family":
+            break
+        case "friend":
+            break
+        case "group":
+            break
+        case "menu":
+            handleMenuLink(viewController)
+            break
+        case "family.menu":
+            handleFamilyLink(viewController)
+            break
+        default:
+            break
+        }
+    }
+    
+    func handleMenuLink(viewController: UIViewController) {
+        viewController.performSegueWithIdentifier("push\(id)", sender: nil)
+    }
+    
+    func handleFamilyLink(viewController: UIViewController) {
+        switch id {
+        case 0:
+            //add kid
+            (viewController.navigationController as! NavigationController).pushView("registerKid")
+            println("so you want to add a kid...")
+            break
+        default:
+            break
+        }
+    }
+    
     static func unwrapKid(kid : NSMutableDictionary) -> Link {
         return Link(id: (kid["id"] as! String).toInt()!, type: "kid", displayName: kid["first-name"] as! String)
     }

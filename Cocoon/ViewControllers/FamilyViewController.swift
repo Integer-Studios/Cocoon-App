@@ -29,7 +29,7 @@ class FamilyViewController: LoadingTableViewController {
             
         }
         
-        self.items.append(Link(id: 0, type : "default", displayName: "Add a Kid"))
+        self.items.append(Link(id: 0, type : "family.menu", displayName: "Add a Kid"))
         
         super.handleTableResponse(response)
     }

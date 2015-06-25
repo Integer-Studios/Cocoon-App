@@ -37,18 +37,8 @@ class MenuViewController: UITableViewController, UITableViewDataSource, UITableV
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let id = Cocoon.menuItems[indexPath.row].id
-        let type = Cocoon.menuItems[indexPath.row].type
-        let displayName = Cocoon.menuItems[indexPath.row].displayName
-        
-        if type == "default" {
-            
-            performSegueWithIdentifier("push\(id)", sender: nil)
-            
-        } else if type == "kid" {
-            //open kid with (id)
-            println(id)
-        }
+        Cocoon.menuItems[indexPath.row].open(self)
+
     }
 
 }

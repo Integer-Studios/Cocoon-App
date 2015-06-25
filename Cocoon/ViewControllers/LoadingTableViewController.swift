@@ -42,7 +42,7 @@ class LoadingTableViewController: UITableViewController, UITableViewDataSource, 
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        println("selected: \(items[indexPath.row])")
+        items[indexPath.row].open(self)
         
     }
     
