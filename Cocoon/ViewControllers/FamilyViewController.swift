@@ -14,14 +14,26 @@ class FamilyViewController: LoadingTableViewController {
         
         
         super.viewDidLoad()
-
+//        if let fam = Cocoon.user?.getFamily() {
+//            self.requestData("/family/info/", parameters: ["family": fam.id] )
+//        }
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        println("Loading")
         if let fam = Cocoon.user?.getFamily() {
             self.requestData("/family/info/", parameters: ["family": fam.id] )
         }
         
     }
     
+    
     override func handleTableResponse(response: Response) {
+        
+        self.items.removeAll(keepCapacity: false)
         
         for kidObject in response.content!["kids"] as! NSArray {
             

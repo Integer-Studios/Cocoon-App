@@ -14,6 +14,12 @@ class MenuViewController: UITableViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "menuCell")
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        self.tableView.reloadData()
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

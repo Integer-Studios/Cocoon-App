@@ -20,6 +20,7 @@ class User {
     var firstName: String = ""
     var lastName: String = ""
     var facebook: Bool = false
+    var infoCallback: (() -> ())?
     
     init (username: String, accessToken: String) {
         
@@ -27,8 +28,9 @@ class User {
         
     }
     
-    func loadInfo() {
+    func loadInfo(callback:(() -> ())?) {
         
+        infoCallback = callback
         Cocoon.requestManager.sendRequest("/user/info/", parameters: ["":""], responseHandler: handleInfoResponse, errorHandler: handleInfoError)
         
     }
@@ -55,7 +57,8 @@ class User {
             
             firstName = response.content!["first-name"] as! String
             lastName = response.content!["last-name"] as! String
-
+            kids = [];
+            families = [];
             let kidsResponse = response.content!["kids"] as! NSArray
             
             for kidObject in kidsResponse {
@@ -76,6 +79,14 @@ class User {
             //or load from data
             
             updateMenuItems()
+            
+            println("Reloaded Data")
+            
+            if (infoCallback != nil) {
+                
+                infoCallback!()
+                
+            }
                         
         } else {
             
@@ -97,10 +108,10 @@ class User {
     func updateMenuItems() {
         
         Cocoon.menuItems = [];
-        
-        
+        println("KIDS LOADING")
         for kid in kids {
             Cocoon.menuItems.append(kid)
+            
         }
         
        Cocoon.menuItems.append(Link(id: 0, type: "menu", displayName: "Family"))
@@ -119,8 +130,7 @@ class User {
 
         Cocoon.menuItems.append(Link(id: 3, type: "menu", displayName: "Settings"))
         Cocoon.menuItems.append(Link(id: 4, type: "menu", displayName: "Invite"))
-        
-        Cocoon.reloadMenu()
+
     }
     
     func saveAuthentication() {
