@@ -79,6 +79,12 @@ class User {
             //or load from data
             
             Cocoon.updateMenu()
+            
+            if (infoCallback != nil) {
+                
+                infoCallback!()
+                
+            }
                         
         } else {
             
@@ -96,7 +102,7 @@ class User {
         Cocoon.pushMain()
         
     }
-        
+    
     func saveAuthentication() {
         
         Cocoon.keychain.mySetObject(authentication.accessToken, forKey:kSecValueData)

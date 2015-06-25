@@ -101,10 +101,9 @@ class Cocoon {
         menuItems.append(Link(id: 3, type: "menu", displayName: "Settings"))
         menuItems.append(Link(id: 4, type: "menu", displayName: "Invite"))
         
-        println("Reloading Menu")
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let menuView = storyboard.instantiateViewControllerWithIdentifier("menu") as! MenuViewController
-//    
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let menuView = storyboard.instantiateViewControllerWithIdentifier("menu") as! MenuViewController
+        
     }
     
 }
