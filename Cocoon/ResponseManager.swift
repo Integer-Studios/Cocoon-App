@@ -35,6 +35,11 @@ class ResponseManager {
                 
             } else  {
                 
+                if request.debug {
+                    
+                    println("Received Response from Server: \(returnData.description)")
+                    
+                }
                 if let status: Int = (returnData["status"] as! String).toInt() {
                     
                     let errorHeader: String? = (returnData["error-header"] as? String)

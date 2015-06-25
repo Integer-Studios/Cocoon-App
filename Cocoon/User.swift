@@ -20,6 +20,7 @@ class User {
     var firstName: String = ""
     var lastName: String = ""
     var facebook: Bool = false
+    var infoCallback: (() -> ())?
     
     init (username: String, accessToken: String) {
         
@@ -27,8 +28,9 @@ class User {
         
     }
     
-    func loadInfo() {
+    func loadInfo(callback:(() -> ())?) {
         
+        infoCallback = callback
         Cocoon.requestManager.sendRequest("/user/info/", parameters: ["":""], responseHandler: handleInfoResponse, errorHandler: handleInfoError)
         
     }
@@ -55,7 +57,8 @@ class User {
             
             firstName = response.content!["first-name"] as! String
             lastName = response.content!["last-name"] as! String
-
+            kids = [];
+            families = [];
             let kidsResponse = response.content!["kids"] as! NSArray
             
             for kidObject in kidsResponse {

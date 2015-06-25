@@ -156,7 +156,7 @@ class LoginViewController: UIViewController {
                 
                 Cocoon.user = User(username: usernameField.text, accessToken: token)
                 Cocoon.user?.saveAuthentication()
-                Cocoon.user?.loadInfo()
+                Cocoon.user?.loadInfo(nil)
                 
             } else {
                 

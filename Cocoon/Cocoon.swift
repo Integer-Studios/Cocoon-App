@@ -30,7 +30,7 @@ class Cocoon {
             if (NSUserDefaults.standardUserDefaults().boolForKey("facebook")) {
                 user?.facebook = true
             }
-            user?.loadInfo()
+            user?.loadInfo(nil)
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
@@ -101,10 +101,10 @@ class Cocoon {
         menuItems.append(Link(id: 3, type: "menu", displayName: "Settings"))
         menuItems.append(Link(id: 4, type: "menu", displayName: "Invite"))
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let menuView = storyboard.instantiateViewControllerWithIdentifier("menu") as! MenuViewController
-        menuView.tableView.reloadData()
-        
+        println("Reloading Menu")
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let menuView = storyboard.instantiateViewControllerWithIdentifier("menu") as! MenuViewController
+//    
     }
     
 }
