@@ -25,12 +25,19 @@ class Link {
     func open(viewController: UIViewController) {
         switch type {
         case "kid":
+            openKid(viewController)
             break
         case "family":
+            openFamily(viewController)
             break
         case "friend":
+            openFriend(viewController)
             break
         case "group":
+            openGroup(viewController)
+            break
+        case "vehicle":
+            openVehicle(viewController)
             break
         case "menu":
             handleMenuLink(viewController)
@@ -39,6 +46,8 @@ class Link {
             handleFamilyLink(viewController)
             break
         default:
+            print("No handler for link type: ")
+            println(self.type)
             break
         }
     }
@@ -54,9 +63,42 @@ class Link {
             (viewController.navigationController as! NavigationController).pushView("registerKid")
             println("so you want to add a kid...")
             break
+        case 1:
+            //add car
+            (viewController.navigationController as! NavigationController).pushView("registerVehicle")
+            println("so you want to add a car...")
+            break
         default:
             break
         }
+    }
+    
+    func openKid(viewController: UIViewController) {
+        println("open kid stub")
+        if viewController is MenuViewController {
+            
+            //figure this out
+            
+        } else if viewController is FamilyViewController  {
+            (viewController.navigationController as! NavigationController).pushView("kid")
+        }
+    }
+    
+    func openFamily(viewController: UIViewController) {
+        println("open family stub")
+    }
+    
+    func openFriend(viewController: UIViewController) {
+        println("open friend stub")
+    }
+    
+    func openGroup(viewController: UIViewController) {
+        println("open group stub")
+    }
+    
+    func openVehicle(viewController: UIViewController) {
+        println("open vehicle stub")
+        (viewController.navigationController as! NavigationController).pushView("vehicle")
     }
     
     static func unwrapKid(kid : NSMutableDictionary) -> Link {
@@ -73,5 +115,9 @@ class Link {
     
     static func unwrapGroup(group : NSMutableDictionary) -> Link {
         return Link(id: (group["id"] as! String).toInt()!, type: "group", displayName: group["name"] as! String)
+    }
+    
+    static func unwrapVehicle(vehicle : NSMutableDictionary) -> Link {
+        return Link(id: (vehicle["id"] as! String).toInt()!, type: "vehicle", displayName: vehicle["name"] as! String)
     }
 }

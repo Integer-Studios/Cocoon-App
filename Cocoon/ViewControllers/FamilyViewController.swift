@@ -16,7 +16,7 @@ class FamilyViewController: LoadingTableViewController {
         super.viewDidLoad()
 
         if let fam = Cocoon.user?.getFamily() {
-            self.requestData("/family/info/", parameters: ["family": fam.id] )
+            requestData("/family/info/", parameters: ["family": fam.id] )
         }
         
     }
@@ -25,11 +25,19 @@ class FamilyViewController: LoadingTableViewController {
         
         for kidObject in response.content!["kids"] as! NSArray {
             
-            self.items.append(Link.unwrapKid(kidObject as! NSMutableDictionary))
+            items.append(Link.unwrapKid(kidObject as! NSMutableDictionary))
             
         }
         
-        self.items.append(Link(id: 0, type : "family.menu", displayName: "Add a Kid"))
+        items.append(Link(id: 0, type : "family.menu", displayName: "Add a Kid"))
+        
+//        for vehicleObject in response.content!["vehicles"] as! NSArray {
+//            
+//            items.append(Link.unwrapVehicle(vehicleObject as! NSMutableDictionary))
+//            
+//        }
+        
+        items.append(Link(id: 1, type : "family.menu", displayName: "Add a Vehicle"))
         
         super.handleTableResponse(response)
     }
@@ -42,7 +50,7 @@ class FamilyViewController: LoadingTableViewController {
 
     @IBAction func close(sender: AnyObject) {
         
-        self.navigationController!.dismissViewControllerAnimated(true, completion: nil)
+        navigationController!.dismissViewControllerAnimated(true, completion: nil)
         
     }
     

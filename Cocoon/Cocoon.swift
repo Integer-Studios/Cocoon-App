@@ -76,7 +76,30 @@ class Cocoon {
         
     }
     
-    static func reloadMenu() {
+    static func updateMenu() {
+        
+        menuItems = [];
+        
+        for kid in user!.kids {
+            menuItems.append(kid)
+        }
+        
+        menuItems.append(Link(id: 0, type: "menu", displayName: "Family"))
+        
+        for friend in user!.friends {
+            Cocoon.menuItems.append(friend)
+        }
+        
+        menuItems.append(Link(id: 1, type: "menu", displayName: "Friends"))
+        
+        for group in user!.groups {
+            menuItems.append(group)
+        }
+        
+        menuItems.append(Link(id: 2, type: "menu", displayName: "Groups"))
+        
+        menuItems.append(Link(id: 3, type: "menu", displayName: "Settings"))
+        menuItems.append(Link(id: 4, type: "menu", displayName: "Invite"))
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let menuView = storyboard.instantiateViewControllerWithIdentifier("menu") as! MenuViewController

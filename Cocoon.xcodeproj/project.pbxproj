@@ -32,6 +32,9 @@
 		F66B48CE1B3B48A5006FD3EA /* LoadingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66B48CD1B3B48A5006FD3EA /* LoadingTableViewController.swift */; };
 		F6C954491B3B5B0200B07C1B /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C954481B3B5B0200B07C1B /* Link.swift */; };
 		F6C9544D1B3C758900B07C1B /* RegisterKidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C9544C1B3C758900B07C1B /* RegisterKidViewController.swift */; };
+		F6C9544F1B3C798C00B07C1B /* RegisterVehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C9544E1B3C798C00B07C1B /* RegisterVehicleViewController.swift */; };
+		F6C954511B3C7A6000B07C1B /* KidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C954501B3C7A6000B07C1B /* KidViewController.swift */; };
+		F6C954531B3C7A6D00B07C1B /* VehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C954521B3C7A6D00B07C1B /* VehicleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,9 @@
 		F66B48CD1B3B48A5006FD3EA /* LoadingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingTableViewController.swift; path = ViewControllers/LoadingTableViewController.swift; sourceTree = "<group>"; };
 		F6C954481B3B5B0200B07C1B /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		F6C9544C1B3C758900B07C1B /* RegisterKidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterKidViewController.swift; path = ViewControllers/RegisterKidViewController.swift; sourceTree = "<group>"; };
+		F6C9544E1B3C798C00B07C1B /* RegisterVehicleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterVehicleViewController.swift; path = ViewControllers/RegisterVehicleViewController.swift; sourceTree = "<group>"; };
+		F6C954501B3C7A6000B07C1B /* KidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KidViewController.swift; sourceTree = "<group>"; };
+		F6C954521B3C7A6D00B07C1B /* VehicleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +186,9 @@
 				F6431D5F1B3A19E300BBD20D /* Register2ViewController.swift */,
 				F66B48CD1B3B48A5006FD3EA /* LoadingTableViewController.swift */,
 				F6C9544C1B3C758900B07C1B /* RegisterKidViewController.swift */,
+				F6C9544E1B3C798C00B07C1B /* RegisterVehicleViewController.swift */,
+				F6C954501B3C7A6000B07C1B /* KidViewController.swift */,
+				F6C954521B3C7A6D00B07C1B /* VehicleViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -296,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6C954491B3B5B0200B07C1B /* Link.swift in Sources */,
+				F6C954531B3C7A6D00B07C1B /* VehicleViewController.swift in Sources */,
 				F6431D601B3A19E300BBD20D /* Register2ViewController.swift in Sources */,
 				E419C84E1B387B980015FCC2 /* TodoViewController.swift in Sources */,
 				E419C84B1B3877DE0015FCC2 /* RequestManager.swift in Sources */,
@@ -304,7 +314,9 @@
 				F628BF1D1B38B23E005E4002 /* MenuViewController.swift in Sources */,
 				F628BF231B38C70C005E4002 /* Cocoon.swift in Sources */,
 				F6431D5C1B3A172700BBD20D /* NavigationController.swift in Sources */,
+				F6C954511B3C7A6000B07C1B /* KidViewController.swift in Sources */,
 				F6431D561B39FCFC00BBD20D /* FamilyViewController.swift in Sources */,
+				F6C9544F1B3C798C00B07C1B /* RegisterVehicleViewController.swift in Sources */,
 				E419C8521B3880BF0015FCC2 /* KeychainWrapper.m in Sources */,
 				F66B48CE1B3B48A5006FD3EA /* LoadingTableViewController.swift in Sources */,
 				F628BEDD1B3884CB005E4002 /* RegisterViewController.swift in Sources */,

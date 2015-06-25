@@ -121,6 +121,9 @@
                     </navigationItem>
                     <connections>
                         <segue destination="s4o-2a-5RX" kind="show" id="WIA-24-DB5"/>
+                        <segue destination="UYi-j3-1f5" kind="show" id="ByH-hf-YHJ"/>
+                        <segue destination="cHF-yC-NIi" kind="show" id="jMl-fj-Qj5"/>
+                        <segue destination="fvX-3v-ALC" kind="show" id="WvX-Ve-vyi"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cEg-m0-DS2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -156,6 +159,96 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5pC-fL-60e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2036" y="1436"/>
+        </scene>
+        <!--Register Vehicle View Controller-->
+        <scene sceneID="2J5-Mf-19n">
+            <objects>
+                <viewController storyboardIdentifier="registerVehicle" id="UYi-j3-1f5" customClass="RegisterVehicleViewController" customModule="Cocoon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5va-2P-Iy4"/>
+                        <viewControllerLayoutGuide type="bottom" id="3rQ-xE-8R8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LC8-uy-POi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a Vehicle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNx-4K-tDh">
+                                <rect key="frame" x="248" y="110" width="105" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BNx-4K-tDh" firstAttribute="top" secondItem="5va-2P-Iy4" secondAttribute="bottom" constant="46" id="ByY-uf-x5P"/>
+                            <constraint firstAttribute="centerX" secondItem="BNx-4K-tDh" secondAttribute="centerX" id="jaj-2l-Sdl"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j1A-rH-X7H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2792" y="1443"/>
+        </scene>
+        <!--Kid View Controller-->
+        <scene sceneID="fMs-Zz-t7U">
+            <objects>
+                <viewController storyboardIdentifier="kid" id="cHF-yC-NIi" customClass="KidViewController" customModule="Cocoon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aV0-Ug-C9a"/>
+                        <viewControllerLayoutGuide type="bottom" id="mRo-dX-zQx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rba-AW-yHB">
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some Kid" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RoS-aJ-oqw">
+                                <rect key="frame" x="263" y="70" width="75" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RoS-aJ-oqw" firstAttribute="top" secondItem="aV0-Ug-C9a" secondAttribute="bottom" constant="50" id="Ltp-tk-52h"/>
+                            <constraint firstAttribute="centerX" secondItem="RoS-aJ-oqw" secondAttribute="centerX" id="edn-9n-tYX"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ptZ-Rx-JdS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3564" y="1443"/>
+        </scene>
+        <!--Vehicle View Controller-->
+        <scene sceneID="9en-dY-NSZ">
+            <objects>
+                <viewController storyboardIdentifier="vehicle" id="fvX-3v-ALC" customClass="VehicleViewController" customModule="Cocoon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rRC-qk-CK6"/>
+                        <viewControllerLayoutGuide type="bottom" id="mkM-W6-qMH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="li1-1f-fEJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some Vehicle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUf-OD-4Ux">
+                                <rect key="frame" x="248" y="119" width="104" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="MUf-OD-4Ux" secondAttribute="centerX" id="A8v-xc-cle"/>
+                            <constraint firstItem="MUf-OD-4Ux" firstAttribute="top" secondItem="rRC-qk-CK6" secondAttribute="bottom" constant="55" id="H9N-WM-3IJ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ydk-O6-9wy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4354" y="1443"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="HoK-5Y-Y2t">

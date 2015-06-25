@@ -75,7 +75,7 @@ class User {
             family = families[0]
             //or load from data
             
-            updateMenuItems()
+            Cocoon.updateMenu()
                         
         } else {
             
@@ -93,36 +93,7 @@ class User {
         Cocoon.pushMain()
         
     }
-    
-    func updateMenuItems() {
         
-        Cocoon.menuItems = [];
-        
-        
-        for kid in kids {
-            Cocoon.menuItems.append(kid)
-        }
-        
-       Cocoon.menuItems.append(Link(id: 0, type: "menu", displayName: "Family"))
-        
-        for friend in friends {
-            Cocoon.menuItems.append(friend)
-        }
-        
-        Cocoon.menuItems.append(Link(id: 1, type: "menu", displayName: "Friends"))
-        
-        for group in groups {
-            Cocoon.menuItems.append(group)
-        }
-        
-        Cocoon.menuItems.append(Link(id: 2, type: "menu", displayName: "Groups"))
-
-        Cocoon.menuItems.append(Link(id: 3, type: "menu", displayName: "Settings"))
-        Cocoon.menuItems.append(Link(id: 4, type: "menu", displayName: "Invite"))
-        
-        Cocoon.reloadMenu()
-    }
-    
     func saveAuthentication() {
         
         Cocoon.keychain.mySetObject(authentication.accessToken, forKey:kSecValueData)

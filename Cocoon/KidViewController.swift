@@ -1,14 +1,14 @@
 //
-//  NavigationController.swift
+//  KidViewController.swift
 //  Cocoon
 //
-//  Created by Jake Trefethen on 6/23/15.
+//  Created by Jake Trefethen on 6/25/15.
 //  Copyright (c) 2015 Integer Studios. All rights reserved.
 //
 
 import UIKit
 
-class NavigationController: UINavigationController {
+class KidViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +20,6 @@ class NavigationController: UINavigationController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func pushView(identifier: String) -> UIViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var vc = storyboard.instantiateViewControllerWithIdentifier(identifier) as! UIViewController
-        self.pushViewController(vc, animated: true)
-        return vc
-    }
-    
 
     /*
     // MARK: - Navigation
