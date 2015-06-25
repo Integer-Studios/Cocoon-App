@@ -12,7 +12,6 @@ class User {
     var kids : [Link] = []
     var friends : [Link] = []
     var groups : [Link] = []
-    var menuItems : [Link] = []
     var families : [Link] = []
     
     var family : Link?
@@ -61,8 +60,7 @@ class User {
             
             for kidObject in kidsResponse {
                 
-                var kid = kidObject as! NSMutableDictionary                
-                kids.append(Link(id: (kid["id"] as! String).toInt()!, type: "kid", displayName: kid["first-name"] as! String))
+                kids.append(Link.unwrapKid(kidObject as! NSMutableDictionary))
                 
             }
             
@@ -70,8 +68,7 @@ class User {
             
             for familyObject in familyResponse {
                 
-                var fam = familyObject as! NSMutableDictionary
-                families.append(Link(id: (fam["id"] as! String).toInt()!, type: "family", displayName: fam["name"] as! String))
+                families.append(Link.unwrapFamily(familyObject as! NSMutableDictionary))
                 
             }
             
@@ -93,36 +90,37 @@ class User {
         deauthenticate()
         Cocoon.user = nil
         
-        Cocoon.setRootViewController("main")
+        Cocoon.pushMain()
         
     }
     
     func updateMenuItems() {
         
-        menuItems = [];
+        Cocoon.menuItems = [];
         
         
         for kid in kids {
-            menuItems.append(kid)
+            Cocoon.menuItems.append(kid)
         }
         
-        menuItems.append(Link(id: 0, type: "default", displayName: "Family"))
+       Cocoon.menuItems.append(Link(id: 0, type: "default", displayName: "Family"))
         
         for friend in friends {
-            menuItems.append(friend)
+            Cocoon.menuItems.append(friend)
         }
         
-        menuItems.append(Link(id: 1, type: "default", displayName: "Friends"))
+        Cocoon.menuItems.append(Link(id: 1, type: "default", displayName: "Friends"))
         
         for group in groups {
-            menuItems.append(group)
+            Cocoon.menuItems.append(group)
         }
         
-        menuItems.append(Link(id: 2, type: "default", displayName: "Groups"))
+        Cocoon.menuItems.append(Link(id: 2, type: "default", displayName: "Groups"))
 
-        menuItems.append(Link(id: 3, type: "default", displayName: "Settings"))
-        menuItems.append(Link(id: 4, type: "default", displayName: "Invite"))
+        Cocoon.menuItems.append(Link(id: 3, type: "default", displayName: "Settings"))
+        Cocoon.menuItems.append(Link(id: 4, type: "default", displayName: "Invite"))
         
+        Cocoon.reloadMenu()
     }
     
     func saveAuthentication() {

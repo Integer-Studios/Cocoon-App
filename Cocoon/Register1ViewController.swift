@@ -28,26 +28,19 @@ class Register1ViewController: UIViewController {
             
             Cocoon.requestManager.sendRequest("/family/register/", parameters: ["name": Cocoon.user!.lastName, "relationship": "father"], responseHandler: handleFamilyRegisterResponse, errorHandler: handleFamilyRegisterError)
             
-            NSOperationQueue.mainQueue().addOperationWithBlock {
-            
-                Cocoon.setRootViewController("main")
-            
-            }
-            
         }
     }
 
     @IBAction func existingFamily(sender: AnyObject) {
         
         //existing family stuff?
-        
         (self.navigationController as! NavigationController).pushView("register.2")
         
     }
     
     func handleFamilyRegisterResponse(response: Response) {
         
-        Cocoon.setRootViewController("navigation")
+        Cocoon.pushMain()
         
     }
     

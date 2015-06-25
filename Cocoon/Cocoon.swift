@@ -16,6 +16,7 @@ class Cocoon {
     static var facebook: Facebook?
     static var isAuthenticated = false
     static var user : User?
+    static var menuItems : [Link] = []
     
     static func initializeApplication() {
         
@@ -30,14 +31,25 @@ class Cocoon {
                 user?.facebook = true
             }
             user?.loadInfo()
-            setRootViewController("main")
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            pushMain()
             
         } else {
             
-            setRootViewController("login")
+            pushLogin()
             
         }
         
+    }
+    
+    static func pushMain() {
+        setRootViewController("main")
+    }
+    
+    static func pushLogin() {
+        setRootViewController("login")
     }
     
     static func setRootViewController(identifier: String) {
@@ -64,8 +76,12 @@ class Cocoon {
         
     }
     
-    static func updateMenu() {
-//        menuView?.tableView.reloadData()
+    static func reloadMenu() {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let menuView = storyboard.instantiateViewControllerWithIdentifier("menu") as! MenuViewController
+        menuView.tableView.reloadData()
+        
     }
     
 }
@@ -77,13 +93,5 @@ struct Facebook {
     var lastName: String
     var email: String
     var token: String
-    
-}
-
-struct Link {
-    
-    var id: Int
-    var type: String
-    var displayName: String
     
 }

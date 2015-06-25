@@ -16,20 +16,20 @@ class FamilyViewController: LoadingTableViewController {
         super.viewDidLoad()
 
         if let fam = Cocoon.user?.getFamily() {
-            self.requestData("/family/info", parameters: ["family": fam.id] )
+            self.requestData("/family/info/", parameters: ["family": fam.id] )
         }
         
     }
     
     override func handleTableResponse(response: Response) {
         
-        var kidsResponse = response.content!["kids"] as! NSArray
-        for kidObject in kidsResponse {
+        for kidObject in response.content!["kids"] as! NSArray {
             
-            var kid = kidObject as! NSMutableDictionary
-            self.items.append(Link(id: (kid["id"] as! String).toInt()!, type: "kid", displayName: kid["first-name"] as! String))
+            self.items.append(Link.unwrapKid(kidObject as! NSMutableDictionary))
             
         }
+        
+        self.items.append(Link(id: 0, type : "default", displayName: "Add a Kid"))
         
         super.handleTableResponse(response)
     }

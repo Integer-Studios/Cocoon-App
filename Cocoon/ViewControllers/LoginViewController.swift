@@ -150,7 +150,7 @@ class LoginViewController: UIViewController {
         
             if let token = response.content!["access-token"] as? String {
         
-                Cocoon.setRootViewController("main")
+                Cocoon.pushMain()
                 
                 println("The access token is: " + token)
                 

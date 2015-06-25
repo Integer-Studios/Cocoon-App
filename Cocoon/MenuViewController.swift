@@ -8,12 +8,11 @@
 
 import UIKit
 
-class MenuViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {    
+class MenuViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "menuCell")
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,23 +24,22 @@ class MenuViewController: UITableViewController, UITableViewDataSource, UITableV
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return Cocoon.user!.menuItems.count
+        return Cocoon.menuItems.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("menuCell", forIndexPath: indexPath) as! UITableViewCell
         
-        cell.textLabel?.text = Cocoon.user!.menuItems[indexPath.row].displayName
+        cell.textLabel?.text = Cocoon.menuItems[indexPath.row].displayName
 
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let id = Cocoon.user!.menuItems[indexPath.row].id
-        let type = Cocoon.user!.menuItems[indexPath.row].type
-        let displayName = Cocoon.user!.menuItems[indexPath.row].displayName
+        let id = Cocoon.menuItems[indexPath.row].id
+        let type = Cocoon.menuItems[indexPath.row].type
+        let displayName = Cocoon.menuItems[indexPath.row].displayName
         
         if type == "default" {
             

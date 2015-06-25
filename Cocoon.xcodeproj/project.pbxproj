@@ -30,6 +30,7 @@
 		F6431D5E1B3A19CB00BBD20D /* Register1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6431D5D1B3A19CB00BBD20D /* Register1ViewController.swift */; };
 		F6431D601B3A19E300BBD20D /* Register2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6431D5F1B3A19E300BBD20D /* Register2ViewController.swift */; };
 		F66B48CE1B3B48A5006FD3EA /* LoadingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66B48CD1B3B48A5006FD3EA /* LoadingTableViewController.swift */; };
+		F6C954491B3B5B0200B07C1B /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C954481B3B5B0200B07C1B /* Link.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		F6431D5D1B3A19CB00BBD20D /* Register1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Register1ViewController.swift; sourceTree = "<group>"; };
 		F6431D5F1B3A19E300BBD20D /* Register2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Register2ViewController.swift; path = ViewControllers/Register2ViewController.swift; sourceTree = "<group>"; };
 		F66B48CD1B3B48A5006FD3EA /* LoadingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingTableViewController.swift; path = ViewControllers/LoadingTableViewController.swift; sourceTree = "<group>"; };
+		F6C954481B3B5B0200B07C1B /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				E419C8281B3873720015FCC2 /* LaunchScreen.xib */,
 				E419C81D1B3873710015FCC2 /* Supporting Files */,
 				E419C84F1B3880A50015FCC2 /* Keychain */,
+				F6C954481B3B5B0200B07C1B /* Link.swift */,
 			);
 			path = Cocoon;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6C954491B3B5B0200B07C1B /* Link.swift in Sources */,
 				F6431D601B3A19E300BBD20D /* Register2ViewController.swift in Sources */,
 				E419C84E1B387B980015FCC2 /* TodoViewController.swift in Sources */,
 				E419C84B1B3877DE0015FCC2 /* RequestManager.swift in Sources */,
