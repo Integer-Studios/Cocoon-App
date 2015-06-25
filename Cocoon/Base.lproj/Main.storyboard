@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LLh-FF-u9D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LLh-FF-u9D">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
         <!--To Do-->
@@ -230,10 +230,46 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f9Q-YD-kKz">
+                                <rect key="frame" x="205" y="163" width="190" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="7U2-2Q-Ei0"/>
+                                    <constraint firstAttribute="width" constant="190" id="t3s-QG-LGx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of Seats" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3zg-50-Ot6">
+                                <rect key="frame" x="205" y="201" width="190" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="cMm-Nu-BWF"/>
+                                    <constraint firstAttribute="width" constant="190" id="klf-1T-56P"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="8fY-nt-CMd">
+                                <rect key="frame" x="205" y="239" width="190" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="190" id="HaN-IM-ae8"/>
+                                    <constraint firstAttribute="height" constant="28" id="c5y-a8-Olv"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Sedan"/>
+                                    <segment title="SUV"/>
+                                    <segment title="Minivan"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="3zg-50-Ot6" firstAttribute="centerX" secondItem="f9Q-YD-kKz" secondAttribute="centerX" id="9UN-Hl-NlZ"/>
+                            <constraint firstItem="3zg-50-Ot6" firstAttribute="top" secondItem="f9Q-YD-kKz" secondAttribute="bottom" constant="8" id="BJF-5D-xHM"/>
                             <constraint firstItem="BNx-4K-tDh" firstAttribute="top" secondItem="5va-2P-Iy4" secondAttribute="bottom" constant="46" id="ByY-uf-x5P"/>
+                            <constraint firstItem="f9Q-YD-kKz" firstAttribute="centerX" secondItem="BNx-4K-tDh" secondAttribute="centerX" constant="-0.5" id="D4w-mg-lxR"/>
+                            <constraint firstItem="8fY-nt-CMd" firstAttribute="top" secondItem="3zg-50-Ot6" secondAttribute="bottom" constant="8" id="KLk-2Q-wJb"/>
+                            <constraint firstItem="3zg-50-Ot6" firstAttribute="centerX" secondItem="8fY-nt-CMd" secondAttribute="centerX" id="Lc0-GM-6rV"/>
+                            <constraint firstItem="f9Q-YD-kKz" firstAttribute="top" secondItem="BNx-4K-tDh" secondAttribute="bottom" constant="32" id="MY5-5R-AOz"/>
                             <constraint firstAttribute="centerX" secondItem="BNx-4K-tDh" secondAttribute="centerX" id="jaj-2l-Sdl"/>
                         </constraints>
                     </view>
@@ -254,7 +290,7 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some Kid" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RoS-aJ-oqw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Some Kid" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RoS-aJ-oqw">
                                 <rect key="frame" x="263" y="70" width="75" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
