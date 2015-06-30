@@ -74,28 +74,29 @@ class Link {
     }
     
     func openKid(viewController: UIViewController) {
-        println("open kid stub")
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var vc = storyboard.instantiateViewControllerWithIdentifier("kid") as! UIViewController
-        viewController.presentViewController(vc, animated: true, completion: nil)
+        present(viewController, identifier: "kid")
     }
     
     func openFamily(viewController: UIViewController) {
         println("open family stub")
+        //reload family page with new family data
     }
     
     func openFriend(viewController: UIViewController) {
-        println("open friend stub")
+        present(viewController, identifier: "user")
     }
     
     func openGroup(viewController: UIViewController) {
-        println("open group stub")
+        present(viewController, identifier: "group")
     }
     
     func openVehicle(viewController: UIViewController) {
-        println("open vehicle stub")
+        present(viewController, identifier: "vehicle")
+    }
+    
+    func present(viewController: UIViewController, identifier: String) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var vc = storyboard.instantiateViewControllerWithIdentifier("vehicle") as! UIViewController
+        var vc = storyboard.instantiateViewControllerWithIdentifier(identifier) as! UIViewController
         viewController.presentViewController(vc, animated: true, completion: nil)
     }
     
