@@ -30,7 +30,6 @@ class FamilyViewController: LoadingTableViewController {
     override func viewWillAppear(animated: Bool) {
         
         super.viewWillAppear(animated)
-        println("Loading")
         if let fam = Cocoon.user?.getFamily() {
             requestData("/family/info/", parameters: ["family": fam.id] )
         }

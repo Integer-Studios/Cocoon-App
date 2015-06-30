@@ -46,9 +46,9 @@ class LoadingTableViewController: UITableViewController, UITableViewDataSource, 
         
     }
     
-    func requestData(request: String, parameters : NSMutableDictionary) {
+    func requestData(request: String, parameters : NSMutableDictionary, debug: Bool = false) {
 
-        Cocoon.requestManager.sendRequest(request, parameters: parameters, responseHandler: handleTableResponse, errorHandler: handleTableError)
+        Cocoon.requestManager.sendRequest(request, parameters: parameters, debug: debug, responseHandler: handleTableResponse, errorHandler: handleTableError)
         
     }
     
