@@ -42,9 +42,9 @@ class MenuViewController: UITableViewController, UITableViewDataSource, UITableV
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        Cocoon.menuItems[indexPath.row].open(self)
 
+        Cocoon.menuItems[indexPath.row].open(self)
+        
     }
 
 }
