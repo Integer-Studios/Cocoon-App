@@ -15,8 +15,11 @@ class TodoViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        menuButton.target = self.revealViewController()
-        menuButton.action = Selector("revealToggle:")
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
     }
 
     override func didReceiveMemoryWarning() {

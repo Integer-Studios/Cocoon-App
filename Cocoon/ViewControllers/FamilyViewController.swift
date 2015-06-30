@@ -20,9 +20,11 @@ class FamilyViewController: LoadingTableViewController {
 //            self.requestData("/family/info/", parameters: ["family": fam.id] )
 //        }
         
-        menuButton.target = self.revealViewController()
-        menuButton.action = Selector("revealToggle:")
-        
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
