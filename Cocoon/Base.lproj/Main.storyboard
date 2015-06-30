@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LLh-FF-u9D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LLh-FF-u9D">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--To Do-->
@@ -260,19 +260,36 @@
                                     <segment title="Minivan"/>
                                 </segments>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6Z-4G-fJt">
+                                <rect key="frame" x="283" y="275" width="34" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="registerVehicle:" destination="UYi-j3-1f5" eventType="touchUpInside" id="qdm-m4-Gck"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3zg-50-Ot6" firstAttribute="centerX" secondItem="f9Q-YD-kKz" secondAttribute="centerX" id="9UN-Hl-NlZ"/>
+                            <constraint firstAttribute="centerX" secondItem="U6Z-4G-fJt" secondAttribute="centerX" id="A6v-gI-aFV"/>
                             <constraint firstItem="3zg-50-Ot6" firstAttribute="top" secondItem="f9Q-YD-kKz" secondAttribute="bottom" constant="8" id="BJF-5D-xHM"/>
                             <constraint firstItem="BNx-4K-tDh" firstAttribute="top" secondItem="5va-2P-Iy4" secondAttribute="bottom" constant="46" id="ByY-uf-x5P"/>
                             <constraint firstItem="f9Q-YD-kKz" firstAttribute="centerX" secondItem="BNx-4K-tDh" secondAttribute="centerX" constant="-0.5" id="D4w-mg-lxR"/>
                             <constraint firstItem="8fY-nt-CMd" firstAttribute="top" secondItem="3zg-50-Ot6" secondAttribute="bottom" constant="8" id="KLk-2Q-wJb"/>
                             <constraint firstItem="3zg-50-Ot6" firstAttribute="centerX" secondItem="8fY-nt-CMd" secondAttribute="centerX" id="Lc0-GM-6rV"/>
                             <constraint firstItem="f9Q-YD-kKz" firstAttribute="top" secondItem="BNx-4K-tDh" secondAttribute="bottom" constant="32" id="MY5-5R-AOz"/>
+                            <constraint firstAttribute="centerX" secondItem="3zg-50-Ot6" secondAttribute="centerX" id="Mfl-Hx-1NO"/>
+                            <constraint firstAttribute="centerX" secondItem="f9Q-YD-kKz" secondAttribute="centerX" id="TWd-5A-ICH"/>
                             <constraint firstAttribute="centerX" secondItem="BNx-4K-tDh" secondAttribute="centerX" id="jaj-2l-Sdl"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="name" destination="f9Q-YD-kKz" id="pFI-Tz-Iqj"/>
+                        <outlet property="size" destination="3zg-50-Ot6" id="jhV-wM-SfP"/>
+                        <outlet property="typeSelector" destination="8fY-nt-CMd" id="xAQ-4s-EWn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j1A-rH-X7H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
