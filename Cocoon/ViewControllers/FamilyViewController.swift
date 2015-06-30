@@ -10,6 +10,8 @@ import UIKit
 
 class FamilyViewController: LoadingTableViewController {
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         
         
@@ -17,6 +19,9 @@ class FamilyViewController: LoadingTableViewController {
 //        if let fam = Cocoon.user?.getFamily() {
 //            self.requestData("/family/info/", parameters: ["family": fam.id] )
 //        }
+        
+        menuButton.target = self.revealViewController()
+        menuButton.action = Selector("revealToggle:")
         
     }
     

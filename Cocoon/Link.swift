@@ -75,13 +75,9 @@ class Link {
     
     func openKid(viewController: UIViewController) {
         println("open kid stub")
-        if viewController is MenuViewController {
-            
-            //figure this out
-            
-        } else if viewController is FamilyViewController  {
-            (viewController.navigationController as! NavigationController).pushView("kid")
-        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var vc = storyboard.instantiateViewControllerWithIdentifier("kid") as! UIViewController
+        viewController.presentViewController(vc, animated: true, completion: nil)
     }
     
     func openFamily(viewController: UIViewController) {
@@ -98,7 +94,9 @@ class Link {
     
     func openVehicle(viewController: UIViewController) {
         println("open vehicle stub")
-        (viewController.navigationController as! NavigationController).pushView("vehicle")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var vc = storyboard.instantiateViewControllerWithIdentifier("vehicle") as! UIViewController
+        viewController.presentViewController(vc, animated: true, completion: nil)
     }
     
     static func unwrapKid(kid : NSMutableDictionary) -> Link {
