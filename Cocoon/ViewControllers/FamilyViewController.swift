@@ -64,12 +64,6 @@ class FamilyViewController: LoadingTableViewController {
         super.handleTableError(error)
         
     }
-
-    @IBAction func close(sender: AnyObject) {
-        
-        navigationController!.dismissViewControllerAnimated(true, completion: nil)
-        
-    }
     
 
 }

@@ -21,6 +21,9 @@ class VehicleViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func close(sender: AnyObject) {
+        navigationController!.dismissViewControllerAnimated(true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
