@@ -9,10 +9,13 @@
 import UIKit
 
 class GroupViewController: UIViewController {
+    
+    var id = -1
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("Viewing group with id: ")
+        println(id)
         // Do any additional setup after loading the view.
     }
 
@@ -23,6 +26,10 @@ class GroupViewController: UIViewController {
     
     @IBAction func close(sender: AnyObject) {
             navigationController!.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func setGroup(id: Int) {
+        self.id = id
     }
 
     /*

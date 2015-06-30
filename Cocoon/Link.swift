@@ -45,6 +45,9 @@ class Link {
         case "family.menu":
             handleFamilyLink(viewController)
             break
+        case "groups.menu":
+            handleGroupsLink(viewController)
+            break
         default:
             print("No handler for link type: ")
             println(self.type)
@@ -73,8 +76,26 @@ class Link {
         }
     }
     
+    func handleGroupsLink(viewController: UIViewController) {
+        switch id {
+        case 0:
+            //create a group
+            (viewController.navigationController as! NavigationController).pushView("registerGroup")
+            println("so you want to make a group...")
+            break
+        default:
+            break
+        }
+    }
+    
     func openKid(viewController: UIViewController) {
-        present(viewController, identifier: "kid")
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var nav = storyboard.instantiateViewControllerWithIdentifier("kid") as! UIViewController
+        var vc = nav.childViewControllers[0] as! KidViewController
+        vc.setKid(id)
+        viewController.presentViewController(nav, animated: true, completion: nil)
+        
     }
     
     func openFamily(viewController: UIViewController) {
@@ -83,22 +104,35 @@ class Link {
     }
     
     func openFriend(viewController: UIViewController) {
-        present(viewController, identifier: "user")
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var nav = storyboard.instantiateViewControllerWithIdentifier("user") as! UIViewController
+        var vc = nav.childViewControllers[0] as! UserViewController
+        vc.setUser(id)
+        viewController.presentViewController(nav, animated: true, completion: nil)
+        
     }
     
     func openGroup(viewController: UIViewController) {
-        present(viewController, identifier: "group")
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var nav = storyboard.instantiateViewControllerWithIdentifier("group") as! UIViewController
+        var vc = nav.childViewControllers[0] as! GroupViewController
+        vc.setGroup(id)
+        viewController.presentViewController(nav, animated: true, completion: nil)
+        
     }
     
     func openVehicle(viewController: UIViewController) {
-        present(viewController, identifier: "vehicle")
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var nav = storyboard.instantiateViewControllerWithIdentifier("vehicle") as! UIViewController
+        var vc = nav.childViewControllers[0] as! VehicleViewController
+        vc.setVehicle(id)
+        viewController.presentViewController(nav, animated: true, completion: nil)
+        
     }
     
-    func present(viewController: UIViewController, identifier: String) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var vc = storyboard.instantiateViewControllerWithIdentifier(identifier) as! UIViewController
-        viewController.presentViewController(vc, animated: true, completion: nil)
-    }
     
     static func unwrapKid(kid : NSMutableDictionary) -> Link {
         return Link(id: (kid["id"] as! String).toInt()!, type: "kid", displayName: kid["first-name"] as! String)

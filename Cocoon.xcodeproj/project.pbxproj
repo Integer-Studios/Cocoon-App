@@ -33,6 +33,7 @@
 		F6C0F5A81B433A7600629E02 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C0F5A71B433A7600629E02 /* GroupsViewController.swift */; };
 		F6C0F5AA1B433D7600629E02 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C0F5A91B433D7600629E02 /* GroupViewController.swift */; };
 		F6C0F5AC1B433EE900629E02 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C0F5AB1B433EE900629E02 /* UserViewController.swift */; };
+		F6C0F5AE1B434E3400629E02 /* RegisterGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C0F5AD1B434E3400629E02 /* RegisterGroupViewController.swift */; };
 		F6C954491B3B5B0200B07C1B /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C954481B3B5B0200B07C1B /* Link.swift */; };
 		F6C9544D1B3C758900B07C1B /* RegisterKidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C9544C1B3C758900B07C1B /* RegisterKidViewController.swift */; };
 		F6C9544F1B3C798C00B07C1B /* RegisterVehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C9544E1B3C798C00B07C1B /* RegisterVehicleViewController.swift */; };
@@ -84,6 +85,7 @@
 		F6C0F5A71B433A7600629E02 /* GroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupsViewController.swift; path = ViewControllers/GroupsViewController.swift; sourceTree = "<group>"; };
 		F6C0F5A91B433D7600629E02 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupViewController.swift; path = ViewControllers/GroupViewController.swift; sourceTree = "<group>"; };
 		F6C0F5AB1B433EE900629E02 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserViewController.swift; path = ViewControllers/UserViewController.swift; sourceTree = "<group>"; };
+		F6C0F5AD1B434E3400629E02 /* RegisterGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterGroupViewController.swift; path = ViewControllers/RegisterGroupViewController.swift; sourceTree = "<group>"; };
 		F6C954481B3B5B0200B07C1B /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		F6C9544C1B3C758900B07C1B /* RegisterKidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterKidViewController.swift; path = ViewControllers/RegisterKidViewController.swift; sourceTree = "<group>"; };
 		F6C9544E1B3C798C00B07C1B /* RegisterVehicleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterVehicleViewController.swift; path = ViewControllers/RegisterVehicleViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				F6C0F5A71B433A7600629E02 /* GroupsViewController.swift */,
 				F6C0F5A91B433D7600629E02 /* GroupViewController.swift */,
 				F6C0F5AB1B433EE900629E02 /* UserViewController.swift */,
+				F6C0F5AD1B434E3400629E02 /* RegisterGroupViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				F66B48CE1B3B48A5006FD3EA /* LoadingTableViewController.swift in Sources */,
 				F628BEDD1B3884CB005E4002 /* RegisterViewController.swift in Sources */,
 				F6C0F5A81B433A7600629E02 /* GroupsViewController.swift in Sources */,
+				F6C0F5AE1B434E3400629E02 /* RegisterGroupViewController.swift in Sources */,
 				E46E36241B3B499D00FE92C0 /* ResponseManager.swift in Sources */,
 				E419C8401B3876890015FCC2 /* LoginViewController.swift in Sources */,
 				F6431D5E1B3A19CB00BBD20D /* Register1ViewController.swift in Sources */,
