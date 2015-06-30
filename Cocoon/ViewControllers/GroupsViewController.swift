@@ -25,10 +25,7 @@ class GroupsViewController: LoadingTableViewController {
     override func viewWillAppear(animated: Bool) {
         
         super.viewWillAppear(animated)
-        println("Loading")
-        if let fam = Cocoon.user?.getFamily() {
-            requestData("/family/info/", parameters: ["family": fam.id] )
-        }
+        requestData("/user/groups/", parameters: NSMutableDictionary())
         
     }
     
@@ -37,21 +34,11 @@ class GroupsViewController: LoadingTableViewController {
         
         self.items.removeAll(keepCapacity: false)
         
-        for kidObject in response.content!["kids"] as! NSArray {
+        for groupObject in response.content!["groups"] as! NSArray {
             
-            items.append(Link.unwrapKid(kidObject as! NSMutableDictionary))
-            
-        }
-        
-        items.append(Link(id: 0, type : "family.menu", displayName: "Add a Kid"))
-        
-        for vehicleObject in response.content!["vehicles"] as! NSArray {
-            
-            items.append(Link.unwrapVehicle(vehicleObject as! NSMutableDictionary))
+            items.append(Link.unwrapGroup(groupObject as! NSMutableDictionary))
             
         }
-        
-        items.append(Link(id: 1, type : "family.menu", displayName: "Add a Vehicle"))
         
         super.handleTableResponse(response)
     }
