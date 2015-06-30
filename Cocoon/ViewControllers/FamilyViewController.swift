@@ -48,11 +48,11 @@ class FamilyViewController: LoadingTableViewController {
         
         items.append(Link(id: 0, type : "family.menu", displayName: "Add a Kid"))
         
-//        for vehicleObject in response.content!["vehicles"] as! NSArray {
-//            
-//            items.append(Link.unwrapVehicle(vehicleObject as! NSMutableDictionary))
-//            
-//        }
+        for vehicleObject in response.content!["vehicles"] as! NSArray {
+            
+            items.append(Link.unwrapVehicle(vehicleObject as! NSMutableDictionary))
+            
+        }
         
         items.append(Link(id: 1, type : "family.menu", displayName: "Add a Vehicle"))
         

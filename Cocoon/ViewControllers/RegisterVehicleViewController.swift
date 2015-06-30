@@ -10,6 +10,10 @@ import UIKit
 
 class RegisterVehicleViewController: UIViewController {
 
+    @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var size: UITextField!
+    @IBOutlet weak var typeSelector: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +25,29 @@ class RegisterVehicleViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func registerVehicle(sender: AnyObject) {
+        
+        let familyID = Cocoon.user?.family?.id
+        let params: NSMutableDictionary = [ "name": name.text, "size": size.text]
+        params["family"] = familyID
+        params["type"] = typeSelector.titleForSegmentAtIndex(typeSelector.selectedSegmentIndex)
+        Cocoon.requestManager.sendRequest("/family/vehicles/register/", parameters: params, responseHandler: handleRegisterResponse, errorHandler: handleRegisterError)
 
+        
+    }
+
+    func handleRegisterResponse(response: Response) {
+        
+        self.navigationController!.popViewControllerAnimated(true)
+        
+    }
+    
+    func handleRegisterError(error: Error) {
+        
+        println("Vehicle Register Error")
+        
+    }
+    
     /*
     // MARK: - Navigation
 
