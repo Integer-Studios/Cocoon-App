@@ -13,12 +13,8 @@ class FamilyViewController: LoadingTableViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     override func viewDidLoad() {
-        
-        
+    
         super.viewDidLoad()
-//        if let fam = Cocoon.user?.getFamily() {
-//            self.requestData("/family/info/", parameters: ["family": fam.id] )
-//        }
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
