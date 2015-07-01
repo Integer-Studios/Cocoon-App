@@ -31,7 +31,6 @@ class GroupsViewController: LoadingTableViewController {
         
     }
     
-    
     override func handleTableResponse(response: Response) {
         
         self.items.removeAll(keepCapacity: false)
