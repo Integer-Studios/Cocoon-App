@@ -41,6 +41,8 @@ class GroupsViewController: LoadingTableViewController {
             
         }
         
+        items.append(Link(id: 0, type: "groups.menu", displayName: "Create A Group"))
+        
         super.handleTableResponse(response)
     }
     

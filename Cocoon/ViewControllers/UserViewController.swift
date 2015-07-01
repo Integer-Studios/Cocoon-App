@@ -9,10 +9,13 @@
 import UIKit
 
 class UserViewController: UIViewController {
+    
+    var id = -1
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("Viewing user with id: ")
+        println(id)
         // Do any additional setup after loading the view.
     }
 
@@ -23,6 +26,10 @@ class UserViewController: UIViewController {
     
     @IBAction func close(sender: AnyObject) {
         navigationController!.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func setUser(id: Int) {
+        self.id = id
     }
 
     /*

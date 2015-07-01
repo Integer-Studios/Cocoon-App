@@ -9,10 +9,13 @@
 import UIKit
 
 class KidViewController: UIViewController {
+    
+    var id = -1
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("Viewing kid with id: ")
+        println(id)
         // Do any additional setup after loading the view.
     }
 
@@ -23,6 +26,10 @@ class KidViewController: UIViewController {
     
     @IBAction func close(sender: AnyObject) {
         navigationController!.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func setKid(id: Int) {
+        self.id = id
     }
 
     /*
