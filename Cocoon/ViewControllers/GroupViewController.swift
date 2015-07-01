@@ -54,9 +54,15 @@ class GroupViewController: LoadingTableViewController, UITabBarDelegate {
         headerCell.backgroundColor = UIColor.cyanColor()
         
         headerCell.titleLabel.text = "Ass Fuck"
-
+        headerCell.tabBar.delegate = self;
         
         return headerCell
+    }
+    
+    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
+        
+        println("A")
+        
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LLh-FF-u9D">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--To Do-->
@@ -1062,15 +1063,34 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ocI-wJ-DP4" id="MBX-rZ-IZr">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcp-1Q-Dy7">
-                                            <rect key="frame" x="87" y="13" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcp-1Q-Dy7">
+                                            <rect key="frame" x="80" y="13" width="42" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="42" id="blk-H5-JXv"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iDU-jY-yqq">
+                                            <rect key="frame" x="0.0" y="50" width="600" height="49"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <items>
+                                                <tabBarItem systemItem="more" id="4Lo-w9-ZCi"/>
+                                                <tabBarItem title="Item" id="3w6-YQ-vdC"/>
+                                            </items>
+                                        </tabBar>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="iDU-jY-yqq" firstAttribute="leading" secondItem="MBX-rZ-IZr" secondAttribute="leading" id="4oo-RY-4o2"/>
+                                        <constraint firstAttribute="centerX" secondItem="iDU-jY-yqq" secondAttribute="centerX" id="Kiz-2b-V9S"/>
+                                        <constraint firstAttribute="bottom" secondItem="iDU-jY-yqq" secondAttribute="bottom" id="aTd-ey-bhk"/>
+                                        <constraint firstItem="iDU-jY-yqq" firstAttribute="top" secondItem="tcp-1Q-Dy7" secondAttribute="bottom" constant="16" id="b0p-L5-e1y"/>
+                                        <constraint firstItem="tcp-1Q-Dy7" firstAttribute="leading" secondItem="MBX-rZ-IZr" secondAttribute="leadingMargin" constant="72" id="zqh-a2-azp"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="tabBar" destination="iDU-jY-yqq" id="Tsn-Xl-Bj8"/>
                                     <outlet property="titleLabel" destination="tcp-1Q-Dy7" id="uJb-vZ-1MQ"/>
                                 </connections>
                             </tableViewCell>
@@ -1080,6 +1100,7 @@
                             <outlet property="delegate" destination="j9q-WF-EQG" id="Fh1-PL-Cdn"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="57l-p7-XbE"/>
                     <navigationItem key="navigationItem" title="Group" id="GEM-6D-sIw">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="6yp-EQ-Uxf">
                             <connections>
@@ -1088,6 +1109,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="ws5-YA-PdL"/>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SNx-R6-A6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

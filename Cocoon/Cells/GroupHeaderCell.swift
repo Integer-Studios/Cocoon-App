@@ -11,6 +11,7 @@ import UIKit
 class GroupHeaderCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var tabBar: UITabBar!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,7 +22,6 @@ class GroupHeaderCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
-   
+    }   
 
 }
