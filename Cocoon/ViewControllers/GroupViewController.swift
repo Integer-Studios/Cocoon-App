@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GroupViewController: LoadingTableViewController {
+class GroupViewController: LoadingTableViewController, UITabBarDelegate {
 
     var id = -1
     
@@ -46,6 +46,23 @@ class GroupViewController: LoadingTableViewController {
     
     func setGroup(id: Int) {
         self.id = id
+    }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let  headerCell = tableView.dequeueReusableCellWithIdentifier("GroupHeaderCell") as! GroupHeaderCell
+        headerCell.backgroundColor = UIColor.cyanColor()
+        
+        headerCell.titleLabel.text = "Ass Fuck"
+
+        
+        return headerCell
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+            
+        return 100;
+            
     }
 
     /*
