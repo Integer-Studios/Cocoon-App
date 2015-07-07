@@ -8,15 +8,14 @@
 
 import UIKit
 
-class GroupViewController: LoadingTableViewController {
+class GroupViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var items : [DetailedLink] = []
     var id = -1
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-//        self.tableView.registerClass(EventCell.self, forCellReuseIdentifier: "eventCell")
 
     }
     
@@ -28,8 +27,14 @@ class GroupViewController: LoadingTableViewController {
         
     }
     
+    func requestData(request: String, parameters : NSMutableDictionary, debug: Bool = false) {
+        
+        Cocoon.requestManager.sendRequest(request, parameters: parameters, debug: debug, responseHandler: handleTableResponse, errorHandler: handleTableError)
+        
+    }
     
-    override func handleTableResponse(response: Response) {
+    
+    func handleTableResponse(response: Response) {
         
         items.removeAll(keepCapacity: false)
         
@@ -39,13 +44,18 @@ class GroupViewController: LoadingTableViewController {
             
         }
         
+        self.tableView.reloadData()
         
-        super.handleTableResponse(response)
     }
     
-    override func handleTableError(error: Error) {
+    func handleTableError(error: Error) {
         
-        super.handleTableError(error)
+        
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        return 1
         
     }
     
@@ -67,11 +77,17 @@ class GroupViewController: LoadingTableViewController {
         } else {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as! EventCell
-            cell.title?.text = (items[indexPath.row-1] as! DetailedLink).info[0]
-            cell.date?.text = (items[indexPath.row-1] as! DetailedLink).info[1]
+            cell.title?.text = items[indexPath.row-1].info[0]
+            cell.date?.text = items[indexPath.row-1].info[1]
             return cell
             
         }
+        
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        items[indexPath.row-1].open(self)
         
     }
     
