@@ -39,6 +39,9 @@ class Link {
         case "vehicle":
             openVehicle(viewController)
             break
+        case "post":
+            openPost(viewController)
+            break
         case "menu":
             handleMenuLink(viewController)
             break
@@ -133,6 +136,12 @@ class Link {
         
     }
     
+    func openPost(viewController: UIViewController) {
+        
+        println("No view controller for posts yet!")
+        
+    }
+    
     
     static func unwrapKid(kid : NSMutableDictionary) -> Link {
         return Link(id: (kid["id"] as! String).toInt()!, type: "kid", displayName: kid["first-name"] as! String)
@@ -153,4 +162,21 @@ class Link {
     static func unwrapVehicle(vehicle : NSMutableDictionary) -> Link {
         return Link(id: (vehicle["id"] as! String).toInt()!, type: "vehicle", displayName: vehicle["name"] as! String)
     }
+}
+
+class DetailedLink : Link {
+    
+    var info: [String]
+    
+    init(id : Int, type : String, info: [String]) {
+        
+        self.info = info
+        super.init(id: id, type: type, displayName: "")
+        
+    }
+    
+    static func unwrapEvent(event : NSMutableDictionary) -> DetailedLink {
+        return DetailedLink(id: (event["id"] as! String).toInt()!, type: "event", info: [event["title"] as! String, event["date"] as! String])
+    }
+    
 }

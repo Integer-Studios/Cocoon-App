@@ -31,7 +31,7 @@ class User {
     func loadInfo(callback:(() -> ())?) {
         
         infoCallback = callback
-        Cocoon.requestManager.sendRequest("/user/info/", parameters: ["":""], responseHandler: handleInfoResponse, errorHandler: handleInfoError)
+        Cocoon.requestManager.sendRequest("/user/info/", parameters: ["":""], debug:true, responseHandler: handleInfoResponse, errorHandler: handleInfoError)
         
     }
     
@@ -67,13 +67,9 @@ class User {
                 
             }
             
-            let familyResponse = response.content!["families"] as! NSArray
+            let familyResponse = response.content!["family"] as! NSMutableDictionary
             
-            for familyObject in familyResponse {
-                
-                families.append(Link.unwrapFamily(familyObject as! NSMutableDictionary))
-                
-            }
+            families.append(Link.unwrapFamily(familyResponse))
             
             family = families[0]
             //or load from data

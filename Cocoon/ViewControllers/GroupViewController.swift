@@ -8,35 +8,76 @@
 
 import UIKit
 
-class GroupViewController: LoadingTableViewController, UITabBarDelegate {
-
+class GroupViewController: LoadingTableViewController {
+    
     var id = -1
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        print("Viewing group with id: ")
-        println(id)
-        // Do any additional setup after loading the view.
+        
+//        self.tableView.registerClass(EventCell.self, forCellReuseIdentifier: "eventCell")
+
     }
     
     override func viewWillAppear(animated: Bool) {
         
         super.viewWillAppear(animated)
-        requestData("/group/info/", parameters: ["group": id] )
+        requestData("/group/events/", parameters: ["group": id] )
+        //event[] {id, group, post, location, mandatory (bool), title, description, date}
         
     }
     
+    
     override func handleTableResponse(response: Response) {
         
-        items.append(Link(id: 0, type: "fuck", displayName: "FUCK"))
+        items.removeAll(keepCapacity: false)
+        
+        for eventObject in response.content!["events"] as! NSArray {
+
+            items.append(DetailedLink.unwrapEvent(eventObject as! NSMutableDictionary))
+            
+        }
+        
         
         super.handleTableResponse(response)
-        
     }
     
     override func handleTableError(error: Error) {
         
         super.handleTableError(error)
+        
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        //for the header
+        return items.count + 1
+        
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+        if (indexPath.row == 0) {
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("groupHeaderCell", forIndexPath: indexPath) as! GroupHeaderCell
+            cell.name?.text = "Group Name ??"
+            return cell
+
+        } else {
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as! EventCell
+            cell.title?.text = (items[indexPath.row-1] as! DetailedLink).info[0]
+            cell.date?.text = (items[indexPath.row-1] as! DetailedLink).info[1]
+            return cell
+            
+        }
+        
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+
+        return 60;
         
     }
     
@@ -47,83 +88,5 @@ class GroupViewController: LoadingTableViewController, UITabBarDelegate {
     func setGroup(id: Int) {
         self.id = id
     }
-    
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let  headerCell = tableView.dequeueReusableCellWithIdentifier("GroupHeaderCell") as! GroupHeaderCell
-        headerCell.backgroundColor = UIColor.cyanColor()
-        
-        headerCell.titleLabel.text = "Ass Fuck"
-        headerCell.tabBar.delegate = self;
-        
-        return headerCell
-    }
-    
-    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
-        
-        println("A")
-        
-    }
-    
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-            
-        return 100;
-            
-    }
-
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

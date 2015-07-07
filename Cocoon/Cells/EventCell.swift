@@ -1,16 +1,17 @@
 //
-//  GroupHeaderCell.swift
+//  EventCell.swift
 //  Cocoon
 //
-//  Created by Quinn Finney on 7/1/15.
+//  Created by Jake Trefethen on 7/6/15.
 //  Copyright (c) 2015 Integer Studios. All rights reserved.
 //
 
 import UIKit
 
-class GroupHeaderCell: UITableViewCell {
+class EventCell: UITableViewCell {
 
-    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var date: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +22,6 @@ class GroupHeaderCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }   
+    }
 
 }
