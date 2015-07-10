@@ -29,6 +29,7 @@ class Cocoon {
             user = User(username: username!, accessToken: token!);
             if (NSUserDefaults.standardUserDefaults().boolForKey("facebook")) {
                 user?.facebook = true
+                println("A")
             }
             user?.loadInfo(nil)
             

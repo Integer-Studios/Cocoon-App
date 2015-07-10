@@ -43,14 +43,8 @@ class TodoViewController: UITableViewController {
     
     @IBAction func logout(sender: AnyObject) {
         
-        Cocoon.user?.deauthenticate()
-        Cocoon.user = nil;
-        
-        NSOperationQueue.mainQueue().addOperationWithBlock {
-            
-            Cocoon.setRootViewController("login")
-            
-        }
+        Cocoon.user?.logout()
+        Cocoon.user = nil;        
         
     }
 

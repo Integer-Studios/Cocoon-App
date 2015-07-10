@@ -95,7 +95,11 @@ class User {
         deauthenticate()
         Cocoon.user = nil
         
-        Cocoon.pushMain()
+        NSOperationQueue.mainQueue().addOperationWithBlock {
+            
+            Cocoon.setRootViewController("login")
+            
+        }
         
     }
     
@@ -119,6 +123,46 @@ class User {
         NSUserDefaults.standardUserDefaults().setBool(false, forKey: "facebook")
         NSUserDefaults.standardUserDefaults().synchronize()
         
+        
+    }
+    
+    func logout() {
+        
+        if (self.facebook) {
+            
+            FBSDKLoginManager().logOut()
+            Cocoon.requestManager.sendRequest("/user/facebook/logout/", parameters: ["":""],  responseHandler: handleLogoutResponse, errorHandler: handleLogoutError)
+            
+        } else {
+            
+            Cocoon.requestManager.sendRequest("/user/logout/", parameters: ["":""], responseHandler: handleLogoutResponse, errorHandler: handleLogoutError)
+            
+        }
+        
+        deauthenticate()
+       
+    }
+    
+    func handleLogoutResponse(response: Response) {
+        
+        Cocoon.user = nil;
+        NSOperationQueue.mainQueue().addOperationWithBlock {
+            
+            Cocoon.setRootViewController("login")
+            
+        }
+        
+    }
+    
+    func handleLogoutError(error: Error) {
+        
+        println("logout error")
+        Cocoon.user = nil;
+        NSOperationQueue.mainQueue().addOperationWithBlock {
+            
+            Cocoon.setRootViewController("login")
+            
+        }
         
     }
     

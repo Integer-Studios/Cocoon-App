@@ -7,23 +7,56 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var facebookButton: UIButton!
+    @IBOutlet weak var connectButton: UIButton!
     
     let keychain = KeychainWrapper()
     let facebookReadPermissions = ["public_profile", "email", "user_friends"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("Z")
-        if (FBSDKAccessToken.currentAccessToken() != nil) {
+       
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        super.viewDidAppear(animated)
+
+        if (FBSDKAccessToken.currentAccessToken() != nil && Cocoon.user != nil) {
             // User is already logged in, do work such as go to next view controller.
-            println("C")
+            let graphRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+            graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                if error == nil {
+
+                    let userName : String = result.valueForKey("name") as! String
+                    let firstName : String = result.valueForKey("first_name") as! String
+                    let lastName : String = result.valueForKey("last_name") as! String
+                    let userEmail : String = result.valueForKey("email") as! String
+                    
+                    Cocoon.facebook = Facebook(id: FBSDKAccessToken.currentAccessToken().userID, firstName: firstName, lastName: lastName, email: userEmail as String, token: FBSDKAccessToken.currentAccessToken().tokenString)
+                    
+                    Cocoon.requestManager.sendRequest("/user/facebook/login/", parameters: ["facebook-id": Cocoon.facebook!.id, "facebook-token": Cocoon.facebook!.token, "facebook-email": Cocoon.facebook!.email], responseHandler: self.handleFacebookLoginResponse, errorHandler: self.handleFacebookLoginError)
+                    
+                } else {
+                    
+                    println("graphrequest error")
+
+                }
+            })
+            
+        } else {
+            
+         
+            
         }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -31,7 +64,14 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func facebookLogin(sender: AnyObject) {
-
+        
+        if (FBSDKAccessToken.currentAccessToken() != nil) {
+            
+            println("FACEBOOK LOGOUT")
+            FBSDKLoginManager().logOut()
+            
+        } else {
+            
         FBSDKLoginManager().logInWithReadPermissions(self.facebookReadPermissions, handler: { (result:FBSDKLoginManagerLoginResult!, error:NSError!) -> Void in
             if error != nil {
                 //According to Facebook:
@@ -39,11 +79,12 @@ class LoginViewController: UIViewController {
                 //presented by Facebook via single sign on will guide the users to resolve any errors.
                 
                 // Process error
+                println("FACEBOOK ERROR")
                 FBSDKLoginManager().logOut()
             } else if result.isCancelled {
                 // Handle cancellations
+                println("FACEBOOK CANCEL")
                 FBSDKLoginManager().logOut()
-                println("A")
             } else {
                 // If you ask for multiple permissions at once, you
                 // should check if specific permissions missing
@@ -52,30 +93,32 @@ class LoginViewController: UIViewController {
                 if (!result.grantedPermissions.contains("email")) {
                     allPermsGranted = false
                 }
+                if (!result.grantedPermissions.contains("user_friends")) {
+                    allPermsGranted = false
+                }
                 
                 if allPermsGranted {
                     // Do work
                     let fbToken = result.token.tokenString
                     let fbUserID = result.token.userID
-                    
+
                     let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
                     graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
                         
-                        if ((error) != nil)
-                        {
+                        if ((error) != nil) {
                             // Process error
                             println("Error: \(error)")
-                        }
-                        else {
+                        } else {
                            
-                            let userName : NSString = result.valueForKey("name") as! NSString
-                            let firstName = (userName as String).componentsSeparatedByString(" ").first
-                            let lastName = (userName as String).componentsSeparatedByString(" ").last
-                            let userEmail : NSString = result.valueForKey("email") as! NSString
-                            println(fbToken)
-                            Cocoon.facebook = Facebook(id: fbUserID, firstName: firstName!, lastName: lastName!, email: userEmail as String, token: fbToken)
+                            let userName : String = result.valueForKey("name") as! String
+                            let firstName : String = result.valueForKey("first_name") as! String
+                            let lastName : String = result.valueForKey("last_name") as! String
+                            let userEmail : String = result.valueForKey("email") as! String
+                            println(userName + " " + userEmail)
+                        
+                            Cocoon.facebook = Facebook(id: fbUserID, firstName: firstName, lastName: lastName, email: userEmail as String, token: FBSDKAccessToken.currentAccessToken().tokenString)
                             
-                            Cocoon.requestManager.sendRequest("/user/facebook/", parameters: ["facebook-id": fbUserID, "facebook-token": fbToken, "facebook-email": userEmail], responseHandler: self.handleFacebookLoginResponse, errorHandler: self.handleFacebookLoginError)
+                            Cocoon.requestManager.sendRequest("/user/facebook/login/", parameters: ["facebook-id": Cocoon.facebook!.id, "facebook-token": Cocoon.facebook!.token, "facebook-email": Cocoon.facebook!.email], responseHandler: self.handleFacebookLoginResponse, errorHandler: self.handleFacebookLoginError)
                         }
                     })
                     
@@ -88,12 +131,15 @@ class LoginViewController: UIViewController {
                 }
             }
         })
+            
+        }
         
     }
     
     func handleFacebookLoginResponse(response: Response) {
         
         if (response.content != nil) {
+
             let facebookID = response.content!["facebook-id"] as? String
             let facebookToken = response.content!["facebook-token"] as? String;
             
@@ -103,6 +149,7 @@ class LoginViewController: UIViewController {
                 Cocoon.user = User(username: facebookID!, accessToken: facebookToken!)
                 Cocoon.user?.facebook = true;
                 Cocoon.user?.saveAuthentication()
+                Cocoon.pushMain()
                 
             }
             
@@ -117,12 +164,18 @@ class LoginViewController: UIViewController {
             //email exists, not connected
             println("Email Exists")
             usernameField.text = error.content!["email"] as? String
-            facebookButton.highlighted = false
-            facebookButton.setTitle("Connect", forState: UIControlState.Normal)
-            facebookButton.removeTarget(nil, action: nil, forControlEvents: UIControlEvents.AllEvents)
-            facebookButton.addTarget(self, action: "facebookConnect:", forControlEvents: UIControlEvents.TouchUpInside)
+            facebookButton.enabled = false
+            facebookButton.hidden = true
             
-        } else if (error.errorCode == 501) {
+            connectButton.enabled = true
+            connectButton.hidden = false
+            
+//            facebookButton.highlighted = false
+//            facebookButton.setTitle("Connect", forState: UIControlState.Normal)
+//            facebookButton.removeTarget(nil, action: nil, forControlEvents: UIControlEvents.AllEvents)
+//            facebookButton.addTarget(self, action: "facebookConnect:", forControlEvents: UIControlEvents.TouchUpInside)
+            
+        } else if (error.errorCode == 502) {
             
             //new user
             println("New User")
@@ -135,9 +188,17 @@ class LoginViewController: UIViewController {
    @IBAction func facebookConnect(sender: AnyObject) {
         
         println("connect")
+    Cocoon.requestManager.sendRequest("/user/facebook/connect/", parameters: ["username": usernameField.text, "password": passwordField.text.sha1(), "facebook-id": FBSDKAccessToken.currentAccessToken().userID, "facebook-token": FBSDKAccessToken.currentAccessToken().tokenString], responseHandler: handleFacebookLoginResponse, errorHandler: handleConnectError)
+
+    
+    }
+    
+    func handleConnectError(error: Error) {
+        
+        println("Connect Failed: \(error.errorCode)")
         
     }
-     
+    
     @IBAction func login(sender: AnyObject) {
         
         Cocoon.requestManager.sendRequest("/user/login/auth/", parameters: ["username": usernameField.text, "password": passwordField.text.sha1()], responseHandler: handleLoginResponse, errorHandler: handleLoginError)
@@ -149,14 +210,13 @@ class LoginViewController: UIViewController {
         if response.content != nil {
         
             if let token = response.content!["access-token"] as? String {
-        
-                Cocoon.pushMain()
                 
                 println("The access token is: " + token)
                 
                 Cocoon.user = User(username: usernameField.text, accessToken: token)
                 Cocoon.user?.saveAuthentication()
                 Cocoon.user?.loadInfo(nil)
+                Cocoon.pushMain()
                 
             } else {
                 

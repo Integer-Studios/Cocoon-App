@@ -19,6 +19,11 @@ class RequestManager {
         var request = Request(url: requestURL, responseHandler: responseHandler, errorHandler: errorHandler, debug: debug, parameters: parameters)
 
         println("Sending Request: " + requestURL)
+        if request.debug {
+            
+            println("With Parameters: " + parameters.description)
+            
+        }
                 
         NSURLConnection.sendAsynchronousRequest(urlRequest, queue: NSOperationQueue(),
             
@@ -51,11 +56,15 @@ class RequestManager {
         
         if (Cocoon.user != nil) {
             if (Cocoon.user!.facebook) {
-                parameters["facebook-id"] = Cocoon.user!.authentication.username;
-                parameters["facebook-token"] = Cocoon.user!.authentication.accessToken;
+                if (parameters["facebook-id"] == nil) {
+                    parameters["facebook-id"] = Cocoon.user!.authentication.username;
+                    parameters["facebook-token"] = Cocoon.user!.authentication.accessToken;
+                }
             } else {
-                parameters["username"] = Cocoon.user!.authentication.username;
-                parameters["access-token"] = Cocoon.user!.authentication.accessToken;
+                if (parameters["username"] == nil) {
+                    parameters["username"] = Cocoon.user!.authentication.username;
+                    parameters["access-token"] = Cocoon.user!.authentication.accessToken;
+                }
             }
         }
         
