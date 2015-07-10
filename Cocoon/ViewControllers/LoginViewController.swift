@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
         
         super.viewDidAppear(animated)
 
-        if (FBSDKAccessToken.currentAccessToken() != nil) {
+        if (FBSDKAccessToken.currentAccessToken() != nil && Cocoon.user != nil) {
             // User is already logged in, do work such as go to next view controller.
             let graphRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
             graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LLh-FF-u9D">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -870,7 +870,7 @@
                                 </constraints>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
                                         <color key="value" red="0.5300465593" green="0.5300465593" blue="0.5300465593" alpha="1" colorSpace="calibratedRGB"/>
@@ -885,7 +885,7 @@
                                 </constraints>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
                                         <color key="value" red="0.53004655934343436" green="0.53004655934343436" blue="0.53004655934343436" alpha="1" colorSpace="calibratedRGB"/>
@@ -936,6 +936,16 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Il-J2-ORN">
+                                <rect key="frame" x="223" y="550" width="155" height="30"/>
+                                <state key="normal" title="Connect to Facebook">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="facebookConnect:" destination="spy-Ww-qeV" eventType="touchUpInside" id="Dtf-to-pNn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="EyN-d1-Kz8" firstAttribute="centerX" secondItem="Sg9-Zf-A3F" secondAttribute="centerX" id="3Tj-ix-YTG"/>
@@ -949,6 +959,7 @@
                             <constraint firstItem="Xne-4T-esD" firstAttribute="height" secondItem="Vjh-E6-CIY" secondAttribute="height" id="UCS-N2-vsp"/>
                             <constraint firstItem="2hb-cZ-UU8" firstAttribute="centerX" secondItem="ag0-RT-kkO" secondAttribute="centerX" id="US4-TT-4Ub"/>
                             <constraint firstItem="RIc-G0-PcE" firstAttribute="top" secondItem="Xne-4T-esD" secondAttribute="bottom" constant="-50" id="XYc-mS-y2Y"/>
+                            <constraint firstItem="1Il-J2-ORN" firstAttribute="centerX" secondItem="Xne-4T-esD" secondAttribute="centerX" constant="0.5" id="jY3-wc-KRL"/>
                             <constraint firstItem="SBA-8x-qc3" firstAttribute="top" secondItem="EyN-d1-Kz8" secondAttribute="bottom" id="lQN-R9-9vG"/>
                             <constraint firstItem="RIc-G0-PcE" firstAttribute="top" secondItem="A56-ZL-w6b" secondAttribute="bottom" constant="8" id="nRu-Mn-9Mo"/>
                             <constraint firstItem="ag0-RT-kkO" firstAttribute="centerX" secondItem="SBA-8x-qc3" secondAttribute="centerX" id="tww-Ck-g52"/>
@@ -958,6 +969,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="connectButton" destination="1Il-J2-ORN" id="j1d-WP-fB6"/>
                         <outlet property="facebookButton" destination="RIc-G0-PcE" id="Tlf-29-Vjm"/>
                         <outlet property="passwordField" destination="SBA-8x-qc3" id="hgj-sh-neA"/>
                         <outlet property="usernameField" destination="EyN-d1-Kz8" id="zbb-N6-nbC"/>
