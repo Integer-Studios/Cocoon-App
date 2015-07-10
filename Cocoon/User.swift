@@ -31,7 +31,7 @@ class User {
     func loadInfo(callback:(() -> ())?) {
         
         infoCallback = callback
-        Cocoon.requestManager.sendRequest("/user/info/", parameters: ["":""], debug:true, responseHandler: handleInfoResponse, errorHandler: handleInfoError)
+        Cocoon.requestManager.sendRequest("/user/info/", parameters: ["":""], responseHandler: handleInfoResponse, errorHandler: handleInfoError)
         
     }
     
