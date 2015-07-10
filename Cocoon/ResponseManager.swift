@@ -25,7 +25,7 @@ class ResponseManager {
                 println(dataString)
             }
             var jsonError: NSError?
-            let returnData = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as! NSDictionary
+            let returnData: NSDictionary? = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary
             if jsonError != nil {
                 // got an error while parsing the data, need to handle it
                 if request.debug {
@@ -39,23 +39,33 @@ class ResponseManager {
                 
                 if request.debug {
                     
-                    println("Received Response from Server: \(returnData.description)")
+                    println("Received Response from Server: \(returnData!.description)")
                     
                 }
-                if let status: Int = (returnData["status"] as! String).toInt() {
+                
+                if (returnData != nil) {
                     
-                    let errorHeader: String? = (returnData["error-header"] as? String)
+                if let status: Int = (returnData!["status"] as! String).toInt() {
                     
-                    if let content: NSDictionary = (returnData["content"] as? NSDictionary) {
+                    let errorHeader: String? = (returnData!["error-header"] as? String)
+                    
+                    if let content: NSDictionary? = (returnData!["content"] as? NSDictionary) {
                         
                         if (status == 200) {
-                            response = Response(requestObject: request, contentData: content)
+                            if (content != nil) {
+                                response = Response(requestObject: request, contentData: content!)
+                            } else {
+                                response = Response(requestObject: request, contentData: NSDictionary())
+                            }
                             NSOperationQueue.mainQueue().addOperationWithBlock {
                                 request.responseHandler(response!)
                             }
                         } else {
-                            
-                            error = Error(requestObject: request, error: status, header: errorHeader, contentData: content)
+                            if (content != nil) {
+                                error = Error(requestObject: request, error: status, header: errorHeader, contentData: content!)
+                            } else {
+                                error = Error(requestObject: request, error: status, header: errorHeader, contentData: NSDictionary())
+                            }
                             
                         }
                     } else {
@@ -78,6 +88,13 @@ class ResponseManager {
                     error = Error(requestObject: request, error: 600)
                     
                 }
+                    
+                } else {
+                    
+                    error = Error(requestObject: request, error: 600)
+                    
+                }
+                
             }
         }
         
