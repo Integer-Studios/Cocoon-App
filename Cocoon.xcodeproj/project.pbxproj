@@ -26,7 +26,6 @@
 		E46E36241B3B499D00FE92C0 /* ResponseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E36231B3B499D00FE92C0 /* ResponseManager.swift */; };
 		F61D1F3B1B447CD7007D57F8 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D1F3A1B447CD7007D57F8 /* GroupViewController.swift */; };
 		F628BEDD1B3884CB005E4002 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F628BEDC1B3884CB005E4002 /* RegisterViewController.swift */; };
-		F628BEDF1B388A35005E4002 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F628BEDE1B388A35005E4002 /* icon.png */; };
 		F628BF1B1B38B054005E4002 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F628BF1A1B38B054005E4002 /* SWRevealViewController.m */; };
 		F628BF1F1B38B7E4005E4002 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F628BF1E1B38B7E4005E4002 /* User.swift */; };
 		F628BF231B38C70C005E4002 /* Cocoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F628BF221B38C70C005E4002 /* Cocoon.swift */; };
@@ -42,6 +41,12 @@
 		F6C954491B3B5B0200B07C1B /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C954481B3B5B0200B07C1B /* Link.swift */; };
 		F6C9544D1B3C758900B07C1B /* RegisterKidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C9544C1B3C758900B07C1B /* RegisterKidViewController.swift */; };
 		F6C9544F1B3C798C00B07C1B /* RegisterVehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C9544E1B3C798C00B07C1B /* RegisterVehicleViewController.swift */; };
+		F6F075001B5039D400163CC6 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6F074FF1B5039D400163CC6 /* bg.jpg */; };
+		F6F075021B5039EA00163CC6 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F075011B5039EA00163CC6 /* logo.png */; };
+		F6F075061B5044CC00163CC6 /* username.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F075051B5044CC00163CC6 /* username.png */; };
+		F6F075081B50549700163CC6 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F075071B50549700163CC6 /* login.png */; };
+		F6F0750A1B505BC000163CC6 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F075091B505BC000163CC6 /* icon.png */; };
+		F6F0750F1B505E3900163CC6 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F0750E1B505E3900163CC6 /* default.png */; };
 		F6F6BF461B4F53CB00906A91 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F6BF451B4F53CB00906A91 /* AdminViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,7 +86,6 @@
 		E46E36231B3B499D00FE92C0 /* ResponseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseManager.swift; sourceTree = "<group>"; };
 		F61D1F3A1B447CD7007D57F8 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupViewController.swift; path = ViewControllers/GroupViewController.swift; sourceTree = "<group>"; };
 		F628BEDC1B3884CB005E4002 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = ViewControllers/RegisterViewController.swift; sourceTree = "<group>"; };
-		F628BEDE1B388A35005E4002 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		F628BF191B38B054005E4002 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		F628BF1A1B38B054005E4002 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		F628BF1E1B38B7E4005E4002 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -98,6 +102,12 @@
 		F6C954481B3B5B0200B07C1B /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		F6C9544C1B3C758900B07C1B /* RegisterKidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterKidViewController.swift; path = ViewControllers/RegisterKidViewController.swift; sourceTree = "<group>"; };
 		F6C9544E1B3C798C00B07C1B /* RegisterVehicleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterVehicleViewController.swift; path = ViewControllers/RegisterVehicleViewController.swift; sourceTree = "<group>"; };
+		F6F074FF1B5039D400163CC6 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
+		F6F075011B5039EA00163CC6 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		F6F075051B5044CC00163CC6 /* username.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = username.png; sourceTree = "<group>"; };
+		F6F075071B50549700163CC6 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
+		F6F075091B505BC000163CC6 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		F6F0750E1B505E3900163CC6 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		F6F6BF451B4F53CB00906A91 /* AdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdminViewController.swift; path = ViewControllers/AdminViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,7 +161,7 @@
 		E419C81C1B3873710015FCC2 /* Cocoon */ = {
 			isa = PBXGroup;
 			children = (
-				F628BEDE1B388A35005E4002 /* icon.png */,
+				F6F075091B505BC000163CC6 /* icon.png */,
 				E4107A111B4480ED003C5E9D /* Cells */,
 				E419C8411B3876920015FCC2 /* ViewControllers */,
 				E419C81F1B3873720015FCC2 /* AppDelegate.swift */,
@@ -172,6 +182,7 @@
 		E419C81D1B3873710015FCC2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F6F074FD1B5039C100163CC6 /* images */,
 				E46E361D1B3B28DE00FE92C0 /* FBSDKCoreKit.framework */,
 				E46E361E1B3B28DE00FE92C0 /* FBSDKLoginKit.framework */,
 				E419C84C1B387A780015FCC2 /* Bridge.h */,
@@ -232,6 +243,34 @@
 				E419C8511B3880BE0015FCC2 /* KeychainWrapper.m */,
 			);
 			name = Keychain;
+			sourceTree = "<group>";
+		};
+		F6F074FD1B5039C100163CC6 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				F6F0750B1B505C7A00163CC6 /* default */,
+				F6F074FE1B5039C800163CC6 /* login */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		F6F074FE1B5039C800163CC6 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				F6F075071B50549700163CC6 /* login.png */,
+				F6F075051B5044CC00163CC6 /* username.png */,
+				F6F075011B5039EA00163CC6 /* logo.png */,
+				F6F074FF1B5039D400163CC6 /* bg.jpg */,
+			);
+			name = login;
+			sourceTree = "<group>";
+		};
+		F6F0750B1B505C7A00163CC6 /* default */ = {
+			isa = PBXGroup;
+			children = (
+				F6F0750E1B505E3900163CC6 /* default.png */,
+			);
+			name = default;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,10 +354,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F628BEDF1B388A35005E4002 /* icon.png in Resources */,
+				F6F075001B5039D400163CC6 /* bg.jpg in Resources */,
+				F6F075061B5044CC00163CC6 /* username.png in Resources */,
+				F6F075021B5039EA00163CC6 /* logo.png in Resources */,
 				E419C8251B3873720015FCC2 /* Main.storyboard in Resources */,
+				F6F0750A1B505BC000163CC6 /* icon.png in Resources */,
+				F6F075081B50549700163CC6 /* login.png in Resources */,
 				E419C82A1B3873720015FCC2 /* LaunchScreen.xib in Resources */,
 				E419C8271B3873720015FCC2 /* Images.xcassets in Resources */,
+				F6F0750F1B505E3900163CC6 /* default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
