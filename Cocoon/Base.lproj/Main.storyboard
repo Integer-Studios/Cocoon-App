@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LLh-FF-u9D">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -848,48 +849,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JiT-Vx-94g">
-                                <rect key="frame" x="166" y="90" width="270" height="270"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KGS-yp-MQI">
-                                        <rect key="frame" x="8" y="125" width="257" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eqs-nW-9ze">
-                                        <rect key="frame" x="8" y="163" width="257" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YA6-P0-DFH">
-                                        <rect key="frame" x="142" y="201" width="123" height="30"/>
-                                        <state key="normal" title="Facebook"/>
-                                        <connections>
-                                            <action selector="facebookLogin:" destination="spy-Ww-qeV" eventType="touchUpInside" id="9j8-4W-keA"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0g-dM-8ut">
-                                        <rect key="frame" x="8" y="235" width="257" height="30"/>
-                                        <state key="normal" title="Register"/>
-                                        <connections>
-                                            <segue destination="WRT-wO-FBj" kind="show" identifier="registerPush" id="nCL-D7-tCq"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAn-NU-4x2">
-                                        <rect key="frame" x="8" y="201" width="123" height="30"/>
-                                        <state key="normal" title="Login"/>
-                                        <connections>
-                                            <action selector="login:" destination="spy-Ww-qeV" eventType="touchUpInside" id="LRR-Yq-LjI"/>
-                                        </connections>
-                                    </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L48-ie-RuM">
-                                        <rect key="frame" x="142" y="201" width="123" height="30"/>
-                                        <state key="normal" title="Connect"/>
-                                        <connections>
-                                            <action selector="facebookConnect:" destination="spy-Ww-qeV" eventType="touchUpInside" id="E1g-uK-E2O"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Xne-4T-esD">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Xne-4T-esD" secondAttribute="height" multiplier="1:1" id="sme-i5-Cue"/>
                                 </constraints>
@@ -997,10 +958,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="connectButton" destination="L48-ie-RuM" id="SQY-MX-kpW"/>
-                        <outlet property="facebookButton" destination="YA6-P0-DFH" id="OYC-7T-iLE"/>
-                        <outlet property="passwordField" destination="Eqs-nW-9ze" id="jFO-Ua-0Rs"/>
-                        <outlet property="usernameField" destination="KGS-yp-MQI" id="vbu-Rx-Clk"/>
+                        <outlet property="facebookButton" destination="RIc-G0-PcE" id="Tlf-29-Vjm"/>
+                        <outlet property="passwordField" destination="SBA-8x-qc3" id="hgj-sh-neA"/>
+                        <outlet property="usernameField" destination="EyN-d1-Kz8" id="zbb-N6-nbC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BKZ-hO-uW1" userLabel="First Responder" sceneMemberID="firstResponder"/>
