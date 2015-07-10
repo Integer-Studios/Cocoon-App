@@ -28,8 +28,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="To Do" id="XEE-0K-tG8">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="tgg-uY-zvF"/>
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="tgg-uY-zvF">
+                            <color key="tintColor" red="0.55769428450000003" green="0.155704492" blue="0.1357545298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="CD2-ab-hxJ">
+                            <color key="tintColor" red="0.55769428450000003" green="0.155704492" blue="0.1357545298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="logout:" destination="KjC-Am-BhG" id="DGt-Sg-ebY"/>
                             </connections>
@@ -85,6 +88,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gR3-aS-eu2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.95999997854232788" green="0.42320001125335693" blue="0.37439998984336853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.55769428450000003" green="0.155704492" blue="0.1357545298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="HZf-Bc-keZ" kind="relationship" relationship="rootViewController" id="hug-6i-hY6"/>
@@ -117,6 +125,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Family" id="b4t-Pv-WLq">
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="XHI-Az-Id4">
+                            <color key="tintColor" red="0.55769428450000003" green="0.155704492" blue="0.1357545298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="close:" destination="HZf-Bc-keZ" id="Qcy-uk-PdQ"/>
                             </connections>
@@ -130,7 +139,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cEg-m0-DS2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1310" y="1348"/>
+            <point key="canvasLocation" x="1272" y="1436"/>
         </scene>
         <!--Register Kid View Controller-->
         <scene sceneID="ijx-eQ-hxK">
@@ -311,6 +320,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Kid" id="BlQ-lz-8t7">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="Wf1-YJ-wRt">
+                            <color key="tintColor" red="0.55769428450000003" green="0.155704492" blue="0.1357545298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="close:" destination="cHF-yC-NIi" id="KLI-fH-DSW"/>
                             </connections>
@@ -396,11 +406,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Group" id="eJB-TI-EDL">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="yQl-wh-c5S">
+                            <color key="tintColor" red="0.55769428450000003" green="0.155704492" blue="0.1357545298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="close:" destination="DuT-Ka-U6Q" id="9kX-qC-7W1"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Admin" id="Wjx-bf-RUL">
+                            <color key="tintColor" red="0.55769428450000003" green="0.155704492" blue="0.1357545298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="actionButtonPressed:" destination="DuT-Ka-U6Q" id="k0e-Rz-Vgs"/>
                             </connections>
@@ -431,6 +443,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Vehicle" id="PG6-qG-IZf">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="6fo-Ap-1WP">
+                            <color key="tintColor" red="0.55769428450000003" green="0.155704492" blue="0.1357545298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="close:" destination="fvX-3v-ALC" id="w32-2P-vsW"/>
                             </connections>
@@ -494,7 +507,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Groups" id="9Bk-3M-Wx1">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="3VX-Nd-DRQ"/>
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="3VX-Nd-DRQ">
+                            <color key="tintColor" red="0.55769428450000003" green="0.155704492" blue="0.1357545298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="aic-Ra-0ME">
                             <connections>
                                 <segue destination="C5G-f3-vjL" kind="show" id="b8T-nH-HEx"/>
@@ -728,6 +743,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="B21-PG-uVe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.95999997854232788" green="0.42320001125335693" blue="0.37439998984336853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.55769428450000003" green="0.155704492" blue="0.1357545298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="pUG-jt-yHy" kind="relationship" relationship="rootViewController" id="TVe-5V-ejw"/>
@@ -744,6 +764,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uWa-Gj-yqD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.95999997854232788" green="0.42320001125335693" blue="0.37439998984336853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.55769428450000003" green="0.155704492" blue="0.1357545298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="yTE-P2-Q6m" kind="relationship" relationship="rootViewController" id="rVe-UL-c0A"/>
@@ -760,6 +785,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nNM-Z1-wif">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.95999997854232788" green="0.42320001125335693" blue="0.37439998984336853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.55769428450000003" green="0.155704492" blue="0.1357545298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="EHY-gx-Akh" kind="relationship" relationship="rootViewController" id="31d-Og-UBc"/>
@@ -828,6 +858,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="a4r-GK-8p3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.95999997854232788" green="0.42320001125335693" blue="0.37439998984336853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.55769428450000003" green="0.155704492" blue="0.1357545298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="KjC-Am-BhG" kind="relationship" relationship="rootViewController" id="72A-AF-Yjz"/>
@@ -974,6 +1009,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="37O-jI-73Y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.95999997854232788" green="0.42320001125335693" blue="0.37439998984336853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.55769428450000003" green="0.155704492" blue="0.1357545298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="vpv-m6-2AB" kind="relationship" relationship="rootViewController" id="uhb-KH-a9M"/>
@@ -983,7 +1023,7 @@
             </objects>
             <point key="canvasLocation" x="544" y="-163"/>
         </scene>
-        <!--Register View Controller-->
+        <!--New Account-->
         <scene sceneID="2EV-5v-bsg">
             <objects>
                 <viewController storyboardIdentifier="register.0" id="vpv-m6-2AB" customClass="RegisterViewController" customModule="Cocoon" customModuleProvider="target" sceneMemberID="viewController">
@@ -995,12 +1035,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ws6-JG-Knt">
-                                <rect key="frame" x="268" y="134" width="64" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xtO-sy-x8X">
                                 <rect key="frame" x="166" y="184" width="270" height="30"/>
                                 <constraints>
@@ -1061,15 +1095,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xtO-sy-x8X" firstAttribute="top" secondItem="der-ZG-c5d" secondAttribute="bottom" constant="120" id="5EC-rD-MMo"/>
                             <constraint firstItem="Ewl-25-20M" firstAttribute="top" secondItem="p8b-SM-kXF" secondAttribute="bottom" constant="8" id="A3t-Yh-ZLJ"/>
                             <constraint firstAttribute="centerX" secondItem="gFE-Jd-3Pv" secondAttribute="centerX" constant="-1" id="SfU-0p-wpQ"/>
                             <constraint firstAttribute="centerX" secondItem="xtO-sy-x8X" secondAttribute="centerX" constant="-1" id="Soi-Vq-tCC"/>
                             <constraint firstAttribute="centerX" secondItem="Ewl-25-20M" secondAttribute="centerX" constant="-4.5" id="WqP-dJ-VW5"/>
-                            <constraint firstAttribute="centerX" secondItem="Ws6-JG-Knt" secondAttribute="centerX" id="b2i-5u-42r"/>
                             <constraint firstItem="p8b-SM-kXF" firstAttribute="top" secondItem="OCV-3t-bSW" secondAttribute="bottom" constant="8" id="cgu-4Y-SQt"/>
                             <constraint firstAttribute="centerX" secondItem="p8b-SM-kXF" secondAttribute="centerX" constant="-1" id="d9J-3p-RCm"/>
-                            <constraint firstItem="xtO-sy-x8X" firstAttribute="top" secondItem="Ws6-JG-Knt" secondAttribute="bottom" constant="29" id="eUV-ah-97d"/>
-                            <constraint firstItem="Ws6-JG-Knt" firstAttribute="top" secondItem="der-ZG-c5d" secondAttribute="bottom" constant="70" id="fqY-3E-4jE"/>
                             <constraint firstItem="gFE-Jd-3Pv" firstAttribute="top" secondItem="JiN-ag-roa" secondAttribute="bottom" constant="8" id="iCr-KM-iMr"/>
                             <constraint firstAttribute="centerX" secondItem="OCV-3t-bSW" secondAttribute="centerX" constant="-1" id="oG3-Rp-8Oe"/>
                             <constraint firstItem="OCV-3t-bSW" firstAttribute="top" secondItem="gFE-Jd-3Pv" secondAttribute="bottom" constant="8" id="uhB-cG-2SW"/>
@@ -1077,7 +1109,7 @@
                             <constraint firstItem="JiN-ag-roa" firstAttribute="top" secondItem="xtO-sy-x8X" secondAttribute="bottom" constant="8" id="wdj-HK-bjd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="HDK-n8-JQz"/>
+                    <navigationItem key="navigationItem" title="New Account" id="HDK-n8-JQz"/>
                     <connections>
                         <outlet property="email" destination="xtO-sy-x8X" id="5eh-L7-5uv"/>
                         <outlet property="firstName" destination="OCV-3t-bSW" id="Vsz-Xu-hOp"/>
@@ -1179,6 +1211,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="o8R-TZ-sIb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.95999997854232788" green="0.42320001125335693" blue="0.37439998984336853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.55769428450000003" green="0.155704492" blue="0.1357545298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1197,6 +1234,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gCI-xb-1iu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.95999997854232788" green="0.42320001125335693" blue="0.37439998984336853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.55769428450000003" green="0.155704492" blue="0.1357545298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1222,6 +1264,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="User" id="Q4I-gC-bd2">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="pdJ-3P-MJc">
+                            <color key="tintColor" red="0.55769428450000003" green="0.155704492" blue="0.1357545298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="close:" destination="rgV-4v-Sp6" id="Ln1-BT-2Qg"/>
                             </connections>
@@ -1240,6 +1283,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0ho-Ov-MZO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.95999997854232788" green="0.42320001125335693" blue="0.37439998984336853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.55769428450000003" green="0.155704492" blue="0.1357545298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1258,6 +1306,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zi0-bI-rPa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.95999997854232788" green="0.42320001125335693" blue="0.37439998984336853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.55769428450000003" green="0.155704492" blue="0.1357545298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1350,6 +1403,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IPT-hC-rpA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.95999997854232788" green="0.42320001125335693" blue="0.37439998984336853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.55769428450000003" green="0.155704492" blue="0.1357545298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
