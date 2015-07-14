@@ -39,6 +39,17 @@
 		F66B48CE1B3B48A5006FD3EA /* LoadingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66B48CD1B3B48A5006FD3EA /* LoadingTableViewController.swift */; };
 		F66CF1071B4B38D6000B3209 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CF1061B4B38D6000B3209 /* EventCell.swift */; };
 		F66CF10B1B4DE0B0000B3209 /* SearchGroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CF10A1B4DE0AF000B3209 /* SearchGroupsController.swift */; };
+		F6B274B11B54675A000805BD /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B274AF1B54675A000805BD /* add.png */; };
+		F6B274B21B54675A000805BD /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B274B01B54675A000805BD /* info.png */; };
+		F6B274B61B54695D000805BD /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B274B51B54695D000805BD /* ButtonCell.swift */; };
+		F6B274B81B547015000805BD /* SingleTitleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B274B71B547015000805BD /* SingleTitleHeader.swift */; };
+		F6B274BC1B547C54000805BD /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B274BB1B547C54000805BD /* test.png */; };
+		F6B274C41B547DB9000805BD /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B274C31B547DB9000805BD /* menu.png */; };
+		F6B274C61B54829E000805BD /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B274C51B54829E000805BD /* IconCell.swift */; };
+		F6B274C81B548BBD000805BD /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B274C71B548BBD000805BD /* TodoCell.swift */; };
+		F6B274D01B548DDB000805BD /* badge-red.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B274CE1B548DDB000805BD /* badge-red.png */; };
+		F6B274D11B548DDB000805BD /* badge-green.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B274CF1B548DDB000805BD /* badge-green.png */; };
+		F6B274D31B548E14000805BD /* default-avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B274D21B548E14000805BD /* default-avatar.png */; };
 		F6C0F5A81B433A7600629E02 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C0F5A71B433A7600629E02 /* GroupsViewController.swift */; };
 		F6C0F5AC1B433EE900629E02 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C0F5AB1B433EE900629E02 /* UserViewController.swift */; };
 		F6C0F5AE1B434E3400629E02 /* RegisterGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C0F5AD1B434E3400629E02 /* RegisterGroupViewController.swift */; };
@@ -104,6 +115,17 @@
 		F66B48CD1B3B48A5006FD3EA /* LoadingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingTableViewController.swift; path = ViewControllers/LoadingTableViewController.swift; sourceTree = "<group>"; };
 		F66CF1061B4B38D6000B3209 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventCell.swift; path = Cells/EventCell.swift; sourceTree = "<group>"; };
 		F66CF10A1B4DE0AF000B3209 /* SearchGroupsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchGroupsController.swift; path = ViewControllers/SearchGroupsController.swift; sourceTree = "<group>"; };
+		F6B274AF1B54675A000805BD /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		F6B274B01B54675A000805BD /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		F6B274B51B54695D000805BD /* ButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonCell.swift; path = Cells/ButtonCell.swift; sourceTree = "<group>"; };
+		F6B274B71B547015000805BD /* SingleTitleHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SingleTitleHeader.swift; path = Cells/SingleTitleHeader.swift; sourceTree = "<group>"; };
+		F6B274BB1B547C54000805BD /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
+		F6B274C31B547DB9000805BD /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		F6B274C51B54829E000805BD /* IconCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IconCell.swift; path = Cells/IconCell.swift; sourceTree = "<group>"; };
+		F6B274C71B548BBD000805BD /* TodoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodoCell.swift; path = Cells/TodoCell.swift; sourceTree = "<group>"; };
+		F6B274CE1B548DDB000805BD /* badge-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "badge-red.png"; sourceTree = "<group>"; };
+		F6B274CF1B548DDB000805BD /* badge-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "badge-green.png"; sourceTree = "<group>"; };
+		F6B274D21B548E14000805BD /* default-avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-avatar.png"; sourceTree = "<group>"; };
 		F6C0F5A71B433A7600629E02 /* GroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupsViewController.swift; path = ViewControllers/GroupsViewController.swift; sourceTree = "<group>"; };
 		F6C0F5AB1B433EE900629E02 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserViewController.swift; path = ViewControllers/UserViewController.swift; sourceTree = "<group>"; };
 		F6C0F5AD1B434E3400629E02 /* RegisterGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterGroupViewController.swift; path = ViewControllers/RegisterGroupViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +166,10 @@
 			children = (
 				E4107A121B448133003C5E9D /* GroupHeaderCell.swift */,
 				F66CF1061B4B38D6000B3209 /* EventCell.swift */,
+				F6B274B51B54695D000805BD /* ButtonCell.swift */,
+				F6B274B71B547015000805BD /* SingleTitleHeader.swift */,
+				F6B274C51B54829E000805BD /* IconCell.swift */,
+				F6B274C71B548BBD000805BD /* TodoCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -394,6 +420,13 @@
 				F6F075001B5039D400163CC6 /* bg.jpg in Resources */,
 				F6F075061B5044CC00163CC6 /* username.png in Resources */,
 				F6F075021B5039EA00163CC6 /* logo.png in Resources */,
+				F6B274D11B548DDB000805BD /* badge-green.png in Resources */,
+				F6B274C41B547DB9000805BD /* menu.png in Resources */,
+				F6B274B21B54675A000805BD /* info.png in Resources */,
+				F6B274D31B548E14000805BD /* default-avatar.png in Resources */,
+				F6B274B11B54675A000805BD /* add.png in Resources */,
+				F6B274BC1B547C54000805BD /* test.png in Resources */,
+				F6B274D01B548DDB000805BD /* badge-red.png in Resources */,
 				E419C8251B3873720015FCC2 /* Main.storyboard in Resources */,
 				F6F0750A1B505BC000163CC6 /* icon.png in Resources */,
 				E4D33C601B545D3C0090FA24 /* 2.png in Resources */,
@@ -427,6 +460,7 @@
 				E419C84E1B387B980015FCC2 /* TodoViewController.swift in Sources */,
 				E419C84B1B3877DE0015FCC2 /* RequestManager.swift in Sources */,
 				F6C9544D1B3C758900B07C1B /* RegisterKidViewController.swift in Sources */,
+				F6B274C81B548BBD000805BD /* TodoCell.swift in Sources */,
 				F628BF1B1B38B054005E4002 /* SWRevealViewController.m in Sources */,
 				E4107A131B448133003C5E9D /* GroupHeaderCell.swift in Sources */,
 				E4107A0C1B448043003C5E9D /* KidViewController.swift in Sources */,
@@ -438,12 +472,15 @@
 				F6C9544F1B3C798C00B07C1B /* RegisterVehicleViewController.swift in Sources */,
 				F6F6BF461B4F53CB00906A91 /* AdminViewController.swift in Sources */,
 				E419C8521B3880BF0015FCC2 /* KeychainWrapper.m in Sources */,
+				F6B274C61B54829E000805BD /* IconCell.swift in Sources */,
 				E4107A101B44805C003C5E9D /* MenuViewController.swift in Sources */,
 				F66B48CE1B3B48A5006FD3EA /* LoadingTableViewController.swift in Sources */,
 				F628BEDD1B3884CB005E4002 /* RegisterViewController.swift in Sources */,
 				F6C0F5A81B433A7600629E02 /* GroupsViewController.swift in Sources */,
 				F66CF1071B4B38D6000B3209 /* EventCell.swift in Sources */,
+				F6B274B61B54695D000805BD /* ButtonCell.swift in Sources */,
 				F6C0F5AE1B434E3400629E02 /* RegisterGroupViewController.swift in Sources */,
+				F6B274B81B547015000805BD /* SingleTitleHeader.swift in Sources */,
 				E46E36241B3B499D00FE92C0 /* ResponseManager.swift in Sources */,
 				E419C8401B3876890015FCC2 /* LoginViewController.swift in Sources */,
 				F66CF10B1B4DE0B0000B3209 /* SearchGroupsController.swift in Sources */,
