@@ -8,9 +8,11 @@
 
 import UIKit
 
-class GroupsViewController: LoadingTableViewController {
+class GroupsViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate  {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    
+    var items : [Link] = []
     
     override func viewDidLoad() {
         
@@ -31,7 +33,7 @@ class GroupsViewController: LoadingTableViewController {
         
     }
     
-    override func handleTableResponse(response: Response) {
+    func handleTableResponse(response: Response) {
         
         self.items.removeAll(keepCapacity: false)
         
@@ -43,12 +45,43 @@ class GroupsViewController: LoadingTableViewController {
         
         items.append(Link(id: 0, type: "groups.menu", displayName: "Create A Group"))
         
-        super.handleTableResponse(response)
+        self.tableView.reloadData()
     }
     
-    override func handleTableError(error: Error) {
+    func handleTableError(error: Error) {
         
-        super.handleTableError(error)
+        
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        return 1
+        
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return items.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("itemCell", forIndexPath: indexPath) as! ButtonCell
+        cell.setButtonLink(items[indexPath.row], viewController: self)
+        cell.displayName?.text = items[indexPath.row].displayName
+        return cell
+        
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        items[indexPath.row].open(self)
+        
+    }
+    
+    func requestData(request: String, parameters : NSMutableDictionary, debug: Bool = false) {
+        
+        Cocoon.requestManager.sendRequest(request, parameters: parameters, debug: debug, responseHandler: handleTableResponse, errorHandler: handleTableError)
         
     }
     
