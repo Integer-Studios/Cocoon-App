@@ -1831,6 +1831,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add.png" width="44" height="44"/>
+        <image name="badge-red.png" width="75" height="50"/>
         <image name="1.png" width="600" height="60"/>
         <image name="back-arrow.png" width="44" height="44"/>
         <image name="bg.jpg" width="2208" height="2208"/>

@@ -28,6 +28,9 @@
 		E4D33C601B545D3C0090FA24 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D33C5D1B545D3C0090FA24 /* 2.png */; };
 		E4D33C611B545D3C0090FA24 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D33C5E1B545D3C0090FA24 /* 3.png */; };
 		E4D33C631B546D330090FA24 /* back-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D33C621B546D330090FA24 /* back-arrow.png */; };
+		E4D33C681B5497350090FA24 /* badge-green.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D33C661B5497350090FA24 /* badge-green.png */; };
+		E4D33C691B5497350090FA24 /* badge-red.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D33C671B5497350090FA24 /* badge-red.png */; };
+		E4D33C6B1B54973D0090FA24 /* default-avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D33C6A1B54973D0090FA24 /* default-avatar.png */; };
 		F61D1F3B1B447CD7007D57F8 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D1F3A1B447CD7007D57F8 /* GroupViewController.swift */; };
 		F628BEDD1B3884CB005E4002 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F628BEDC1B3884CB005E4002 /* RegisterViewController.swift */; };
 		F628BF1B1B38B054005E4002 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F628BF1A1B38B054005E4002 /* SWRevealViewController.m */; };
@@ -103,6 +106,9 @@
 		E4D33C5D1B545D3C0090FA24 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		E4D33C5E1B545D3C0090FA24 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		E4D33C621B546D330090FA24 /* back-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-arrow.png"; sourceTree = "<group>"; };
+		E4D33C661B5497350090FA24 /* badge-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "badge-green.png"; sourceTree = "<group>"; };
+		E4D33C671B5497350090FA24 /* badge-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "badge-red.png"; sourceTree = "<group>"; };
+		E4D33C6A1B54973D0090FA24 /* default-avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-avatar.png"; sourceTree = "<group>"; };
 		F61D1F3A1B447CD7007D57F8 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupViewController.swift; path = ViewControllers/GroupViewController.swift; sourceTree = "<group>"; };
 		F628BEDC1B3884CB005E4002 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = ViewControllers/RegisterViewController.swift; sourceTree = "<group>"; };
 		F628BF191B38B054005E4002 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -279,17 +285,12 @@
 			name = Keychain;
 			sourceTree = "<group>";
 		};
-		E4D33C551B54544F0090FA24 /* utility */ = {
-			isa = PBXGroup;
-			children = (
-				E4D33C621B546D330090FA24 /* back-arrow.png */,
-			);
-			name = utility;
-			sourceTree = "<group>";
-		};
 		E4D33C5A1B545D240090FA24 /* register */ = {
 			isa = PBXGroup;
 			children = (
+				F6B274D21B548E14000805BD /* default-avatar.png */,
+				F6B274CE1B548DDB000805BD /* badge-red.png */,
+				F6B274CF1B548DDB000805BD /* badge-green.png */,
 				E4D33C5B1B545D310090FA24 /* status */,
 			);
 			name = register;
@@ -305,11 +306,34 @@
 			name = status;
 			sourceTree = "<group>";
 		};
+		E4D33C641B5496F20090FA24 /* todo */ = {
+			isa = PBXGroup;
+			children = (
+				E4D33C6A1B54973D0090FA24 /* default-avatar.png */,
+				E4D33C661B5497350090FA24 /* badge-green.png */,
+				E4D33C671B5497350090FA24 /* badge-red.png */,
+			);
+			name = todo;
+			sourceTree = "<group>";
+		};
+		E4D33C651B5496FC0090FA24 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				E4D33C621B546D330090FA24 /* back-arrow.png */,
+				F6B274C31B547DB9000805BD /* menu.png */,
+				F6B274BB1B547C54000805BD /* test.png */,
+				F6B274AF1B54675A000805BD /* add.png */,
+				F6B274B01B54675A000805BD /* info.png */,
+			);
+			name = icons;
+			sourceTree = "<group>";
+		};
 		F6F074FD1B5039C100163CC6 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				E4D33C651B5496FC0090FA24 /* icons */,
+				E4D33C641B5496F20090FA24 /* todo */,
 				E4D33C5A1B545D240090FA24 /* register */,
-				E4D33C551B54544F0090FA24 /* utility */,
 				F6F0750B1B505C7A00163CC6 /* default */,
 				F6F074FE1B5039C800163CC6 /* login */,
 			);
@@ -416,12 +440,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4D33C681B5497350090FA24 /* badge-green.png in Resources */,
 				E4D33C5F1B545D3C0090FA24 /* 1.png in Resources */,
 				F6F075001B5039D400163CC6 /* bg.jpg in Resources */,
 				F6F075061B5044CC00163CC6 /* username.png in Resources */,
 				F6F075021B5039EA00163CC6 /* logo.png in Resources */,
 				F6B274D11B548DDB000805BD /* badge-green.png in Resources */,
 				F6B274C41B547DB9000805BD /* menu.png in Resources */,
+				E4D33C691B5497350090FA24 /* badge-red.png in Resources */,
 				F6B274B21B54675A000805BD /* info.png in Resources */,
 				F6B274D31B548E14000805BD /* default-avatar.png in Resources */,
 				F6B274B11B54675A000805BD /* add.png in Resources */,
@@ -429,6 +455,7 @@
 				F6B274D01B548DDB000805BD /* badge-red.png in Resources */,
 				E419C8251B3873720015FCC2 /* Main.storyboard in Resources */,
 				F6F0750A1B505BC000163CC6 /* icon.png in Resources */,
+				E4D33C6B1B54973D0090FA24 /* default-avatar.png in Resources */,
 				E4D33C601B545D3C0090FA24 /* 2.png in Resources */,
 				F6F075081B50549700163CC6 /* login.png in Resources */,
 				E4D33C611B545D3C0090FA24 /* 3.png in Resources */,
