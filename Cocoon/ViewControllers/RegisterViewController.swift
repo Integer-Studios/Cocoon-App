@@ -175,7 +175,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    
     func scrollToField() {
         var scrollY: CGFloat = 0
 

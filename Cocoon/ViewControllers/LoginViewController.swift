@@ -10,7 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -235,6 +235,35 @@ class LoginViewController: UIViewController {
     func handleLoginError(error: Error) {
 
         println("Login Failed: \(error.errorCode)")
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        let newTag = textField.tag + 1
+        
+        if (newTag > 2) {
+            
+            println("done")
+            textField.resignFirstResponder()
+
+            
+        } else {
+            
+            var nextResponder: UIResponder? = textField.superview?.viewWithTag(newTag)
+            if (nextResponder != nil) {
+                
+                nextResponder?.becomeFirstResponder()
+                
+            } else {
+                
+                textField.resignFirstResponder()
+                
+            }
+            
+        }
+        
+        return false;
         
     }
         
