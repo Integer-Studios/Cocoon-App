@@ -63,7 +63,19 @@ class MenuViewController: UITableViewController, UITableViewDataSource, UITableV
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let offset = indexPath.section * 4
+        var offset = 0
+       
+        switch indexPath.section {
+        case 1:
+            offset += 4
+            break
+        case 2:
+            offset += 5
+            offset += findAmountOf("kid")
+            break
+        default:
+            break
+        }
         
         let cell = tableView.dequeueReusableCellWithIdentifier("menuCell", forIndexPath: indexPath) as! IconCell
         
