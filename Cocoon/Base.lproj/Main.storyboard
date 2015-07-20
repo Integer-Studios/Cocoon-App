@@ -1323,7 +1323,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="536" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLK-Sr-3mx">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="536" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLK-Sr-3mx">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bxx-jK-epf">
@@ -1716,7 +1716,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pd0-E4-7Az" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2530" y="619"/>
+            <point key="canvasLocation" x="2820" y="-163"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MMW-dJ-6uc">
@@ -1970,6 +1970,7 @@
     </scenes>
     <resources>
         <image name="1.png" width="600" height="60"/>
+        <image name="2.png" width="600" height="60"/>
         <image name="add.png" width="44" height="44"/>
         <image name="back-arrow.png" width="44" height="44"/>
         <image name="badge-red.png" width="75" height="50"/>
