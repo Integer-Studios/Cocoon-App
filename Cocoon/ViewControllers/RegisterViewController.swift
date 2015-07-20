@@ -20,6 +20,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var contentView: UIView!
     
     var keyboardFrame: CGRect?
+    
+    var textFields: [UITextField] = []
+    var activeField: UITextField?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,31 +54,27 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.scrollView.setContentOffset(CGPointZero, animated: false)
+        self.textFields.append(password)
+        self.textFields.append(retypePassword)
+        self.textFields.append(firstName)
+        self.textFields.append(lastName)
+        self.textFields.append(email)
+
+        self.initializeKeyboardScroll()
         
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        notificationCenter.addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
-        notificationCenter.removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+        self.deinitializeKeyboardScroll();
+    
     }
     
     @IBAction func registerButton(sender: AnyObject) {
         
         register()
         
-    }
-    
-    @IBAction func textFieldBeganEdit(sender: AnyObject) {
-        
-        
-
     }
     
     @IBAction func cancelRegistration(sender: AnyObject) {
@@ -146,11 +145,76 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    func initializeKeyboardScroll() {
+        
+        self.scrollView.setContentOffset(CGPointZero, animated: false)
+        
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: "keyboardDidShow:", name: UIKeyboardDidShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+
+        
+        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapCaptured:")
+        self.scrollView.addGestureRecognizer(singleTap)
+        
+    }
+    
+    func deinitializeKeyboardScroll() {
+        
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        notificationCenter.removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+
+    }
+    
+    func tapCaptured(gesture: UITapGestureRecognizer) {
+        
+        for textfield in textFields {
+            
+            if textfield.isFirstResponder() {
+                
+                textfield.resignFirstResponder()
+                break
+                
+            }
+            
+        }
+        
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+        self.activeField = textField;
+        if (self.keyboardFrame != nil) {
+            if (textField.tag == textFields.count || textField.tag == textFields.count - 1) {
+
+                let offset: CGPoint = CGPoint(x: 0, y: scrollView.contentSize.height - self.scrollView.bounds.size.height + keyboardFrame!.size.height)
+                self.scrollView.setContentOffset(offset, animated: true)
+            
+            } else {
+
+                var aRect = self.view.frame;
+                aRect.size.height -= self.keyboardFrame!.size.height;
+                if (!CGRectContainsPoint(aRect, self.activeField!.frame.origin) ) {
+                    self.scrollView.scrollRectToVisible(self.activeField!.frame, animated:true)
+                }
+            }
+            
+        }
+        
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+       
+        activeField = nil
+        
+    }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         let newTag = textField.tag + 1
         
-        if (newTag > 5) {
+        if (newTag > textFields.count) {
             
             println("done")
             
@@ -160,9 +224,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             var nextResponder: UIResponder? = textField.superview?.viewWithTag(newTag)
             if (nextResponder != nil) {
                 
+                
                 nextResponder?.becomeFirstResponder()
-                scrollToField()
 
+                
             } else {
                 
                 textField.resignFirstResponder()
@@ -175,64 +240,38 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func scrollToField() {
-        var scrollY: CGFloat = 0
-
-        if (password.isFirstResponder()) {
-            
-            scrollY = password.frame.origin.y - password.frame.size.height
-            
-        } else if (retypePassword.isFirstResponder()) {
-            
-            scrollY = retypePassword.frame.origin.y - retypePassword.frame.size.height
-            
-        } else if (firstName.isFirstResponder()){
-            
-            scrollY = firstName.frame.origin.y - firstName.frame.size.height
-            
-        } else if (lastName.isFirstResponder()){
-            
-            scrollY = lastName.frame.origin.y - lastName.frame.size.height
-            
-        } else if (email.isFirstResponder()){
-            
-            scrollY = email.frame.origin.y - email.frame.size.height
-            
-        }
-        
-        
-//        if (self.keyboardFrame != nil) {
-//            
-//            var continueOff = self.continueButton.frame.origin.y + self.continueButton.frame.size.height
-//            
-//            if (continueOff - self.scrollView.contentOffset.y) > (self.scrollView.frame.size.height - self.keyboardFrame!.size.height) {
-//                
-//                scrollY = (self.scrollView.frame.size.height - (self.keyboardFrame!.size.height - 30))
-//                
-//            }
-//            
-//            
-//        }
-        
-        let scrollPoint: CGPoint = CGPointMake(0.0, scrollY);
-        self.scrollView.setContentOffset(scrollPoint, animated: true)
-        
-    }
-    
-    func keyboardWillShow(notification: NSNotification) {
-
+    func keyboardDidShow(notification: NSNotification) {
+        self.scrollView.scrollEnabled = false
         let info:NSDictionary = notification.userInfo!
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
+        var contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0);
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
         self.keyboardFrame = keyboardSize
-        scrollToField()
+        self.scrollView.scrollEnabled = false
+        if (activeField?.tag == textFields.count || activeField?.tag == textFields.count - 1) {
+
+            let offset: CGPoint = CGPoint(x: 0, y: scrollView.contentSize.height - self.scrollView.bounds.size.height + keyboardFrame!.size.height)
+            self.scrollView.setContentOffset(offset, animated: true)
+            
+        } else {
+
+            var aRect = self.view.frame;
+            aRect.size.height -= keyboardSize.height;
+            if (!CGRectContainsPoint(aRect, activeField!.frame.origin) ) {
+                self.scrollView.scrollRectToVisible(activeField!.frame, animated:true)
+            }
+        }
+        
     }
     
     func keyboardWillHide(notification: NSNotification) {
         
+        var contentInsets = UIEdgeInsetsZero;
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
         self.keyboardFrame = nil
-        var scrollY: CGFloat = continueButton.frame.origin.y - (self.view.frame.size.height - 120)
-        let scrollPoint: CGPoint = CGPointMake(0.0, scrollY);
-        self.scrollView.setContentOffset(scrollPoint, animated: true)
+        self.scrollView.scrollEnabled = true
 
     }
 

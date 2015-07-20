@@ -28,7 +28,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidAppear(animated: Bool) {
         
         super.viewDidAppear(animated)
-
+        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapCaptured:")
+        self.view.addGestureRecognizer(singleTap)
+        
         if (FBSDKAccessToken.currentAccessToken() != nil && Cocoon.user != nil) {
             // User is already logged in, do work such as go to next view controller.
             let graphRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
@@ -235,6 +237,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func handleLoginError(error: Error) {
 
         println("Login Failed: \(error.errorCode)")
+        
+    }
+    
+    func tapCaptured(gesture: UITapGestureRecognizer) {
+        
+        if (self.usernameField.isFirstResponder()) {
+            
+            self.usernameField.resignFirstResponder()
+            
+        } else if (self.passwordField.isFirstResponder()) {
+            
+            self.passwordField.resignFirstResponder()
+            
+        }
+        
         
     }
     
