@@ -20,10 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
        
-        let type = UIUserNotificationType.Badge | UIUserNotificationType.Alert | UIUserNotificationType.Sound;
-        let setting = UIUserNotificationSettings(forTypes: type, categories: nil);
-        UIApplication.sharedApplication().registerUserNotificationSettings(setting);
-        UIApplication.sharedApplication().registerForRemoteNotifications()
+//        let type = UIUserNotificationType.Badge | UIUserNotificationType.Alert | UIUserNotificationType.Sound;
+//        let setting = UIUserNotificationSettings(forTypes: type, categories: nil);
+//        UIApplication.sharedApplication().registerUserNotificationSettings(setting);
+//        UIApplication.sharedApplication().registerForRemoteNotifications()
 
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         Cocoon.initializeApplication()
