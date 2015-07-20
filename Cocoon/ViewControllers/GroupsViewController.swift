@@ -66,10 +66,23 @@ class GroupsViewController: UITableViewController, UITableViewDataSource, UITabl
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("itemCell", forIndexPath: indexPath) as! ButtonCell
-        cell.setButtonLink(items[indexPath.row], viewController: self)
-        cell.displayName?.text = items[indexPath.row].displayName
-        return cell
+        var link = items[indexPath.row]
+        
+        if link.type != "groups.menu" {
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("itemCell", forIndexPath: indexPath) as! ButtonCell
+            cell.setButtonLink(items[indexPath.row], viewController: self)
+            cell.displayName?.text = items[indexPath.row].displayName
+            return cell
+            
+        } else {
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("addCell", forIndexPath: indexPath) as! ButtonCell
+            cell.setButtonLink(items[indexPath.row], viewController: self)
+            cell.displayName?.text = items[indexPath.row].displayName
+            return cell
+            
+        }
         
     }
     

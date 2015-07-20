@@ -727,6 +727,44 @@
                                     <outlet property="displayName" destination="Jnc-oe-UH8" id="Hod-kJ-Xn4"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addCell" id="5tm-9E-UT5" customClass="ButtonCell" customModule="Cocoon" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5tm-9E-UT5" id="McV-FX-UOY">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7tr-xx-Umt">
+                                            <rect key="frame" x="570" y="11" width="22" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="22" id="CgJ-7o-Awg"/>
+                                                <constraint firstAttribute="width" constant="22" id="m8t-iP-DZb"/>
+                                            </constraints>
+                                            <state key="normal" image="add.png">
+                                                <color key="titleColor" red="0.97437185049999997" green="0.28770703079999999" blue="0.29020819069999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buttonPressed:" destination="5tm-9E-UT5" eventType="touchUpInside" id="qkx-pw-bp4"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcx-Lt-YdR">
+                                            <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.9753188491" green="0.35680589080000003" blue="0.32186713810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="7tr-xx-Umt" firstAttribute="top" secondItem="McV-FX-UOY" secondAttribute="topMargin" constant="3" id="B2F-9y-46J"/>
+                                        <constraint firstItem="vcx-Lt-YdR" firstAttribute="leading" secondItem="McV-FX-UOY" secondAttribute="leadingMargin" id="HZ2-a7-dTy"/>
+                                        <constraint firstItem="7tr-xx-Umt" firstAttribute="trailing" secondItem="McV-FX-UOY" secondAttribute="trailingMargin" id="OUn-Ww-rbP"/>
+                                        <constraint firstItem="vcx-Lt-YdR" firstAttribute="top" secondItem="McV-FX-UOY" secondAttribute="topMargin" constant="3" id="TKD-7F-BuI"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="button" destination="7tr-xx-Umt" id="qSG-ja-mMy"/>
+                                    <outlet property="displayName" destination="vcx-Lt-YdR" id="3IQ-kL-RhF"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="yTE-P2-Q6m" id="u53-SX-ZOu"/>
@@ -1014,7 +1052,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nNM-Z1-wif">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.95999997854232788" green="0.42320001125335693" blue="0.37439998984336853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.97531884908676147" green="0.35680589079856873" blue="0.32186713814735413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.55769428450000003" green="0.155704492" blue="0.1357545298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1831,10 +1869,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add.png" width="44" height="44"/>
-        <image name="badge-red.png" width="75" height="50"/>
         <image name="1.png" width="600" height="60"/>
+        <image name="add.png" width="44" height="44"/>
         <image name="back-arrow.png" width="44" height="44"/>
+        <image name="badge-red.png" width="75" height="50"/>
         <image name="bg.jpg" width="2208" height="2208"/>
         <image name="default-avatar.png" width="99" height="99"/>
         <image name="info.png" width="44" height="44"/>
