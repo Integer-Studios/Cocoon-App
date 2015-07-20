@@ -10,7 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -28,7 +28,9 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         
         super.viewDidAppear(animated)
-
+        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapCaptured:")
+        self.view.addGestureRecognizer(singleTap)
+        
         if (FBSDKAccessToken.currentAccessToken() != nil && Cocoon.user != nil) {
             // User is already logged in, do work such as go to next view controller.
             let graphRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
@@ -235,6 +237,50 @@ class LoginViewController: UIViewController {
     func handleLoginError(error: Error) {
 
         println("Login Failed: \(error.errorCode)")
+        
+    }
+    
+    func tapCaptured(gesture: UITapGestureRecognizer) {
+        
+        if (self.usernameField.isFirstResponder()) {
+            
+            self.usernameField.resignFirstResponder()
+            
+        } else if (self.passwordField.isFirstResponder()) {
+            
+            self.passwordField.resignFirstResponder()
+            
+        }
+        
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        let newTag = textField.tag + 1
+        
+        if (newTag > 2) {
+            
+            println("done")
+            textField.resignFirstResponder()
+
+            
+        } else {
+            
+            var nextResponder: UIResponder? = textField.superview?.viewWithTag(newTag)
+            if (nextResponder != nil) {
+                
+                nextResponder?.becomeFirstResponder()
+                
+            } else {
+                
+                textField.resignFirstResponder()
+                
+            }
+            
+        }
+        
+        return false;
         
     }
         
