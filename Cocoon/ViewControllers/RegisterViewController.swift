@@ -185,22 +185,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidBeginEditing(textField: UITextField) {
         
         self.activeField = textField;
-        if (self.keyboardFrame != nil) {
-            if (textField.tag == textFields.count || textField.tag == textFields.count - 1) {
-
-                let offset: CGPoint = CGPoint(x: 0, y: scrollView.contentSize.height - self.scrollView.bounds.size.height + keyboardFrame!.size.height)
-                self.scrollView.setContentOffset(offset, animated: true)
-            
-            } else {
-
-                var aRect = self.view.frame;
-                aRect.size.height -= self.keyboardFrame!.size.height;
-                if (!CGRectContainsPoint(aRect, self.activeField!.frame.origin) ) {
-                    self.scrollView.scrollRectToVisible(self.activeField!.frame, animated:true)
-                }
-            }
-            
-        }
+        self.scrollToField()
         
     }
     
@@ -240,28 +225,36 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    func scrollToField() {
+        
+        if (self.keyboardFrame != nil) {
+            
+            var aRect = self.view.frame;
+            aRect.size.height -= self.keyboardFrame!.size.height;
+            if (!CGRectContainsPoint(aRect, self.activeField!.frame.origin) ) {
+                self.scrollView.scrollRectToVisible(activeField!.frame, animated:true)
+            }
+            
+        } else {
+            
+            var aRect = self.view.frame;
+            if (!CGRectContainsPoint(aRect, self.activeField!.frame.origin) ) {
+                self.scrollView.scrollRectToVisible(activeField!.frame, animated:true)
+            }
+            
+        }
+        
+    }
+    
     func keyboardDidShow(notification: NSNotification) {
-        self.scrollView.scrollEnabled = false
+
         let info:NSDictionary = notification.userInfo!
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
         var contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0);
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
         self.keyboardFrame = keyboardSize
-        self.scrollView.scrollEnabled = false
-        if (activeField?.tag == textFields.count || activeField?.tag == textFields.count - 1) {
-
-            let offset: CGPoint = CGPoint(x: 0, y: scrollView.contentSize.height - self.scrollView.bounds.size.height + keyboardFrame!.size.height)
-            self.scrollView.setContentOffset(offset, animated: true)
-            
-        } else {
-
-            var aRect = self.view.frame;
-            aRect.size.height -= keyboardSize.height;
-            if (!CGRectContainsPoint(aRect, activeField!.frame.origin) ) {
-                self.scrollView.scrollRectToVisible(activeField!.frame, animated:true)
-            }
-        }
+        self.scrollToField()
         
     }
     
@@ -271,7 +264,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
         self.keyboardFrame = nil
-        self.scrollView.scrollEnabled = true
 
     }
 
