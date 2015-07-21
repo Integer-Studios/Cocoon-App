@@ -68,6 +68,12 @@ class InputScrollView: UIViewController, UITextFieldDelegate {
         
     }
     
+    func addTextField(textField: UITextField) {
+        
+        self.textFields.append(textField)
+        
+    }
+    
     func textFieldDidBeginEditing(textField: UITextField) {
         
         self.activeField = textField;
