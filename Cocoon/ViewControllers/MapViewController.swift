@@ -78,7 +78,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         let userLocation = mapView.userLocation
         
-        mapView.setRegion(MKCoordinateRegionForMapRect(response.), animated: true)
+//        mapView.setRegion(MKCoordinateRegionForMapRect(response.), animated: true)
 
         
 //        let region = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, Cocoon.coords!.longitude, Cocoon.coords!.latitude)
