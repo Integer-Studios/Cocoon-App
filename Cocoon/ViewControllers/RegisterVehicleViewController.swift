@@ -26,8 +26,8 @@ class RegisterVehicleViewController: InputScrollView {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.textFields.append(size)
-        self.textFields.append(name)
+        self.addTextField(size)
+        self.addTextField(name)
         
         self.initializeKeyboardScroll()
         

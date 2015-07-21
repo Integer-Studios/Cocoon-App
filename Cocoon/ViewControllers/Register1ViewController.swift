@@ -30,8 +30,8 @@ class Register1ViewController: InputScrollView {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.textFields.append(lastName)
-        self.textFields.append(addToken)
+        self.addTextField(lastName)
+        self.addTextField(addToken)
 
         self.initializeKeyboardScroll()
         

@@ -31,9 +31,9 @@ class RegisterKidViewController: InputScrollView {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.textFields.append(age)
-        self.textFields.append(lastName)
-        self.textFields.append(firstName)
+        self.addTextField(age)
+        self.addTextField(lastName)
+        self.addTextField(firstName)
         
         self.initializeKeyboardScroll()
         

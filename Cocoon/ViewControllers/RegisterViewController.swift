@@ -47,11 +47,11 @@ class RegisterViewController: InputScrollView {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.textFields.append(password)
-        self.textFields.append(retypePassword)
-        self.textFields.append(firstName)
-        self.textFields.append(lastName)
-        self.textFields.append(email)
+        self.addTextField(password)
+        self.addTextField(retypePassword)
+        self.addTextField(firstName)
+        self.addTextField(lastName)
+        self.addTextField(email)
 
         self.initializeKeyboardScroll()
         
