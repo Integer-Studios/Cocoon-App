@@ -39,6 +39,7 @@
 		F6431D561B39FCFC00BBD20D /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6431D551B39FCFC00BBD20D /* FamilyViewController.swift */; };
 		F6431D5C1B3A172700BBD20D /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6431D5B1B3A172700BBD20D /* NavigationController.swift */; };
 		F6431D601B3A19E300BBD20D /* Register2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6431D5F1B3A19E300BBD20D /* Register2ViewController.swift */; };
+		F66088BD1B5D881A001BBD2A /* DoubleTitleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66088BC1B5D881A001BBD2A /* DoubleTitleHeader.swift */; };
 		F66B48CE1B3B48A5006FD3EA /* LoadingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66B48CD1B3B48A5006FD3EA /* LoadingTableViewController.swift */; };
 		F66CF1071B4B38D6000B3209 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CF1061B4B38D6000B3209 /* EventCell.swift */; };
 		F66CF10B1B4DE0B0000B3209 /* SearchGroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CF10A1B4DE0AF000B3209 /* SearchGroupsController.swift */; };
@@ -118,6 +119,7 @@
 		F6431D551B39FCFC00BBD20D /* FamilyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FamilyViewController.swift; path = ViewControllers/FamilyViewController.swift; sourceTree = "<group>"; };
 		F6431D5B1B3A172700BBD20D /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationController.swift; path = ViewControllers/NavigationController.swift; sourceTree = "<group>"; };
 		F6431D5F1B3A19E300BBD20D /* Register2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Register2ViewController.swift; path = ViewControllers/Register2ViewController.swift; sourceTree = "<group>"; };
+		F66088BC1B5D881A001BBD2A /* DoubleTitleHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleTitleHeader.swift; path = Cells/DoubleTitleHeader.swift; sourceTree = "<group>"; };
 		F66B48CD1B3B48A5006FD3EA /* LoadingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingTableViewController.swift; path = ViewControllers/LoadingTableViewController.swift; sourceTree = "<group>"; };
 		F66CF1061B4B38D6000B3209 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventCell.swift; path = Cells/EventCell.swift; sourceTree = "<group>"; };
 		F66CF10A1B4DE0AF000B3209 /* SearchGroupsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchGroupsController.swift; path = ViewControllers/SearchGroupsController.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				F6B274B71B547015000805BD /* SingleTitleHeader.swift */,
 				F6B274C51B54829E000805BD /* IconCell.swift */,
 				F6B274C71B548BBD000805BD /* TodoCell.swift */,
+				F66088BC1B5D881A001BBD2A /* DoubleTitleHeader.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				F66B48CE1B3B48A5006FD3EA /* LoadingTableViewController.swift in Sources */,
 				F628BEDD1B3884CB005E4002 /* RegisterViewController.swift in Sources */,
 				F6C0F5A81B433A7600629E02 /* GroupsViewController.swift in Sources */,
+				F66088BD1B5D881A001BBD2A /* DoubleTitleHeader.swift in Sources */,
 				F66CF1071B4B38D6000B3209 /* EventCell.swift in Sources */,
 				F6B274B61B54695D000805BD /* ButtonCell.swift in Sources */,
 				F6C0F5AE1B434E3400629E02 /* RegisterGroupViewController.swift in Sources */,

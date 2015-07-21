@@ -45,7 +45,7 @@ class TodoViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 50
+        return 60
     }
     
     @IBAction func logout(sender: AnyObject) {
