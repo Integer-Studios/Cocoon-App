@@ -635,6 +635,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="UYi-j3-1f5" id="wr3-iZ-d7L"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Number of Seats" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ENU-Y6-WI0">
                                                 <rect key="frame" x="0.0" y="128" width="600" height="50"/>
@@ -644,6 +647,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="UYi-j3-1f5" id="fH3-nW-bnK"/>
+                                                </connections>
                                             </textField>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Zk2-Ef-zwA">
                                                 <rect key="frame" x="190" y="241" width="220" height="29"/>
