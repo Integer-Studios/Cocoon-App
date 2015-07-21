@@ -489,7 +489,7 @@
                                                 <color key="textColor" red="0.18823529780000001" green="0.18823529780000001" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="00J-fq-2xG">
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="00J-fq-2xG">
                                                 <rect key="frame" x="190" y="288" width="220" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="220" id="Mrk-Sc-5EV"/>
@@ -588,7 +588,7 @@
             </objects>
             <point key="canvasLocation" x="2036" y="1436"/>
         </scene>
-        <!--Register Vehicle View Controller-->
+        <!--New Vehicle-->
         <scene sceneID="2J5-Mf-19n">
             <objects>
                 <viewController storyboardIdentifier="registerVehicle" id="UYi-j3-1f5" customClass="RegisterVehicleViewController" customModule="Cocoon" customModuleProvider="target" sceneMemberID="viewController">
@@ -597,73 +597,120 @@
                         <viewControllerLayoutGuide type="bottom" id="3rQ-xE-8R8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LC8-uy-POi">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a Vehicle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNx-4K-tDh">
-                                <rect key="frame" x="248" y="110" width="105" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f9Q-YD-kKz">
-                                <rect key="frame" x="205" y="163" width="190" height="30"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R28-Yw-mxn">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zV5-ee-IW9">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your vehicle's information below" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="St7-VO-gzy">
+                                                <rect key="frame" x="161" y="35" width="278" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                <color key="textColor" red="0.18823529780000001" green="0.18823529780000001" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the type of vehicle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fE-Bf-TBl">
+                                                <rect key="frame" x="209" y="199" width="183" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                <color key="textColor" red="0.18823529780000001" green="0.18823529780000001" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jFk-I2-Bcv">
+                                                <rect key="frame" x="0.0" y="77" width="600" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Ldy-rf-wv9"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Number of Seats" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ENU-Y6-WI0">
+                                                <rect key="frame" x="0.0" y="128" width="600" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="hSu-ju-jJ3"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Zk2-Ef-zwA">
+                                                <rect key="frame" x="190" y="241" width="220" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="220" id="rfo-6B-hiP"/>
+                                                </constraints>
+                                                <segments>
+                                                    <segment title="Sedan"/>
+                                                    <segment title="SUV"/>
+                                                    <segment title="Minivan"/>
+                                                </segments>
+                                                <color key="tintColor" red="1" green="0.2901960784" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </segmentedControl>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFg-LW-Ugr">
+                                                <rect key="frame" x="0.0" y="476" width="600" height="60"/>
+                                                <color key="backgroundColor" red="1" green="0.2901960784" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="6Ke-tn-GBd"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <state key="normal" title="Continue">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="registerKid:" destination="s4o-2a-5RX" eventType="touchUpInside" id="hPa-T5-0Js"/>
+                                                    <action selector="registerVehicle:" destination="UYi-j3-1f5" eventType="touchUpInside" id="fDb-SV-wLB"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.94994920490000001" green="0.94997149709999995" blue="0.94995945690000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="jFk-I2-Bcv" firstAttribute="top" secondItem="St7-VO-gzy" secondAttribute="bottom" constant="21" id="3m7-nh-Xm8"/>
+                                            <constraint firstItem="ENU-Y6-WI0" firstAttribute="width" secondItem="jFk-I2-Bcv" secondAttribute="width" id="67B-e6-zRD"/>
+                                            <constraint firstAttribute="centerX" secondItem="St7-VO-gzy" secondAttribute="centerX" id="813-SK-x9U"/>
+                                            <constraint firstItem="St7-VO-gzy" firstAttribute="centerX" secondItem="jFk-I2-Bcv" secondAttribute="centerX" id="8ju-Qc-ZQR"/>
+                                            <constraint firstItem="ENU-Y6-WI0" firstAttribute="centerX" secondItem="0fE-Bf-TBl" secondAttribute="centerX" constant="-0.5" id="DFv-BY-Z3X"/>
+                                            <constraint firstItem="0fE-Bf-TBl" firstAttribute="top" secondItem="ENU-Y6-WI0" secondAttribute="bottom" constant="21" id="IIi-LO-Ziy"/>
+                                            <constraint firstAttribute="width" secondItem="jFk-I2-Bcv" secondAttribute="width" id="KN2-3s-eV4"/>
+                                            <constraint firstItem="dFg-LW-Ugr" firstAttribute="centerX" secondItem="Zk2-Ef-zwA" secondAttribute="centerX" id="R3l-Y0-vsL"/>
+                                            <constraint firstItem="Zk2-Ef-zwA" firstAttribute="top" secondItem="0fE-Bf-TBl" secondAttribute="bottom" constant="21" id="XUD-on-SjV"/>
+                                            <constraint firstAttribute="bottom" secondItem="dFg-LW-Ugr" secondAttribute="bottom" id="bj6-Ca-HZm"/>
+                                            <constraint firstItem="ENU-Y6-WI0" firstAttribute="centerX" secondItem="jFk-I2-Bcv" secondAttribute="centerX" id="d29-tb-Xgp"/>
+                                            <constraint firstItem="ENU-Y6-WI0" firstAttribute="top" secondItem="jFk-I2-Bcv" secondAttribute="bottom" constant="1" id="dpr-fc-Cb6"/>
+                                            <constraint firstItem="St7-VO-gzy" firstAttribute="top" secondItem="zV5-ee-IW9" secondAttribute="top" constant="35" id="nle-hH-sPb"/>
+                                            <constraint firstItem="dFg-LW-Ugr" firstAttribute="width" secondItem="ENU-Y6-WI0" secondAttribute="width" id="oBv-Jg-mlB"/>
+                                            <constraint firstItem="Zk2-Ef-zwA" firstAttribute="centerX" secondItem="0fE-Bf-TBl" secondAttribute="centerX" constant="-0.5" id="vRk-5g-acp"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="7U2-2Q-Ei0"/>
-                                    <constraint firstAttribute="width" constant="190" id="t3s-QG-LGx"/>
+                                    <constraint firstAttribute="trailing" secondItem="zV5-ee-IW9" secondAttribute="trailing" id="9Bk-2i-Qm0"/>
+                                    <constraint firstItem="zV5-ee-IW9" firstAttribute="top" secondItem="R28-Yw-mxn" secondAttribute="top" id="A5h-GO-QJt"/>
+                                    <constraint firstAttribute="height" secondItem="zV5-ee-IW9" secondAttribute="height" id="cIU-Cg-HQn"/>
+                                    <constraint firstItem="zV5-ee-IW9" firstAttribute="leading" secondItem="R28-Yw-mxn" secondAttribute="leading" id="gES-eA-pvL"/>
+                                    <constraint firstAttribute="bottom" secondItem="zV5-ee-IW9" secondAttribute="bottom" id="nuK-Rp-8Ev"/>
+                                    <constraint firstAttribute="width" secondItem="zV5-ee-IW9" secondAttribute="width" id="peb-kd-IJy"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of Seats" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3zg-50-Ot6">
-                                <rect key="frame" x="205" y="201" width="190" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="cMm-Nu-BWF"/>
-                                    <constraint firstAttribute="width" constant="190" id="klf-1T-56P"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="8fY-nt-CMd">
-                                <rect key="frame" x="205" y="239" width="190" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="190" id="HaN-IM-ae8"/>
-                                    <constraint firstAttribute="height" constant="28" id="c5y-a8-Olv"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Sedan"/>
-                                    <segment title="SUV"/>
-                                    <segment title="Minivan"/>
-                                </segments>
-                            </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6Z-4G-fJt">
-                                <rect key="frame" x="283" y="275" width="34" height="30"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="registerVehicle:" destination="UYi-j3-1f5" eventType="touchUpInside" id="qdm-m4-Gck"/>
-                                </connections>
-                            </button>
+                            </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94994920490000001" green="0.94997149709999995" blue="0.94995945690000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="U6Z-4G-fJt" secondAttribute="centerX" id="A6v-gI-aFV"/>
-                            <constraint firstItem="3zg-50-Ot6" firstAttribute="top" secondItem="f9Q-YD-kKz" secondAttribute="bottom" constant="8" id="BJF-5D-xHM"/>
-                            <constraint firstItem="BNx-4K-tDh" firstAttribute="top" secondItem="5va-2P-Iy4" secondAttribute="bottom" constant="46" id="ByY-uf-x5P"/>
-                            <constraint firstItem="8fY-nt-CMd" firstAttribute="top" secondItem="3zg-50-Ot6" secondAttribute="bottom" constant="8" id="KLk-2Q-wJb"/>
-                            <constraint firstItem="3zg-50-Ot6" firstAttribute="centerX" secondItem="8fY-nt-CMd" secondAttribute="centerX" id="Lc0-GM-6rV"/>
-                            <constraint firstItem="f9Q-YD-kKz" firstAttribute="top" secondItem="BNx-4K-tDh" secondAttribute="bottom" constant="32" id="MY5-5R-AOz"/>
-                            <constraint firstItem="f9Q-YD-kKz" firstAttribute="centerX" secondItem="BNx-4K-tDh" secondAttribute="centerX" constant="-0.5" id="gU8-uZ-7vh"/>
-                            <constraint firstAttribute="centerX" secondItem="BNx-4K-tDh" secondAttribute="centerX" id="jaj-2l-Sdl"/>
-                            <constraint firstItem="3zg-50-Ot6" firstAttribute="centerX" secondItem="BNx-4K-tDh" secondAttribute="centerX" constant="-0.5" id="w3W-oC-eyR"/>
-                            <constraint firstItem="U6Z-4G-fJt" firstAttribute="top" secondItem="8fY-nt-CMd" secondAttribute="bottom" constant="8" id="xE7-hJ-eRp"/>
+                            <constraint firstAttribute="width" secondItem="R28-Yw-mxn" secondAttribute="width" id="4qh-4Y-TXo"/>
+                            <constraint firstAttribute="centerX" secondItem="R28-Yw-mxn" secondAttribute="centerX" id="AlP-mI-vhg"/>
+                            <constraint firstItem="3rQ-xE-8R8" firstAttribute="top" secondItem="R28-Yw-mxn" secondAttribute="bottom" id="jUd-jE-KQb"/>
+                            <constraint firstItem="R28-Yw-mxn" firstAttribute="top" secondItem="5va-2P-Iy4" secondAttribute="bottom" id="jno-df-kXE"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="New Vehicle" id="njC-rv-Okc"/>
                     <connections>
-                        <outlet property="name" destination="f9Q-YD-kKz" id="pFI-Tz-Iqj"/>
-                        <outlet property="size" destination="3zg-50-Ot6" id="jhV-wM-SfP"/>
-                        <outlet property="typeSelector" destination="8fY-nt-CMd" id="xAQ-4s-EWn"/>
+                        <outlet property="contentView" destination="zV5-ee-IW9" id="ymY-yT-BEw"/>
+                        <outlet property="name" destination="jFk-I2-Bcv" id="uGt-pS-UHx"/>
+                        <outlet property="scrollView" destination="R28-Yw-mxn" id="RKV-Tc-4KV"/>
+                        <outlet property="size" destination="ENU-Y6-WI0" id="LCD-6b-oKi"/>
+                        <outlet property="typeSelector" destination="Zk2-Ef-zwA" id="G8G-q8-I3c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j1A-rH-X7H" userLabel="First Responder" sceneMemberID="firstResponder"/>

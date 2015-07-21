@@ -14,6 +14,9 @@ class RegisterVehicleViewController: UIViewController {
     @IBOutlet weak var size: UITextField!
     @IBOutlet weak var typeSelector: UISegmentedControl!
     
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
