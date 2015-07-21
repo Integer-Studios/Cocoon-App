@@ -8,20 +8,12 @@
 
 import UIKit
 
-class RegisterKidViewController: UIViewController, UITextFieldDelegate {
+class RegisterKidViewController: InputScrollView {
 
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var age: UITextField!
     @IBOutlet weak var genderSelector: UISegmentedControl!
-    
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var scrollView: UIScrollView!
-    
-    var textFields: [UITextField] = [UITextField]()
-    var keyboardFrame: CGRect?
-    var singleTap: UITapGestureRecognizer?
-    var activeField: UITextField?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,89 +82,7 @@ class RegisterKidViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func initializeKeyboardScroll() {
-        
-        self.scrollView.setContentOffset(CGPointZero, animated: false)
-        
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.addObserver(self, selector: "keyboardDidShow:", name: UIKeyboardDidShowNotification, object: nil)
-        notificationCenter.addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
-        
-        self.singleTap = UITapGestureRecognizer(target: self, action: "tapCaptured:")
-        
-        self.scrollView.addGestureRecognizer(singleTap!)
-        
-    }
-    
-    func deinitializeKeyboardScroll() {
-        
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.removeObserver(self, name: UIKeyboardDidShowNotification, object: nil)
-        notificationCenter.removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
-        
-        self.scrollView.removeGestureRecognizer(self.singleTap!)
-        
-    }
-    
-    func tapCaptured(gesture: UITapGestureRecognizer) {
-        
-        for textfield in textFields {
-            
-            if textfield.isFirstResponder() {
-                
-                textfield.resignFirstResponder()
-                break
-                
-            }
-            
-        }
-        
-    }
-    
-    func textFieldDidBeginEditing(textField: UITextField) {
-        
-        self.activeField = textField;
-        self.scrollToField()
-        
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        
-        activeField = nil
-        
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        
-        let newTag = textField.tag + 1
-        
-        if (newTag > textFields.count) {
-            
-            println("done")
-            
-            
-        } else {
-            
-            var nextResponder: UIResponder? = textField.superview?.viewWithTag(newTag)
-            if (nextResponder != nil) {
-                
-                
-                nextResponder?.becomeFirstResponder()
-                
-                
-            } else {
-                
-                textField.resignFirstResponder()
-                
-            }
-            
-        }
-        
-        return false;
-        
-    }
-    
-    func scrollToField() {
+    override func scrollToField() {
         
         if (self.keyboardFrame != nil) {
             
@@ -200,30 +110,6 @@ class RegisterKidViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
-    
-    func keyboardDidShow(notification: NSNotification) {
-        
-        let info:NSDictionary = notification.userInfo!
-        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
-        var contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0);
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
-        self.keyboardFrame = keyboardSize
-        if (self.activeField != nil) {
-            self.scrollToField()
-        }
-        
-    }
-    
-    func keyboardWillHide(notification: NSNotification) {
-        
-        var contentInsets = UIEdgeInsetsZero;
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
-        self.keyboardFrame = nil
-        
-    }
-    
 
     /*
     // MARK: - Navigation

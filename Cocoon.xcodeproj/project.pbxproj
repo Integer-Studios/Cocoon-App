@@ -27,6 +27,7 @@
 		E46E36241B3B499D00FE92C0 /* ResponseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E36231B3B499D00FE92C0 /* ResponseManager.swift */; };
 		E489E90E1B5E31E900E1F57B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489E90D1B5E31E900E1F57B /* MapViewController.swift */; };
 		E489E9101B5E321700E1F57B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E489E90F1B5E321700E1F57B /* MapKit.framework */; };
+		E489E9121B5EE16C00E1F57B /* InputScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489E9111B5EE16C00E1F57B /* InputScrollView.swift */; };
 		E4D33C5F1B545D3C0090FA24 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D33C5C1B545D3C0090FA24 /* 1.png */; };
 		E4D33C601B545D3C0090FA24 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D33C5D1B545D3C0090FA24 /* 2.png */; };
 		E4D33C611B545D3C0090FA24 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D33C5E1B545D3C0090FA24 /* 3.png */; };
@@ -109,6 +110,7 @@
 		E46E36231B3B499D00FE92C0 /* ResponseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseManager.swift; sourceTree = "<group>"; };
 		E489E90D1B5E31E900E1F57B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ViewControllers/MapViewController.swift; sourceTree = "<group>"; };
 		E489E90F1B5E321700E1F57B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E489E9111B5EE16C00E1F57B /* InputScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputScrollView.swift; sourceTree = "<group>"; };
 		E4D33C5C1B545D3C0090FA24 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		E4D33C5D1B545D3C0090FA24 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		E4D33C5E1B545D3C0090FA24 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				E46E36231B3B499D00FE92C0 /* ResponseManager.swift */,
 				F628BF1E1B38B7E4005E4002 /* User.swift */,
 				F628BF221B38C70C005E4002 /* Cocoon.swift */,
+				E489E9111B5EE16C00E1F57B /* InputScrollView.swift */,
 				E419C8231B3873720015FCC2 /* Main.storyboard */,
 				E419C8261B3873720015FCC2 /* Images.xcassets */,
 				E419C8281B3873720015FCC2 /* LaunchScreen.xib */,
@@ -524,6 +527,7 @@
 				F6B274B61B54695D000805BD /* ButtonCell.swift in Sources */,
 				F6C0F5AE1B434E3400629E02 /* RegisterGroupViewController.swift in Sources */,
 				F6B274B81B547015000805BD /* SingleTitleHeader.swift in Sources */,
+				E489E9121B5EE16C00E1F57B /* InputScrollView.swift in Sources */,
 				E46E36241B3B499D00FE92C0 /* ResponseManager.swift in Sources */,
 				E419C8401B3876890015FCC2 /* LoginViewController.swift in Sources */,
 				F66CF10B1B4DE0B0000B3209 /* SearchGroupsController.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController, UITextFieldDelegate {
+class RegisterViewController: InputScrollView {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -16,14 +16,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var continueButton: UIButton!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var contentView: UIView!
-    
-    var keyboardFrame: CGRect?
-    
-    var textFields: [UITextField] = []
-    var activeField: UITextField?
-    var singleTap: UITapGestureRecognizer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -149,128 +141,4 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func initializeKeyboardScroll() {
-        
-        self.scrollView.setContentOffset(CGPointZero, animated: false)
-        
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.addObserver(self, selector: "keyboardDidShow:", name: UIKeyboardDidShowNotification, object: nil)
-        notificationCenter.addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
-
-        
-        self.singleTap = UITapGestureRecognizer(target: self, action: "tapCaptured:")
-        self.scrollView.addGestureRecognizer(self.singleTap!)
-        
-    }
-    
-    func deinitializeKeyboardScroll() {
-        
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.removeObserver(self, name: UIKeyboardDidShowNotification, object: nil)
-        notificationCenter.removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
-
-        self.scrollView.removeGestureRecognizer(self.singleTap!)
-        
-    }
-    
-    func tapCaptured(gesture: UITapGestureRecognizer) {
-        
-        for textfield in textFields {
-            
-            if textfield.isFirstResponder() {
-                
-                textfield.resignFirstResponder()
-                break
-                
-            }
-            
-        }
-        
-    }
-    
-    func textFieldDidBeginEditing(textField: UITextField) {
-        
-        self.activeField = textField;
-        self.scrollToField()
-        
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-       
-        activeField = nil
-        
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        
-        let newTag = textField.tag + 1
-        
-        if (newTag > textFields.count) {
-            
-            println("done")
-            
-            
-        } else {
-            
-            var nextResponder: UIResponder? = textField.superview?.viewWithTag(newTag)
-            if (nextResponder != nil) {
-                
-                
-                nextResponder?.becomeFirstResponder()
-
-                
-            } else {
-                
-                textField.resignFirstResponder()
-                
-            }
-            
-        }
-        
-        return false;
-        
-    }
-    
-    func scrollToField() {
-        
-        if (self.keyboardFrame != nil) {
-            
-            var aRect = self.view.frame;
-            aRect.size.height -= self.keyboardFrame!.size.height;
-            if (!CGRectContainsPoint(aRect, self.activeField!.frame.origin) ) {
-                self.scrollView.scrollRectToVisible(activeField!.frame, animated:true)
-            }
-            
-        } else {
-            
-            var aRect = self.view.frame;
-            if (!CGRectContainsPoint(aRect, self.activeField!.frame.origin) ) {
-                self.scrollView.scrollRectToVisible(activeField!.frame, animated:true)
-            }
-            
-        }
-        
-    }
-    
-    func keyboardDidShow(notification: NSNotification) {
-
-        let info:NSDictionary = notification.userInfo!
-        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
-        var contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0);
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
-        self.keyboardFrame = keyboardSize
-        self.scrollToField()
-        
-    }
-    
-    func keyboardWillHide(notification: NSNotification) {
-        
-        var contentInsets = UIEdgeInsetsZero;
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
-        self.keyboardFrame = nil
-
-    }
-
 }
