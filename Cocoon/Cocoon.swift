@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 class Cocoon {
     
@@ -17,6 +18,9 @@ class Cocoon {
     static var isAuthenticated = false
     static var user : User?
     static var menuItems : [Link] = []
+    static var destinationTest: MKMapItem?
+    static var coords: CLLocationCoordinate2D?
+
     
     static func initializeApplication() {
         
