@@ -13,8 +13,10 @@ class RegisterKidViewController: UIViewController {
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var age: UITextField!
-    @IBOutlet weak var genderSwitch: UISwitch!
-    @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet weak var genderSelector: UISegmentedControl!
+    
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +34,7 @@ class RegisterKidViewController: UIViewController {
     @IBAction func registerKid(sender: AnyObject) {
        
         let familyID = Cocoon.user?.family?.id
-        let params: NSMutableDictionary = [ "first-name": firstName.text, "last-name": lastName.text, "age": age.text, "sex": genderSwitch.on]
+        let params: NSMutableDictionary = [ "first-name": firstName.text, "last-name": lastName.text, "age": age.text, "sex": (genderSelector.selectedSegmentIndex == 0)]
         params["family"] = familyID
         Cocoon.requestManager.sendRequest("/kid/register/", parameters: params, responseHandler: handleKidRegisterResponse, errorHandler: handleKidRegisterError)
 
@@ -54,20 +56,6 @@ class RegisterKidViewController: UIViewController {
     func handleKidRegisterError(error: Error) {
         
         println("Kid Register Error")
-        
-    }
-
-    @IBAction func genderChange(sender: AnyObject) {
-
-        if (genderSwitch.on) {
-         
-            genderLabel.text = "Male"
-            
-        } else {
-            
-            genderLabel.text = "Girl"
-            
-        }
         
     }
 

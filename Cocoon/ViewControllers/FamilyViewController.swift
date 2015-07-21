@@ -11,7 +11,9 @@ import UIKit
 class FamilyViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var addCodeLabel: UILabel!
     
+    var addCode : String = ""
     var kids : [Link] = []
     var vehicles : [Link] = []
     
@@ -30,7 +32,7 @@ class FamilyViewController: UITableViewController, UITableViewDataSource, UITabl
         
         super.viewWillAppear(animated)
         if let fam = Cocoon.user?.getFamily() {
-            requestData("/family/info/", parameters: ["family": fam.id] )
+            requestData("/family/info/", parameters: ["family": fam.id])
         }
         
     }
@@ -131,6 +133,25 @@ class FamilyViewController: UITableViewController, UITableViewDataSource, UITabl
         
     }
     
+    @IBAction func newCode(sender: AnyObject) {
+        
+        Cocoon.requestManager.sendRequest("/family/generate/", parameters: NSMutableDictionary(), responseHandler: handleNewCodeResponse, errorHandler: handleNewCodeError)
+        
+    }
+    
+    func handleNewCodeResponse(response: Response) {
+        
+        addCode = response.content!["add-token"] as! String
+        addCodeLabel.text = "Your family's add code is \(addCode)"
+        
+    }
+    
+    func handleNewCodeError(error: Error) {
+        
+        
+    }
+    
+    
     func requestData(request: String, parameters : NSMutableDictionary, debug: Bool = false) {
         
         Cocoon.requestManager.sendRequest(request, parameters: parameters, debug: debug, responseHandler: handleTableResponse, errorHandler: handleTableError)
@@ -139,6 +160,9 @@ class FamilyViewController: UITableViewController, UITableViewDataSource, UITabl
     
     
     func handleTableResponse(response: Response) {
+        
+        addCode = response.content!["add-token"] as! String
+        addCodeLabel.text = "Your family's add code is \(addCode)"
         
         self.kids.removeAll(keepCapacity: false)
         
