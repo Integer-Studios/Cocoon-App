@@ -67,21 +67,36 @@ class User {
                 
             }
             
-            let familyResponse = response.content!["family"] as! NSMutableDictionary
-            
-            families.append(Link.unwrapFamily(familyResponse))
-            
-            family = families[0]
-            //or load from data
-            
-            Cocoon.updateMenu()
-            
-            if (infoCallback != nil) {
+            if (response.content!["family"] is Bool) {
                 
-                infoCallback!()
+                deauthenticate()
+                Cocoon.user = nil
+                
+                NSOperationQueue.mainQueue().addOperationWithBlock {
+                    
+                    Cocoon.setRootViewController("login")
+                    
+                }
+                
+            } else {
+            
+                let familyResponse = response.content!["family"] as! NSMutableDictionary
+            
+                families.append(Link.unwrapFamily(familyResponse))
+            
+                family = families[0]
+                //or load from data
+            
+                Cocoon.updateMenu()
+            
+                if (infoCallback != nil) {
+                
+                    infoCallback!()
+                
+                }
                 
             }
-                        
+            
         } else {
             
             println("No content")
