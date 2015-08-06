@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import MapKit
 import AddressBook
-import CoreLocation
 
 class TodoViewController: UITableViewController {
     
@@ -51,39 +49,17 @@ class TodoViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let geoCoder = CLGeocoder()
+        let addressDict = [kABPersonAddressStreetKey as NSString: "39 Via Conocido",            kABPersonAddressCityKey: "San Clemente", kABPersonAddressStateKey: "CA",           kABPersonAddressZIPKey:  "92675"]
         
-        let addressString = "39 Via Conocido San Clemente CA 92675"
+        let stringAddress = "\(addressDict[kABPersonAddressStreetKey]) \(addressDict[kABPersonAddressCityKey]) \(addressDict[kABPersonAddressStateKey]) \(addressDict[kABPersonAddressZIPKey]) "
+        let mapViewController = self.storyboard?.instantiateViewControllerWithIdentifier("map") as! MapViewController
+        mapViewController.addressString = stringAddress
+        mapViewController.addressDict = addressDict
         
-        geoCoder.geocodeAddressString(addressString, completionHandler:
-            {(placemarks: [AnyObject]!, error: NSError!) in
-                
-                if error != nil {
-                    println("Geocode failed with error: \(error.localizedDescription)")
-                } else if placemarks.count > 0 {
-                    let placemark = placemarks[0] as! CLPlacemark
-                    let location = placemark.location
-                    Cocoon.coords = location.coordinate
-                   
-                    let addressDict = [kABPersonAddressStreetKey as NSString: "39 Via Conocido",
-                        kABPersonAddressCityKey: "San Clemente",
-                        kABPersonAddressStateKey: "CA",
-                        kABPersonAddressZIPKey:  "92675"]
-                    
-                    let place = MKPlacemark(coordinate: Cocoon.coords!,
-                        addressDictionary: addressDict)
-                    
-                    let mapItem = MKMapItem(placemark: place)
-                    
-                    Cocoon.destinationTest = mapItem
-                    
-                    (self.navigationController as! NavigationController).pushView("map")
-                    
-                }
-        })
-        
-    }
+        (self.navigationController as! NavigationController).pushViewController(mapViewController, animated: true)
     
+    }
+
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("sectionHeader") as! DoubleTitleHeader
