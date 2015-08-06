@@ -137,10 +137,12 @@ class GroupViewController: UITableViewController, UITableViewDataSource, UITable
         
     }
     
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30.0
+    }
+    
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        
-        return 60;
-        
+        return 60
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -157,22 +159,21 @@ class GroupViewController: UITableViewController, UITableViewDataSource, UITable
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("todoCell", forIndexPath: indexPath) as! TodoCell
+        cell.title?.text = items[indexPath.row].info[0]
+        cell.kidName?.text = items[indexPath.row].info[1]
+        cell.badgeLabel.text = "3"
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-//        if (indexPath.row == 0) {
-//            
-//            let cell = tableView.dequeueReusableCellWithIdentifier("groupHeaderCell", forIndexPath: indexPath) as! GroupHeaderCell
-//            cell.name?.text = name
-//            return cell
-//            
-//        } else {
+        let cell = tableView.dequeueReusableCellWithIdentifier("sectionHeader") as! DoubleTitleHeader
         
-            let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as! EventCell
-            cell.title?.text = items[indexPath.row].info[0]
-            cell.date?.text = items[indexPath.row].info[1]
-            return cell
-            
-//        }
+        cell.leftTitle.text = "Today"
+        cell.rightTitle.text = "3:00pm - 5:00pm"
         
+        return cell
     }
     
 
