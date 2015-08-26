@@ -4,6 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--My Events-->
@@ -1039,7 +1040,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxD-aY-LPs">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="586"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your group's information below" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGY-zH-aJh">
                                                 <rect key="frame" x="165" y="35" width="271" height="21"/>
@@ -1054,9 +1055,9 @@
                                                     <constraint firstAttribute="height" constant="50" id="4h0-pv-Pfq"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="s4o-2a-5RX" id="N4u-Iw-3wi"/>
+                                                    <outlet property="delegate" destination="Uc4-FW-ub2" id="AYk-R2-UBE"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your group's address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRD-Kc-ZxQ">
@@ -1065,68 +1066,68 @@
                                                 <color key="textColor" red="0.18823529780000001" green="0.18823529780000001" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fQW-BJ-gAb">
-                                                <rect key="frame" x="0.0" y="190" width="600" height="50"/>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fQW-BJ-gAb">
+                                                <rect key="frame" x="0.0" y="241" width="600" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Rlu-VS-SfN"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="s4o-2a-5RX" id="Mb1-nB-knG"/>
+                                                    <outlet property="delegate" destination="Uc4-FW-ub2" id="Ngc-Ya-q5T"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address Line 2" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sp0-Ka-iZJ">
-                                                <rect key="frame" x="0.0" y="241" width="600" height="50"/>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address Line 2" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sp0-Ka-iZJ">
+                                                <rect key="frame" x="0.0" y="292" width="600" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="lSd-f1-AW9"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="s4o-2a-5RX" id="dkj-4i-7Bm"/>
+                                                    <outlet property="delegate" destination="Uc4-FW-ub2" id="8nE-0U-os4"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L3C-k8-Koc">
-                                                <rect key="frame" x="0.0" y="292" width="600" height="50"/>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L3C-k8-Koc">
+                                                <rect key="frame" x="0.0" y="343" width="600" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="6ia-iI-1oZ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="s4o-2a-5RX" id="kWv-JK-zvb"/>
+                                                    <outlet property="delegate" destination="Uc4-FW-ub2" id="NSm-He-0sl"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="State" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aVC-LJ-a9F">
-                                                <rect key="frame" x="0.0" y="343" width="600" height="50"/>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="State" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aVC-LJ-a9F">
+                                                <rect key="frame" x="0.0" y="394" width="600" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="T51-i0-ol8"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="s4o-2a-5RX" id="lKH-cn-y9A"/>
+                                                    <outlet property="delegate" destination="Uc4-FW-ub2" id="9es-xi-V8i"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zip Code" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Opo-P3-iGL">
-                                                <rect key="frame" x="0.0" y="394" width="600" height="50"/>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zip Code" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Opo-P3-iGL">
+                                                <rect key="frame" x="0.0" y="445" width="600" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="gSc-Fr-y61"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="s4o-2a-5RX" id="i81-IG-tHi"/>
+                                                    <outlet property="delegate" destination="Uc4-FW-ub2" id="eUU-ka-8cb"/>
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntj-bq-Rj6">
-                                                <rect key="frame" x="0.0" y="476" width="600" height="60"/>
+                                                <rect key="frame" x="0.0" y="526" width="600" height="60"/>
                                                 <color key="backgroundColor" red="1" green="0.2901960784" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="qqB-nC-C6i"/>
@@ -1141,20 +1142,36 @@
                                                     <action selector="registerKid:" destination="s4o-2a-5RX" eventType="touchUpInside" id="ph1-Bv-jvk"/>
                                                 </connections>
                                             </button>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9eF-9I-Iu8">
+                                                <rect key="frame" x="0.0" y="190" width="600" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Tb6-fy-TIj"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="Uc4-FW-ub2" id="3vy-Og-96X"/>
+                                                </connections>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.94994920490000001" green="0.94997149709999995" blue="0.94995945690000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstItem="OJi-df-wh1" firstAttribute="width" secondItem="9eF-9I-Iu8" secondAttribute="width" id="0bk-r9-hTX"/>
                                             <constraint firstItem="L3C-k8-Koc" firstAttribute="top" secondItem="Sp0-Ka-iZJ" secondAttribute="bottom" constant="1" id="2cx-cv-gt2"/>
                                             <constraint firstItem="fQW-BJ-gAb" firstAttribute="width" secondItem="Sp0-Ka-iZJ" secondAttribute="width" id="2mh-K8-f2N"/>
                                             <constraint firstItem="L3C-k8-Koc" firstAttribute="centerX" secondItem="Sp0-Ka-iZJ" secondAttribute="centerX" id="3zs-f4-eh7"/>
                                             <constraint firstItem="Opo-P3-iGL" firstAttribute="width" secondItem="aVC-LJ-a9F" secondAttribute="width" id="4iU-gq-LtH"/>
                                             <constraint firstItem="OJi-df-wh1" firstAttribute="top" secondItem="zGY-zH-aJh" secondAttribute="bottom" constant="21" id="6mF-l8-JB8"/>
+                                            <constraint firstItem="9eF-9I-Iu8" firstAttribute="top" secondItem="cRD-Kc-ZxQ" secondAttribute="bottom" constant="21" id="7mc-Iq-J4V"/>
                                             <constraint firstItem="OJi-df-wh1" firstAttribute="centerX" secondItem="cRD-Kc-ZxQ" secondAttribute="centerX" constant="-0.5" id="9kR-AZ-e3Y"/>
                                             <constraint firstItem="cRD-Kc-ZxQ" firstAttribute="top" secondItem="OJi-df-wh1" secondAttribute="bottom" constant="21" id="9pI-Q7-gSN"/>
+                                            <constraint firstItem="9eF-9I-Iu8" firstAttribute="centerX" secondItem="fQW-BJ-gAb" secondAttribute="centerX" id="DJF-rN-nNa"/>
                                             <constraint firstItem="Opo-P3-iGL" firstAttribute="top" secondItem="aVC-LJ-a9F" secondAttribute="bottom" constant="1" id="GOX-4O-ZL4"/>
-                                            <constraint firstItem="fQW-BJ-gAb" firstAttribute="top" secondItem="cRD-Kc-ZxQ" secondAttribute="bottom" constant="21" id="IXC-LY-Jhw"/>
                                             <constraint firstItem="fQW-BJ-gAb" firstAttribute="centerX" secondItem="Sp0-Ka-iZJ" secondAttribute="centerX" id="Ql8-nI-bcm"/>
                                             <constraint firstItem="aVC-LJ-a9F" firstAttribute="top" secondItem="L3C-k8-Koc" secondAttribute="bottom" constant="1" id="Qxb-uA-xFc"/>
+                                            <constraint firstItem="fQW-BJ-gAb" firstAttribute="top" secondItem="9eF-9I-Iu8" secondAttribute="bottom" constant="1" id="ROU-nk-sLI"/>
+                                            <constraint firstItem="9eF-9I-Iu8" firstAttribute="width" secondItem="fQW-BJ-gAb" secondAttribute="width" id="VvM-cq-Tkz"/>
                                             <constraint firstItem="L3C-k8-Koc" firstAttribute="centerX" secondItem="aVC-LJ-a9F" secondAttribute="centerX" id="XqP-k0-UwD"/>
                                             <constraint firstAttribute="centerX" secondItem="zGY-zH-aJh" secondAttribute="centerX" id="Zad-wE-hrw"/>
                                             <constraint firstItem="fQW-BJ-gAb" firstAttribute="width" secondItem="OJi-df-wh1" secondAttribute="width" id="aof-tm-1rg"/>
@@ -1166,16 +1183,21 @@
                                             <constraint firstItem="ntj-bq-Rj6" firstAttribute="centerX" secondItem="Opo-P3-iGL" secondAttribute="centerX" id="lga-nE-efi"/>
                                             <constraint firstItem="ntj-bq-Rj6" firstAttribute="width" secondItem="Opo-P3-iGL" secondAttribute="width" id="mcK-S3-Yz0"/>
                                             <constraint firstItem="Sp0-Ka-iZJ" firstAttribute="top" secondItem="fQW-BJ-gAb" secondAttribute="bottom" constant="1" id="teh-bh-SQ9"/>
-                                            <constraint firstItem="fQW-BJ-gAb" firstAttribute="centerX" secondItem="cRD-Kc-ZxQ" secondAttribute="centerX" id="u7e-vq-V0m"/>
+                                            <constraint firstItem="9eF-9I-Iu8" firstAttribute="centerX" secondItem="cRD-Kc-ZxQ" secondAttribute="centerX" id="uU5-tO-Dkx"/>
                                             <constraint firstItem="zGY-zH-aJh" firstAttribute="top" secondItem="yxD-aY-LPs" secondAttribute="top" constant="35" id="vXQ-Tf-nZE"/>
                                             <constraint firstAttribute="width" secondItem="OJi-df-wh1" secondAttribute="width" id="zfp-LX-APS"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="aof-tm-1rg"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="yxD-aY-LPs" firstAttribute="top" secondItem="gro-JI-w6P" secondAttribute="top" id="Dk6-M9-S1h"/>
                                     <constraint firstItem="yxD-aY-LPs" firstAttribute="leading" secondItem="gro-JI-w6P" secondAttribute="leading" id="cv5-X5-0mn"/>
-                                    <constraint firstItem="yxD-aY-LPs" firstAttribute="height" secondItem="gro-JI-w6P" secondAttribute="height" id="jX8-cI-qU5"/>
+                                    <constraint firstItem="yxD-aY-LPs" firstAttribute="height" secondItem="gro-JI-w6P" secondAttribute="height" multiplier="1.09328" id="jX8-cI-qU5"/>
                                     <constraint firstAttribute="trailing" secondItem="yxD-aY-LPs" secondAttribute="trailing" id="mCi-HP-um7"/>
                                     <constraint firstItem="yxD-aY-LPs" firstAttribute="width" secondItem="gro-JI-w6P" secondAttribute="width" id="o3F-w3-P60"/>
                                     <constraint firstAttribute="bottom" secondItem="yxD-aY-LPs" secondAttribute="bottom" id="seR-nZ-U6b"/>
@@ -1193,9 +1215,12 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="New Group" id="Kql-pt-bey"/>
                     <connections>
-                        <outlet property="addressName" destination="OJi-df-wh1" id="LwM-IH-jPo"/>
+                        <outlet property="addressName" destination="9eF-9I-Iu8" id="V49-po-4tT"/>
                         <outlet property="city" destination="L3C-k8-Koc" id="OtU-g9-szR"/>
+                        <outlet property="contentView" destination="yxD-aY-LPs" id="lyw-Ld-OMl"/>
+                        <outlet property="continueButton" destination="ntj-bq-Rj6" id="Hdr-Tm-xoL"/>
                         <outlet property="name" destination="OJi-df-wh1" id="5aW-WW-uKs"/>
+                        <outlet property="scrollView" destination="gro-JI-w6P" id="H9t-0h-KtO"/>
                         <outlet property="state" destination="aVC-LJ-a9F" id="rD1-IU-Xas"/>
                         <outlet property="street" destination="fQW-BJ-gAb" id="FU4-Lw-WHm"/>
                         <outlet property="street2" destination="Sp0-Ka-iZJ" id="xrg-Rn-iMf"/>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterGroupViewController: UIViewController {
+class RegisterGroupViewController: InputScrollView {
 
     
     @IBOutlet weak var name: UITextField!
@@ -18,11 +18,49 @@ class RegisterGroupViewController: UIViewController {
     @IBOutlet weak var city: UITextField!
     @IBOutlet weak var state: UITextField!
     @IBOutlet weak var zipCode: UITextField!
+    @IBOutlet weak var continueButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        name.leftViewMode = UITextFieldViewMode.Always
+        name.leftView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        addressName.leftViewMode = UITextFieldViewMode.Always
+        addressName.leftView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        street.leftViewMode = UITextFieldViewMode.Always
+        street.leftView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        street2.leftViewMode = UITextFieldViewMode.Always
+        street2.leftView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        city.leftViewMode = UITextFieldViewMode.Always
+        city.leftView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        state.leftViewMode = UITextFieldViewMode.Always
+        state.leftView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        zipCode.leftViewMode = UITextFieldViewMode.Always
+        zipCode.leftView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.addTextField(zipCode)
+        self.addTextField(state)
+        self.addTextField(city)
+        self.addTextField(street2)
+        self.addTextField(street)
+        self.addTextField(addressName)
+        self.addTextField(name)
+        
+        self.initializeKeyboardScroll()
+        
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        self.textFields = [UITextField]()
+        
+        self.deinitializeKeyboardScroll();
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,6 +91,35 @@ class RegisterGroupViewController: UIViewController {
     func handleGroupRegisterError(error: Error) {
         
         println("Group Register Error")
+        
+    }
+    
+    override func scrollToField() {
+        
+        if (self.keyboardFrame != nil) {
+            
+            var aRect = self.view.frame;
+            aRect.size.height -= self.keyboardFrame!.size.height;
+            if (self.activeField!.tag == textFields.count) {
+                var frame = CGRectMake(continueButton.frame.origin.x, continueButton.frame.origin.y, continueButton.frame.size.width, continueButton.frame.size.height)
+                self.scrollView.scrollRectToVisible(frame, animated:true)
+                
+            } else {
+                if (!CGRectContainsPoint(aRect, self.activeField!.frame.origin) ) {
+                    
+                    self.scrollView.scrollRectToVisible(activeField!.frame, animated:true)
+                    
+                }
+            }
+            
+        } else {
+            
+            var aRect = self.view.frame;
+            if (!CGRectContainsPoint(aRect, self.activeField!.frame.origin) ) {
+                self.scrollView.scrollRectToVisible(activeField!.frame, animated:true)
+            }
+            
+        }
         
     }
 
