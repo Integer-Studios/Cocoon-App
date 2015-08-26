@@ -59,7 +59,7 @@ class RegisterConnectViewController: UIViewController, UITextFieldDelegate {
         self.deinitializeKeyboardScroll()
         
     }
-
+    
     func initializeKeyboardScroll() {
         
         self.scrollView.setContentOffset(CGPointZero, animated: false)

@@ -1922,8 +1922,7 @@
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                 <state key="normal" title="Continue"/>
                                                 <connections>
-                                                    <action selector="continue:" destination="dIh-AV-MDs" eventType="touchUpInside" id="oge-Ug-eCV"/>
-                                                    <action selector="registerButton:" destination="vpv-m6-2AB" eventType="touchUpInside" id="zG5-gw-FzX"/>
+                                                    <action selector="continue:" destination="dIh-AV-MDs" eventType="touchUpInside" id="AeS-Pw-fCp"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rwt-p6-IWc">
@@ -2067,7 +2066,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="ha1-xf-qNr" kind="show" id="T6N-FT-jTs"/>
+                                                    <action selector="connectSycamore:" destination="Ulh-wO-DvD" eventType="touchUpInside" id="sCI-Rl-d8o"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fmf-Bg-MYC">
@@ -2183,13 +2182,13 @@
                         <viewControllerLayoutGuide type="bottom" id="0Yh-6V-sLZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="v80-U1-jg9">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqq-O4-Qgo">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jqq-O4-Qgo">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pn0-2n-OSg">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pn0-2n-OSg">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UN1-nI-IpR">
@@ -2218,7 +2217,7 @@
                                                     <outlet property="delegate" destination="ha1-xf-qNr" id="wIQ-iK-XKE"/>
                                                 </connections>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mia-rg-iAB">
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mia-rg-iAB">
                                                 <rect key="frame" x="0.0" y="476" width="600" height="60"/>
                                                 <color key="backgroundColor" red="0.27058823529999998" green="0.75294117650000003" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -2229,6 +2228,9 @@
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="connect:" destination="ha1-xf-qNr" eventType="touchUpInside" id="1mK-Ae-bBa"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the login information for Sycamore Education!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g7-SU-gmM">
                                                 <rect key="frame" x="182" y="70" width="236" height="50"/>

@@ -12,6 +12,7 @@
 		E4107A0E1B448051003C5E9D /* VehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4107A0D1B448051003C5E9D /* VehicleViewController.swift */; };
 		E4107A101B44805C003C5E9D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4107A0F1B44805C003C5E9D /* MenuViewController.swift */; };
 		E4107A131B448133003C5E9D /* GroupHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4107A121B448133003C5E9D /* GroupHeaderCell.swift */; };
+		E4141C8D1B73F00300895755 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4141C8C1B73F00300895755 /* Definitions.swift */; };
 		E419C8201B3873720015FCC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E419C81F1B3873720015FCC2 /* AppDelegate.swift */; };
 		E419C8251B3873720015FCC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E419C8231B3873720015FCC2 /* Main.storyboard */; };
 		E419C8271B3873720015FCC2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E419C8261B3873720015FCC2 /* Images.xcassets */; };
@@ -89,6 +90,7 @@
 		E4107A0D1B448051003C5E9D /* VehicleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VehicleViewController.swift; path = ViewControllers/VehicleViewController.swift; sourceTree = "<group>"; };
 		E4107A0F1B44805C003C5E9D /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ViewControllers/MenuViewController.swift; sourceTree = "<group>"; };
 		E4107A121B448133003C5E9D /* GroupHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupHeaderCell.swift; path = Cells/GroupHeaderCell.swift; sourceTree = "<group>"; };
+		E4141C8C1B73F00300895755 /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
 		E419C81A1B3873710015FCC2 /* Cocoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cocoon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E419C81E1B3873720015FCC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E419C81F1B3873720015FCC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				F66CF10A1B4DE0AF000B3209 /* SearchGroupsController.swift */,
 				F6F6BF451B4F53CB00906A91 /* AdminViewController.swift */,
 				E489E90D1B5E31E900E1F57B /* MapViewController.swift */,
+				E4141C8C1B73F00300895755 /* Definitions.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				F6B274C61B54829E000805BD /* IconCell.swift in Sources */,
 				E4107A101B44805C003C5E9D /* MenuViewController.swift in Sources */,
 				F66B48CE1B3B48A5006FD3EA /* LoadingTableViewController.swift in Sources */,
+				E4141C8D1B73F00300895755 /* Definitions.swift in Sources */,
 				F628BEDD1B3884CB005E4002 /* RegisterViewController.swift in Sources */,
 				F6C0F5A81B433A7600629E02 /* GroupsViewController.swift in Sources */,
 				F66088BD1B5D881A001BBD2A /* DoubleTitleHeader.swift in Sources */,
