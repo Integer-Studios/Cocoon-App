@@ -35,6 +35,7 @@
 		E4D33C681B5497350090FA24 /* badge-green.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D33C661B5497350090FA24 /* badge-green.png */; };
 		E4D33C691B5497350090FA24 /* badge-red.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D33C671B5497350090FA24 /* badge-red.png */; };
 		E4D33C6B1B54973D0090FA24 /* default-avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D33C6A1B54973D0090FA24 /* default-avatar.png */; };
+		F604D29A1B826C0F0031E70D /* request-ride.png in Resources */ = {isa = PBXBuildFile; fileRef = F604D2991B826C0F0031E70D /* request-ride.png */; };
 		F61D1F3B1B447CD7007D57F8 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D1F3A1B447CD7007D57F8 /* GroupViewController.swift */; };
 		F628BEDD1B3884CB005E4002 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F628BEDC1B3884CB005E4002 /* RegisterViewController.swift */; };
 		F628BF1B1B38B054005E4002 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F628BF1A1B38B054005E4002 /* SWRevealViewController.m */; };
@@ -71,6 +72,7 @@
 		F6F075081B50549700163CC6 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F075071B50549700163CC6 /* login.png */; };
 		F6F0750F1B505E3900163CC6 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F0750E1B505E3900163CC6 /* default.png */; };
 		F6F6BF461B4F53CB00906A91 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F6BF451B4F53CB00906A91 /* AdminViewController.swift */; };
+		F6FECA3F1B73ED1600EC5F23 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FECA3E1B73ED1600EC5F23 /* FriendsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +120,7 @@
 		E4D33C661B5497350090FA24 /* badge-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "badge-green.png"; sourceTree = "<group>"; };
 		E4D33C671B5497350090FA24 /* badge-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "badge-red.png"; sourceTree = "<group>"; };
 		E4D33C6A1B54973D0090FA24 /* default-avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-avatar.png"; sourceTree = "<group>"; };
+		F604D2991B826C0F0031E70D /* request-ride.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "request-ride.png"; sourceTree = "<group>"; };
 		F61D1F3A1B447CD7007D57F8 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupViewController.swift; path = ViewControllers/GroupViewController.swift; sourceTree = "<group>"; };
 		F628BEDC1B3884CB005E4002 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = ViewControllers/RegisterViewController.swift; sourceTree = "<group>"; };
 		F628BF191B38B054005E4002 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -155,6 +158,7 @@
 		F6F075071B50549700163CC6 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		F6F0750E1B505E3900163CC6 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		F6F6BF451B4F53CB00906A91 /* AdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdminViewController.swift; path = ViewControllers/AdminViewController.swift; sourceTree = "<group>"; };
+		F6FECA3E1B73ED1600EC5F23 /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendsViewController.swift; path = ViewControllers/FriendsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +292,7 @@
 				F66CF10A1B4DE0AF000B3209 /* SearchGroupsController.swift */,
 				F6F6BF451B4F53CB00906A91 /* AdminViewController.swift */,
 				E489E90D1B5E31E900E1F57B /* MapViewController.swift */,
+				F6FECA3E1B73ED1600EC5F23 /* FriendsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -344,9 +349,18 @@
 			name = icons;
 			sourceTree = "<group>";
 		};
+		F604D2981B826C010031E70D /* request-ride */ = {
+			isa = PBXGroup;
+			children = (
+				F604D2991B826C0F0031E70D /* request-ride.png */,
+			);
+			name = "request-ride";
+			sourceTree = "<group>";
+		};
 		F6F074FD1B5039C100163CC6 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F604D2981B826C010031E70D /* request-ride */,
 				E4D33C651B5496FC0090FA24 /* icons */,
 				E4D33C641B5496F20090FA24 /* todo */,
 				E4D33C5A1B545D240090FA24 /* register */,
@@ -461,6 +475,7 @@
 				F6F075001B5039D400163CC6 /* bg.jpg in Resources */,
 				F6F075061B5044CC00163CC6 /* username.png in Resources */,
 				F6F075021B5039EA00163CC6 /* logo.png in Resources */,
+				F604D29A1B826C0F0031E70D /* request-ride.png in Resources */,
 				F6B274D11B548DDB000805BD /* badge-green.png in Resources */,
 				F6B274C41B547DB9000805BD /* menu.png in Resources */,
 				E4D33C691B5497350090FA24 /* badge-red.png in Resources */,
@@ -528,6 +543,7 @@
 				F6C0F5AE1B434E3400629E02 /* RegisterGroupViewController.swift in Sources */,
 				F6B274B81B547015000805BD /* SingleTitleHeader.swift in Sources */,
 				E489E9121B5EE16C00E1F57B /* InputScrollView.swift in Sources */,
+				F6FECA3F1B73ED1600EC5F23 /* FriendsViewController.swift in Sources */,
 				E46E36241B3B499D00FE92C0 /* ResponseManager.swift in Sources */,
 				E419C8401B3876890015FCC2 /* LoginViewController.swift in Sources */,
 				F66CF10B1B4DE0B0000B3209 /* SearchGroupsController.swift in Sources */,

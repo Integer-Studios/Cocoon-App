@@ -176,5 +176,24 @@ class GroupViewController: UITableViewController, UITableViewDataSource, UITable
         return cell
     }
     
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    }
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]?  {
+        var offerRideAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Offer" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+            
+        })
+        
+        offerRideAction.backgroundColor = UIColor(hue: 151/359, saturation: 75/100, brightness: 84/100, alpha: 1)
+        
+        var requestRideAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Request" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+            
+        })
+        
+        requestRideAction.backgroundColor = UIColor(hue: 0, saturation: 71/100, brightness: 100/100, alpha: 1)
+        
+        return [offerRideAction, requestRideAction]
+    }
+    
 
 }
