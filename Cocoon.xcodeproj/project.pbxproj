@@ -295,6 +295,7 @@
 				F6F6BF451B4F53CB00906A91 /* AdminViewController.swift */,
 				E489E90D1B5E31E900E1F57B /* MapViewController.swift */,
 				F6FECA3E1B73ED1600EC5F23 /* FriendsViewController.swift */,
+				E4141C8C1B73F00300895755 /* Definitions.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
