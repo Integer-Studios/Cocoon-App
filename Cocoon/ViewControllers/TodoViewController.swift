@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import MapKit
 import AddressBook
-import CoreLocation
 
 class TodoViewController: UITableViewController {
     
@@ -53,6 +51,8 @@ class TodoViewController: UITableViewController {
         
     }
     
+    }
+
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("sectionHeader") as! DoubleTitleHeader
