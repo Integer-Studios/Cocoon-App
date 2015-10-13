@@ -57,7 +57,7 @@ class GroupViewController: UITableViewController, UITableViewDataSource, UITable
     
     func handleInfoError(error: Error) {
         
-        println("Error loading group info")
+        print("Error loading group info")
         
     }
     
@@ -77,7 +77,7 @@ class GroupViewController: UITableViewController, UITableViewDataSource, UITable
     
     func handleEventListError(error: Error) {
         
-        println("Error loading group events")
+        print("Error loading group events")
         
     }
     
@@ -89,8 +89,8 @@ class GroupViewController: UITableViewController, UITableViewDataSource, UITable
     @IBAction func actionButtonPressed(sender: AnyObject) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var nav = storyboard.instantiateViewControllerWithIdentifier("admin") as! UIViewController
-        var vc = nav.childViewControllers[0] as! AdminViewController
+        let nav = storyboard.instantiateViewControllerWithIdentifier("admin") 
+        let vc = nav.childViewControllers[0] as! AdminViewController
         vc.setGroup(self)
         presentViewController(nav, animated: true, completion: nil)
         
@@ -179,14 +179,14 @@ class GroupViewController: UITableViewController, UITableViewDataSource, UITable
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     }
     
-    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]?  {
-        var offerRideAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Offer" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?  {
+        let offerRideAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Offer" , handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
             
         })
         
         offerRideAction.backgroundColor = UIColor(hue: 151/359, saturation: 75/100, brightness: 84/100, alpha: 1)
         
-        var requestRideAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Request" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+        let requestRideAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Request" , handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
             
         })
         

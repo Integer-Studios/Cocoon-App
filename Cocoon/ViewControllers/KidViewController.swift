@@ -14,8 +14,8 @@ class KidViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Viewing kid with id: ")
-        println(id)
+        print("Viewing kid with id: ", terminator: "")
+        print(id)
         // Do any additional setup after loading the view.
     }
 

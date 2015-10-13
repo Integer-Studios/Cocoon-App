@@ -78,7 +78,7 @@ class RegisterKidViewController: InputScrollView {
     
     func handleKidRegisterError(error: Error) {
         
-        println("Kid Register Error")
+        print("Kid Register Error")
         
     }
     
@@ -89,7 +89,7 @@ class RegisterKidViewController: InputScrollView {
             var aRect = self.view.frame;
             aRect.size.height -= self.keyboardFrame!.size.height;
             if (self.activeField!.tag == textFields.count) {
-                var frame = CGRectMake(genderSelector.frame.origin.x, genderSelector.frame.origin.y, genderSelector.frame.size.width, genderSelector.frame.size.height + 20)
+                let frame = CGRectMake(genderSelector.frame.origin.x, genderSelector.frame.origin.y, genderSelector.frame.size.width, genderSelector.frame.size.height + 20)
                 self.scrollView.scrollRectToVisible(frame, animated:true)
                 
             } else {
@@ -102,7 +102,7 @@ class RegisterKidViewController: InputScrollView {
             
         } else {
             
-            var aRect = self.view.frame;
+            let aRect = self.view.frame;
             if (!CGRectContainsPoint(aRect, self.activeField!.frame.origin) ) {
                 self.scrollView.scrollRectToVisible(activeField!.frame, animated:true)
             }

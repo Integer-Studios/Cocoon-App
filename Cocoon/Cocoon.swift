@@ -30,7 +30,7 @@ class Cocoon {
             user = User(username: username!, accessToken: token!);
             if (NSUserDefaults.standardUserDefaults().boolForKey("facebook")) {
                 user?.facebook = true
-                println("A")
+                print("A")
             }
             user?.loadInfo(nil)
             
@@ -57,7 +57,7 @@ class Cocoon {
     static func setRootViewController(identifier: String) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var viewController = storyboard.instantiateViewControllerWithIdentifier(identifier) as! UIViewController
+        let viewController = storyboard.instantiateViewControllerWithIdentifier(identifier) 
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.window?.rootViewController = viewController

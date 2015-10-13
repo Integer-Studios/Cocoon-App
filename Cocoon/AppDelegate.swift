@@ -35,24 +35,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         
-        println("My token is: \(deviceToken)");
+        print("My token is: \(deviceToken)");
 
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-        println("Error! \(error)")
+        print("Error! \(error)")
     }
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         
         var urlString = url.absoluteString;
         
         //See if the url is the redirect URL for logging in to Sycamore
-        if (urlString?.rangeOfString(SycamoreConstants.kCallbackURI) != nil) {
+        if (urlString.rangeOfString(SycamoreConstants.kCallbackURI) != nil) {
             
             //Create a dictionary and add the received URL to it
             //Send a notification with this data so that the appropriate view controller can handle the data
-            NSNotificationCenter.defaultCenter().postNotificationName("ReceivedAuthToken", object: nil, userInfo:["Returned_URL": urlString!])
+            NSNotificationCenter.defaultCenter().postNotificationName("ReceivedAuthToken", object: nil, userInfo:["Returned_URL": urlString])
 
         }
         

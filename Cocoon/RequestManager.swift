@@ -13,21 +13,21 @@ class RequestManager {
     func sendRequest(requestURL: String, parameters: NSMutableDictionary, debug: Bool = false, responseHandler: (Response) -> (), errorHandler: ((Error) -> ())?)  {
         
         let endpoint: String = "http://cocoon.integerstudios.com" + requestURL
-        var parameters = authenticateParameters(parameters)
+        let parameters = authenticateParameters(parameters)
         var error: NSError?
-        var urlRequest = generateRequest(endpoint, parameters: parameters)
-        var request = Request(url: requestURL, responseHandler: responseHandler, errorHandler: errorHandler, debug: debug, parameters: parameters)
+        let urlRequest = generateRequest(endpoint, parameters: parameters)
+        let request = Request(url: requestURL, responseHandler: responseHandler, errorHandler: errorHandler, debug: debug, parameters: parameters)
 
-        println("Sending Request: " + requestURL)
+        print("Sending Request: " + requestURL)
         if request.debug {
             
-            println("With Parameters: " + parameters.description)
+            print("With Parameters: " + parameters.description)
             
         }
                 
         NSURLConnection.sendAsynchronousRequest(urlRequest, queue: NSOperationQueue(),
             
-            completionHandler: { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            completionHandler: { (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
                
                 Cocoon.responseManager.handleResponse(request, responseURL: response, data: data, error: error)
             })
@@ -36,11 +36,17 @@ class RequestManager {
     
     func generateRequest(endpoint: String, parameters: NSMutableDictionary) -> NSMutableURLRequest {
         
-        var request = NSMutableURLRequest(URL: NSURL(string: endpoint)!)
+        let request = NSMutableURLRequest(URL: NSURL(string: endpoint)!)
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         var error: NSError?;
-        let requestJSON = NSJSONSerialization.dataWithJSONObject(parameters, options: nil, error: &error)
+        let requestJSON: NSData?
+        do {
+            requestJSON = try NSJSONSerialization.dataWithJSONObject(parameters, options: [])
+        } catch let error1 as NSError {
+            error = error1
+            requestJSON = nil
+        }
         if (requestJSON == nil) {
             
             //error with json
@@ -89,7 +95,7 @@ extension String {
         let data = self.dataUsingEncoding(NSUTF8StringEncoding)!
         var digest = [UInt8](count:Int(CC_SHA1_DIGEST_LENGTH), repeatedValue: 0)
         CC_SHA1(data.bytes, CC_LONG(data.length), &digest)
-        let hexBytes = map(digest) { String(format: "%02hhx", $0) }
-        return "".join(hexBytes)
+        let hexBytes = digest.map { String(format: "%02hhx", $0) }
+        return hexBytes.joinWithSeparator("")
     }
 }

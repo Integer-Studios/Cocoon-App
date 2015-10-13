@@ -81,7 +81,7 @@ class MenuViewController: UITableViewController, UITableViewDataSource, UITableV
         
         cell.displayName?.text = Cocoon.menuItems[indexPath.row + offset].displayName
         
-        var image : UIImage = UIImage(named:"menu.png")!
+        let image : UIImage = UIImage(named:"menu.png")!
         cell.iconImage?.image = image
 
         return cell

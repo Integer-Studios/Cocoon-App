@@ -118,12 +118,12 @@ class RegisterConnectViewController: UIViewController, UITextFieldDelegate {
         
         if (newTag > textFields.count) {
             
-            println("done")
+            print("done")
             
             
         } else {
             
-            var nextResponder: UIResponder? = textField.superview?.viewWithTag(newTag)
+            let nextResponder: UIResponder? = textField.superview?.viewWithTag(newTag)
             if (nextResponder != nil) {
                 
                 
@@ -154,7 +154,7 @@ class RegisterConnectViewController: UIViewController, UITextFieldDelegate {
             
         } else {
             
-            var aRect = self.view.frame;
+            let aRect = self.view.frame;
             if (!CGRectContainsPoint(aRect, self.activeField!.frame.origin) ) {
                 self.scrollView.scrollRectToVisible(activeField!.frame, animated:true)
             }
@@ -167,7 +167,7 @@ class RegisterConnectViewController: UIViewController, UITextFieldDelegate {
         
         let info:NSDictionary = notification.userInfo!
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
-        var contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0);
+        let contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0);
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
         self.keyboardFrame = keyboardSize
@@ -179,7 +179,7 @@ class RegisterConnectViewController: UIViewController, UITextFieldDelegate {
     
     func keyboardWillHide(notification: NSNotification) {
         
-        var contentInsets = UIEdgeInsetsZero;
+        let contentInsets = UIEdgeInsetsZero;
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
         self.keyboardFrame = nil

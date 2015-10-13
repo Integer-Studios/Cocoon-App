@@ -117,7 +117,7 @@ class RegisterViewController: InputScrollView {
         if response.content != nil {
            
             let token = response.content!["access-token"] as! String;
-            println("The access token is: " + token)
+            print("The access token is: " + token)
             
             Cocoon.user = User(username: email.text, accessToken: token)
             Cocoon.user?.firstName = firstName.text
@@ -129,7 +129,7 @@ class RegisterViewController: InputScrollView {
             
         } else {
             
-            println("Failed to parse access-token")
+            print("Failed to parse access-token")
             
         }
         
@@ -137,7 +137,7 @@ class RegisterViewController: InputScrollView {
     
     func handleRegisterError(error: Error) {
         
-        println("Failed to register: \(error.errorCode)")
+        print("Failed to register: \(error.errorCode)")
         
     }
     

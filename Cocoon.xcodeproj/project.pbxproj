@@ -436,6 +436,8 @@
 		E419C8121B3873710015FCC2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Integer Studios";
 				TargetAttributes = {

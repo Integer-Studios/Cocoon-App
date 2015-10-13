@@ -23,7 +23,7 @@ class NavigationController: UINavigationController {
     
     func pushView(identifier: String) -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var vc = storyboard.instantiateViewControllerWithIdentifier(identifier) as! UIViewController
+        let vc = storyboard.instantiateViewControllerWithIdentifier(identifier) 
         self.pushViewController(vc, animated: true)
         return vc
     }

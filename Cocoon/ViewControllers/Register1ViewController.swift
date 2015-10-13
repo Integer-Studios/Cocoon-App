@@ -76,7 +76,7 @@ class Register1ViewController: InputScrollView {
     
     func handleFamilyRegisterError(error: Error) {
         
-        println("Server Error: \(error.errorCode)")
+        print("Server Error: \(error.errorCode)")
         
     }
 

@@ -38,7 +38,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             {(placemarks: [AnyObject]!, error: NSError!) in
                 
                 if error != nil {
-                    println("Geocode failed with error: \(error.localizedDescription)")
+                    print("Geocode failed with error: \(error.localizedDescription)")
                 } else if placemarks.count > 0 {
                     let placemark = placemarks[0] as! CLPlacemark
                     let location = placemark.location
@@ -57,7 +57,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         geoCoder1.geocodeAddressString(stringAddress1, completionHandler: {(placemarks: [AnyObject]!, error: NSError!) in
             
             if error != nil {
-                println("Geocode failed with error: \(error.localizedDescription)")
+                print("Geocode failed with error: \(error.localizedDescription)")
             } else if placemarks.count > 0 {
                 let placemark = placemarks[0] as! CLPlacemark
                 let location = placemark.location
@@ -77,7 +77,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         geoCoder2.geocodeAddressString(stringAddress2, completionHandler: {(placemarks: [AnyObject]!, error: NSError!) in
             
             if error != nil {
-                println("Geocode failed with error: \(error.localizedDescription)")
+                print("Geocode failed with error: \(error.localizedDescription)")
             } else if placemarks.count > 0 {
                 let placemark = placemarks[0] as! CLPlacemark
                 let location = placemark.location
@@ -113,7 +113,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func addressFound() {
         
-        println(locations.count)
+        print(locations.count)
         if (locations.count == 2) {
             
             self.getDirections()
@@ -126,8 +126,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         let request = MKDirectionsRequest()
 //        request.setSource(MKMapItem.mapItemForCurrentLocation())
-        request.setSource(locations[0])
-        request.setDestination(destination!)
+        request.setSource = locations[0]
+        request.setDestination = destination!
         request.requestsAlternateRoutes = false
         
         let destinationLocation = destination!.placemark.location
@@ -138,10 +138,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let latitudeSource = locations[0].placemark.location.coordinate.latitude
         let longitudeSource = locations[0].placemark.location.coordinate.latitude
 
-        println(sourceLocation.distanceFromLocation(destinationLocation))
+        print(sourceLocation.distanceFromLocation(destinationLocation))
         
-        println("DEST: X: \(latitudeDest) Y: \(longitudeDest)")
-        println("SOUC: X: \(latitudeSource) Y: \(longitudeSource)")
+        print("DEST: X: \(latitudeDest) Y: \(longitudeDest)")
+        print("SOUC: X: \(latitudeSource) Y: \(longitudeSource)")
 
         let directions = MKDirections(request: request)
         
@@ -149,7 +149,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             MKDirectionsResponse!, error: NSError!) in
             
             if error != nil {
-                println("Error getting directions")
+                print("Error getting directions")
             } else {
                 self.showRoute(response)
             }
@@ -160,13 +160,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func showRoute(response: MKDirectionsResponse) {
         
-        for route in response.routes as! [MKRoute] {
+        for route in response.routes {
             
             mapView.addOverlay(route.polyline,
                 level: MKOverlayLevel.AboveRoads)
             
             for step in route.steps {
-                println(step.instructions)
+                print(step.instructions)
             }
         }
         let userLocation = mapView.userLocation
@@ -192,7 +192,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
     }
     
-    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer! {
             let renderer = MKPolylineRenderer(overlay: overlay)
             
             renderer.strokeColor = UIColor.blueColor()
@@ -200,7 +200,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return renderer
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last as! CLLocation
         
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)

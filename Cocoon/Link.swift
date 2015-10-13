@@ -52,8 +52,8 @@ class Link {
             handleGroupsLink(viewController)
             break
         default:
-            print("No handler for link type: ")
-            println(self.type)
+            print("No handler for link type: ", terminator: "")
+            print(self.type)
             break
         }
     }
@@ -67,12 +67,12 @@ class Link {
         case 0:
             //add kid
             (viewController.navigationController as! NavigationController).pushView("registerKid")
-            println("so you want to add a kid...")
+            print("so you want to add a kid...")
             break
         case 1:
             //add car
             (viewController.navigationController as! NavigationController).pushView("registerVehicle")
-            println("so you want to add a car...")
+            print("so you want to add a car...")
             break
         default:
             break
@@ -84,7 +84,7 @@ class Link {
         case 0:
             //create a group
             (viewController.navigationController as! NavigationController).pushView("registerGroup")
-            println("so you want to make a group...")
+            print("so you want to make a group...")
             break
         default:
             break
@@ -94,23 +94,23 @@ class Link {
     func openKid(viewController: UIViewController) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var nav = storyboard.instantiateViewControllerWithIdentifier("kid") as! UIViewController
-        var vc = nav.childViewControllers[0] as! KidViewController
+        let nav = storyboard.instantiateViewControllerWithIdentifier("kid") 
+        let vc = nav.childViewControllers[0] as! KidViewController
         vc.setKid(id)
         viewController.presentViewController(nav, animated: true, completion: nil)
         
     }
     
     func openFamily(viewController: UIViewController) {
-        println("open family stub")
+        print("open family stub")
         //reload family page with new family data
     }
     
     func openFriend(viewController: UIViewController) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var nav = storyboard.instantiateViewControllerWithIdentifier("user") as! UIViewController
-        var vc = nav.childViewControllers[0] as! UserViewController
+        let nav = storyboard.instantiateViewControllerWithIdentifier("user") 
+        let vc = nav.childViewControllers[0] as! UserViewController
         vc.setUser(id)
         viewController.presentViewController(nav, animated: true, completion: nil)
         
@@ -119,8 +119,8 @@ class Link {
     func openGroup(viewController: UIViewController) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var nav = storyboard.instantiateViewControllerWithIdentifier("group") as! UIViewController
-        var vc = nav.childViewControllers[0] as! GroupViewController
+        let nav = storyboard.instantiateViewControllerWithIdentifier("group") 
+        let vc = nav.childViewControllers[0] as! GroupViewController
         vc.setGroup(id)
         viewController.presentViewController(nav, animated: true, completion: nil)
         
@@ -129,8 +129,8 @@ class Link {
     func openVehicle(viewController: UIViewController) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var nav = storyboard.instantiateViewControllerWithIdentifier("vehicle") as! UIViewController
-        var vc = nav.childViewControllers[0] as! VehicleViewController
+        let nav = storyboard.instantiateViewControllerWithIdentifier("vehicle") 
+        let vc = nav.childViewControllers[0] as! VehicleViewController
         vc.setVehicle(id)
         viewController.presentViewController(nav, animated: true, completion: nil)
         
@@ -138,29 +138,29 @@ class Link {
     
     func openPost(viewController: UIViewController) {
         
-        println("No view controller for posts yet!")
+        print("No view controller for posts yet!")
         
     }
     
     
     static func unwrapKid(kid : NSMutableDictionary) -> Link {
-        return Link(id: (kid["id"] as! String).toInt()!, type: "kid", displayName: kid["first-name"] as! String)
+        return Link(id: Int((kid["id"] as! String))!, type: "kid", displayName: kid["first-name"] as! String)
     }
     
     static func unwrapFamily(fam : NSMutableDictionary) -> Link {
-        return Link(id: (fam["id"] as! String).toInt()!, type: "family", displayName: fam["name"] as! String)
+        return Link(id: Int((fam["id"] as! String))!, type: "family", displayName: fam["name"] as! String)
     }
     
     static func unwrapFriend(friend : NSMutableDictionary) -> Link {
-        return Link(id: (friend["id"] as! String).toInt()!, type: "friend", displayName: friend["name"] as! String)
+        return Link(id: Int((friend["id"] as! String))!, type: "friend", displayName: friend["name"] as! String)
     }
     
     static func unwrapGroup(group : NSMutableDictionary) -> Link {
-        return Link(id: (group["id"] as! String).toInt()!, type: "group", displayName: group["name"] as! String)
+        return Link(id: Int((group["id"] as! String))!, type: "group", displayName: group["name"] as! String)
     }
     
     static func unwrapVehicle(vehicle : NSMutableDictionary) -> Link {
-        return Link(id: (vehicle["id"] as! String).toInt()!, type: "vehicle", displayName: vehicle["name"] as! String)
+        return Link(id: Int((vehicle["id"] as! String))!, type: "vehicle", displayName: vehicle["name"] as! String)
     }
 }
 
@@ -176,7 +176,7 @@ class DetailedLink : Link {
     }
     
     static func unwrapEvent(event : NSMutableDictionary) -> DetailedLink {
-        return DetailedLink(id: (event["id"] as! String).toInt()!, type: "event", info: [event["title"] as! String, event["date"] as! String])
+        return DetailedLink(id: Int((event["id"] as! String))!, type: "event", info: [event["title"] as! String, event["date"] as! String])
     }
     
 }

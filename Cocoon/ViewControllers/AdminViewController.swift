@@ -39,7 +39,7 @@ class AdminViewController: UITableViewController {
     @IBAction func editInfo(sender: AnyObject) {
         
         //open an edit page
-        println("So you want to edit this huh?")
+        print("So you want to edit this huh?")
         
     }
     
