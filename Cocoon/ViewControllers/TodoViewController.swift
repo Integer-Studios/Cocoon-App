@@ -81,8 +81,8 @@ class TodoViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     }
     
-    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]?  {
-        var offerRideAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Offer" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?  {
+        let offerRideAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Offer" , handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
             
 //            let geoCoder = CLGeocoder()
 //            
@@ -121,7 +121,7 @@ class TodoViewController: UITableViewController {
         
         offerRideAction.backgroundColor = UIColor(hue: 151/359, saturation: 75/100, brightness: 84/100, alpha: 1)
         
-        var requestRideAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Request" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+        let requestRideAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Request" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
             (self.navigationController as! NavigationController).pushView("requestRide")
         })
         

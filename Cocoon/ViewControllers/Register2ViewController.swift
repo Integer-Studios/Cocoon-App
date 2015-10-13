@@ -30,7 +30,7 @@ class Register2ViewController: UIViewController {
 
     @IBAction func connectSycamore(sender: AnyObject) {
         
-        var userType = 3
+        let userType = 3
         
         //Get the appropriate scopes to request
         var scopes: String;
@@ -49,9 +49,9 @@ class Register2ViewController: UIViewController {
             scopes = SycamoreConstants.kFamilyScopes.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         }
         
-        var encodedCallback = SycamoreConstants.kCallbackURI.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        let encodedCallback = SycamoreConstants.kCallbackURI.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         
-        var authURL: NSURL = NSURL(string: SycamoreConstants.kAuthURL(scopes, encoded_callback: encodedCallback))!
+        let authURL: NSURL = NSURL(string: SycamoreConstants.kAuthURL(scopes, encoded_callback: encodedCallback))!
         
         UIApplication.sharedApplication().openURL(authURL);
         
@@ -59,11 +59,11 @@ class Register2ViewController: UIViewController {
 
     func loginTokenReceived(notification: NSNotification) {
         
-        println("Received")
+        print("Received")
         var userInfo = notification.userInfo as! [NSString : NSString]
-        var returnedURL: NSString = userInfo["Returned_URL"]!
+        let returnedURL: NSString = userInfo["Returned_URL"]!
         
-        println(returnedURL)
+        print(returnedURL)
         
     }
     

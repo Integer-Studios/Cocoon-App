@@ -22,13 +22,13 @@ class SearchGroupsController: UITableViewController, UISearchBarDelegate {
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
             
-            if count(searchText) == 0 {
+            if searchText.characters.count == 0 {
                 
                 self.items.removeAll(keepCapacity: false)
                 self.tableView.reloadData()
                 
             }
-            else if count(searchText) > 1 {
+            else if searchText.characters.count > 1 {
                 
                 Cocoon.requestManager.sendRequest("/group/search/", parameters: ["search" : searchText], debug:true, responseHandler: handleGroupSearchResponse, errorHandler: handleGroupSearchError)
                 
@@ -56,7 +56,7 @@ class SearchGroupsController: UITableViewController, UISearchBarDelegate {
     
     func handleGroupSearchError(error: Error) {
         
-        println("Error loading group search results")
+        print("Error loading group search results")
         
     }
     
@@ -85,7 +85,7 @@ class SearchGroupsController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) 
         cell.textLabel?.text = items[indexPath.row].displayName
         return cell
         

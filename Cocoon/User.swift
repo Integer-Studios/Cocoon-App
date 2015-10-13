@@ -99,7 +99,7 @@ class User {
             
         } else {
             
-            println("No content")
+            print("No content")
             
         }
         
@@ -171,7 +171,7 @@ class User {
     
     func handleLogoutError(error: Error) {
         
-        println("logout error")
+        print("logout error")
         Cocoon.user = nil;
         NSOperationQueue.mainQueue().addOperationWithBlock {
             

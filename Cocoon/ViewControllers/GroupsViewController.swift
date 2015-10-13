@@ -66,7 +66,7 @@ class GroupsViewController: UITableViewController, UITableViewDataSource, UITabl
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var link = items[indexPath.row]
+        let link = items[indexPath.row]
         
         if link.type != "groups.menu" {
             

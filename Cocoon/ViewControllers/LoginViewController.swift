@@ -48,7 +48,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     
                 } else {
                     
-                    println("graphrequest error")
+                    print("graphrequest error")
 
                 }
             })
@@ -69,7 +69,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         if (FBSDKAccessToken.currentAccessToken() != nil) {
             
-            println("FACEBOOK LOGOUT")
+            print("FACEBOOK LOGOUT")
             FBSDKLoginManager().logOut()
             
         } else {
@@ -81,11 +81,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 //presented by Facebook via single sign on will guide the users to resolve any errors.
                 
                 // Process error
-                println("FACEBOOK ERROR")
+                print("FACEBOOK ERROR")
                 FBSDKLoginManager().logOut()
             } else if result.isCancelled {
                 // Handle cancellations
-                println("FACEBOOK CANCEL")
+                print("FACEBOOK CANCEL")
                 FBSDKLoginManager().logOut()
             } else {
                 // If you ask for multiple permissions at once, you
@@ -109,14 +109,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         
                         if ((error) != nil) {
                             // Process error
-                            println("Error: \(error)")
+                            print("Error: \(error)")
                         } else {
                            
                             let userName : String = result.valueForKey("name") as! String
                             let firstName : String = result.valueForKey("first_name") as! String
                             let lastName : String = result.valueForKey("last_name") as! String
                             let userEmail : String = result.valueForKey("email") as! String
-                            println(userName + " " + userEmail)
+                            print(userName + " " + userEmail)
                         
                             Cocoon.facebook = Facebook(id: fbUserID, firstName: firstName, lastName: lastName, email: userEmail as String, token: FBSDKAccessToken.currentAccessToken().tokenString)
                             
@@ -164,7 +164,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if (error.errorCode == 401) {
             
             //email exists, not connected
-            println("Email Exists")
+            print("Email Exists")
             usernameField.text = error.content!["email"] as? String
             facebookButton.enabled = false
             facebookButton.hidden = true
@@ -180,7 +180,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         } else if (error.errorCode == 502) {
             
             //new user
-            println("New User")
+            print("New User")
             performSegueWithIdentifier("registerPush", sender: nil)
             
         }
@@ -189,7 +189,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
    @IBAction func facebookConnect(sender: AnyObject) {
         
-        println("connect")
+        print("connect")
     Cocoon.requestManager.sendRequest("/user/facebook/connect/", parameters: ["username": usernameField.text, "password": passwordField.text.sha1(), "facebook-id": FBSDKAccessToken.currentAccessToken().userID, "facebook-token": FBSDKAccessToken.currentAccessToken().tokenString], responseHandler: handleFacebookLoginResponse, errorHandler: handleConnectError)
 
     
@@ -197,7 +197,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func handleConnectError(error: Error) {
         
-        println("Connect Failed: \(error.errorCode)")
+        print("Connect Failed: \(error.errorCode)")
         
     }
     
@@ -213,7 +213,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
             if let token = response.content!["access-token"] as? String {
                 
-                println("The access token is: " + token)
+                print("The access token is: " + token)
                 
                 Cocoon.user = User(username: usernameField.text, accessToken: token)
                 Cocoon.user?.saveAuthentication()
@@ -222,13 +222,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
             } else {
                 
-                println("Failed to parse access-token")
+                print("Failed to parse access-token")
                 
             }
             
         } else {
             
-            println("No Token Received")
+            print("No Token Received")
             
         }
         
@@ -236,7 +236,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func handleLoginError(error: Error) {
 
-        println("Login Failed: \(error.errorCode)")
+        print("Login Failed: \(error.errorCode)")
         
     }
     
@@ -261,13 +261,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         if (newTag > 2) {
             
-            println("done")
+            print("done")
             textField.resignFirstResponder()
 
             
         } else {
             
-            var nextResponder: UIResponder? = textField.superview?.viewWithTag(newTag)
+            let nextResponder: UIResponder? = textField.superview?.viewWithTag(newTag)
             if (nextResponder != nil) {
                 
                 nextResponder?.becomeFirstResponder()

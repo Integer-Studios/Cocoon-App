@@ -14,8 +14,8 @@ class UserViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Viewing user with id: ")
-        println(id)
+        print("Viewing user with id: ", terminator: "")
+        print(id)
         // Do any additional setup after loading the view.
     }
 

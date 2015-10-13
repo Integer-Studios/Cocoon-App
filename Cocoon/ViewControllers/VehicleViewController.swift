@@ -14,8 +14,8 @@ class VehicleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Viewing vehicle with id: ")
-        println(id)
+        print("Viewing vehicle with id: ", terminator: "")
+        print(id)
         // Do any additional setup after loading the view.
     }
 

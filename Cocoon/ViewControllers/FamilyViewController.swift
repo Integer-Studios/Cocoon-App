@@ -51,7 +51,7 @@ class FamilyViewController: UITableViewController, UITableViewDataSource, UITabl
         case 1:
             return vehicles.count
         default:
-            println("no case for section \(section)")
+            print("no case for section \(section)")
             return 0
         }
         
@@ -69,11 +69,11 @@ class FamilyViewController: UITableViewController, UITableViewDataSource, UITabl
             links = vehicles
             break
         default:
-            println("no case for section \(indexPath.section)")
+            print("no case for section \(indexPath.section)")
             break
         }
         
-        var link = links[indexPath.row]
+        let link = links[indexPath.row]
         
         if link.type != "family.menu" {
             
@@ -127,7 +127,7 @@ class FamilyViewController: UITableViewController, UITableViewDataSource, UITabl
             vehicles[indexPath.row].open(self)
             break
         default:
-            println("no case for section \(indexPath.section)")
+            print("no case for section \(indexPath.section)")
             break
         }
         

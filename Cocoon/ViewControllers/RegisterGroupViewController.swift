@@ -76,7 +76,7 @@ class RegisterGroupViewController: InputScrollView {
     
     func handleGroupRegisterResponse(response: Response) {
         
-        println("Group Register Success")
+        print("Group Register Success")
         Cocoon.user?.loadInfo(userInfoCallback)
         
     }
@@ -90,7 +90,7 @@ class RegisterGroupViewController: InputScrollView {
     
     func handleGroupRegisterError(error: Error) {
         
-        println("Group Register Error")
+        print("Group Register Error")
         
     }
     
@@ -101,7 +101,7 @@ class RegisterGroupViewController: InputScrollView {
             var aRect = self.view.frame;
             aRect.size.height -= self.keyboardFrame!.size.height;
             if (self.activeField!.tag == textFields.count) {
-                var frame = CGRectMake(continueButton.frame.origin.x, continueButton.frame.origin.y, continueButton.frame.size.width, continueButton.frame.size.height)
+                let frame = CGRectMake(continueButton.frame.origin.x, continueButton.frame.origin.y, continueButton.frame.size.width, continueButton.frame.size.height)
                 self.scrollView.scrollRectToVisible(frame, animated:true)
                 
             } else {
@@ -114,7 +114,7 @@ class RegisterGroupViewController: InputScrollView {
             
         } else {
             
-            var aRect = self.view.frame;
+            let aRect = self.view.frame;
             if (!CGRectContainsPoint(aRect, self.activeField!.frame.origin) ) {
                 self.scrollView.scrollRectToVisible(activeField!.frame, animated:true)
             }

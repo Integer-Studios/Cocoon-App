@@ -16,22 +16,22 @@ class ResponseManager {
         
         if error != nil {
             
-            println("Error calling POST request")
+            print("Error calling POST request")
             error = Error(requestObject: request, error: 900)
             
         } else {
-            var dataString = NSString(data: data, encoding:NSUTF8StringEncoding)
+            let dataString = NSString(data: data, encoding:NSUTF8StringEncoding)
             if (request.debug) {
-                println(dataString)
+                print(dataString)
             }
-            var jsonError: NSError?
-            let returnData: NSDictionary? = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError) as? NSDictionary
+            let jsonError: NSError?
+            let returnData: NSDictionary? = NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary
             if jsonError != nil {
                 // got an error while parsing the data, need to handle it
                 if request.debug {
-                    println("Error Parsing JSON from response string: \(dataString)")
+                    print("Error Parsing JSON from response string: \(dataString)")
                 } else {
-                    println("Error Parsing JSON From Response")
+                    print("Error Parsing JSON From Response")
                 }
                 error = Error(requestObject: request, error: 800)
                 
@@ -39,13 +39,13 @@ class ResponseManager {
                 
                 if request.debug {
                     
-                    println("Received Response from Server: \(returnData!.description)")
+                    print("Received Response from Server: \(returnData!.description)")
                     
                 }
                 
                 if (returnData != nil) {
                     
-                if let status: Int = (returnData!["status"] as! String).toInt() {
+                if let status: Int = Int((returnData!["status"] as! String)) {
                     
                     let errorHeader: String? = (returnData!["error-header"] as? String)
                     
@@ -113,7 +113,7 @@ class ResponseManager {
     
     func handleError(request: Request, error: Error) {
         
-        println("Received Error: \(error.errorCode)")
+        print("Received Error: \(error.errorCode)")
         
         if (request.errorHandler != nil) {
             
@@ -121,7 +121,7 @@ class ResponseManager {
             
         } else {
             
-            println("Not Handled...")
+            print("Not Handled...")
             
         }
         

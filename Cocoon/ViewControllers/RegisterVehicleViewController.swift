@@ -66,7 +66,7 @@ class RegisterVehicleViewController: InputScrollView {
     
     func handleRegisterError(error: Error) {
         
-        println("Vehicle Register Error")
+        print("Vehicle Register Error")
         
     }
     
@@ -77,7 +77,7 @@ class RegisterVehicleViewController: InputScrollView {
             var aRect = self.view.frame;
             aRect.size.height -= self.keyboardFrame!.size.height;
             if (self.activeField!.tag == textFields.count) {
-                var frame = CGRectMake(typeSelector.frame.origin.x, typeSelector.frame.origin.y, typeSelector.frame.size.width, typeSelector.frame.size.height + 20)
+                let frame = CGRectMake(typeSelector.frame.origin.x, typeSelector.frame.origin.y, typeSelector.frame.size.width, typeSelector.frame.size.height + 20)
                 self.scrollView.scrollRectToVisible(frame, animated:true)
                 
             } else {
@@ -90,7 +90,7 @@ class RegisterVehicleViewController: InputScrollView {
             
         } else {
             
-            var aRect = self.view.frame;
+            let aRect = self.view.frame;
             if (!CGRectContainsPoint(aRect, self.activeField!.frame.origin) ) {
                 self.scrollView.scrollRectToVisible(activeField!.frame, animated:true)
             }
