@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoadingTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate  {
+class LoadingTableViewController: UITableViewController {
 
     var items : [Link] = []
     
@@ -46,7 +46,7 @@ class LoadingTableViewController: UITableViewController, UITableViewDataSource, 
         
     }
     
-    func requestData(request: String, parameters : NSMutableDictionary, debug: Bool = false) {
+    func requestData(request: String, parameters : Dictionary<String,String>, debug: Bool = false) {
 
         Cocoon.requestManager.sendRequest(request, parameters: parameters, debug: debug, responseHandler: handleTableResponse, errorHandler: handleTableError)
         

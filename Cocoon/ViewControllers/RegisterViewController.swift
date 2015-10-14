@@ -119,9 +119,9 @@ class RegisterViewController: InputScrollView {
             let token = response.content!["access-token"] as! String;
             print("The access token is: " + token)
             
-            Cocoon.user = User(username: email.text, accessToken: token)
-            Cocoon.user?.firstName = firstName.text
-            Cocoon.user?.lastName = lastName.text
+            Cocoon.user = User(username: email.text!, accessToken: token)
+            Cocoon.user?.firstName = firstName.text!
+            Cocoon.user?.lastName = lastName.text!
             Cocoon.user?.saveAuthentication()
 
             (self.navigationController as! NavigationController).pushView("register.1")

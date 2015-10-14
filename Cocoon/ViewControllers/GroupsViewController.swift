@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GroupsViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate  {
+class GroupsViewController: UITableViewController  {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -29,7 +29,7 @@ class GroupsViewController: UITableViewController, UITableViewDataSource, UITabl
     override func viewWillAppear(animated: Bool) {
         
         super.viewWillAppear(animated)
-        requestData("/user/groups/", parameters: NSMutableDictionary())
+        requestData("/user/groups/", parameters: Dictionary<String,String>())
         
     }
     
@@ -92,7 +92,7 @@ class GroupsViewController: UITableViewController, UITableViewDataSource, UITabl
         
     }
     
-    func requestData(request: String, parameters : NSMutableDictionary, debug: Bool = false) {
+    func requestData(request: String, parameters : Dictionary<String,String>, debug: Bool = false) {
         
         Cocoon.requestManager.sendRequest(request, parameters: parameters, debug: debug, responseHandler: handleTableResponse, errorHandler: handleTableError)
         

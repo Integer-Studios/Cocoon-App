@@ -50,8 +50,10 @@ class RegisterVehicleViewController: InputScrollView {
     @IBAction func registerVehicle(sender: AnyObject) {
         
         let familyID = Cocoon.user?.family?.id
-        let params: NSMutableDictionary = [ "name": name.text, "size": size.text]
-        params["family"] = familyID
+        var params: Dictionary<String,String> =  Dictionary<String,String>()
+        params["name"] = name.text
+        params["size"] = size.text
+        params["family"] = "\(familyID)"
         params["type"] = typeSelector.titleForSegmentAtIndex(typeSelector.selectedSegmentIndex)
         Cocoon.requestManager.sendRequest("/family/vehicles/register/", parameters: params, responseHandler: handleRegisterResponse, errorHandler: handleRegisterError)
 

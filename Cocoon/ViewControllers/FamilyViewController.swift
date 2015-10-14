@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FamilyViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
+class FamilyViewController: UITableViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var addCodeLabel: UILabel!
@@ -32,7 +32,7 @@ class FamilyViewController: UITableViewController, UITableViewDataSource, UITabl
         
         super.viewWillAppear(animated)
         if let fam = Cocoon.user?.getFamily() {
-            requestData("/family/info/", parameters: ["family": fam.id])
+            requestData("/family/info/", parameters: ["family": "\(fam.id)"])
         }
         
     }
@@ -135,7 +135,7 @@ class FamilyViewController: UITableViewController, UITableViewDataSource, UITabl
     
     @IBAction func newCode(sender: AnyObject) {
         
-        Cocoon.requestManager.sendRequest("/family/generate/", parameters: NSMutableDictionary(), responseHandler: handleNewCodeResponse, errorHandler: handleNewCodeError)
+        Cocoon.requestManager.sendRequest("/family/generate/", parameters: Dictionary<String,String>(), responseHandler: handleNewCodeResponse, errorHandler: handleNewCodeError)
         
     }
     
@@ -152,7 +152,7 @@ class FamilyViewController: UITableViewController, UITableViewDataSource, UITabl
     }
     
     
-    func requestData(request: String, parameters : NSMutableDictionary, debug: Bool = false) {
+    func requestData(request: String, parameters : Dictionary<String,String>, debug: Bool = false) {
         
         Cocoon.requestManager.sendRequest(request, parameters: parameters, debug: debug, responseHandler: handleTableResponse, errorHandler: handleTableError)
         

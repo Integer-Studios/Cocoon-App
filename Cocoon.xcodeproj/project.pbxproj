@@ -35,7 +35,6 @@
 		E4D33C631B546D330090FA24 /* back-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D33C621B546D330090FA24 /* back-arrow.png */; };
 		E4D33C681B5497350090FA24 /* badge-green.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D33C661B5497350090FA24 /* badge-green.png */; };
 		E4D33C691B5497350090FA24 /* badge-red.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D33C671B5497350090FA24 /* badge-red.png */; };
-		E4D33C6B1B54973D0090FA24 /* default-avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D33C6A1B54973D0090FA24 /* default-avatar.png */; };
 		F604D29A1B826C0F0031E70D /* request-ride.png in Resources */ = {isa = PBXBuildFile; fileRef = F604D2991B826C0F0031E70D /* request-ride.png */; };
 		F61D1F3B1B447CD7007D57F8 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61D1F3A1B447CD7007D57F8 /* GroupViewController.swift */; };
 		F628BEDD1B3884CB005E4002 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F628BEDC1B3884CB005E4002 /* RegisterViewController.swift */; };
@@ -58,8 +57,6 @@
 		F6B274C41B547DB9000805BD /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B274C31B547DB9000805BD /* menu.png */; };
 		F6B274C61B54829E000805BD /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B274C51B54829E000805BD /* IconCell.swift */; };
 		F6B274C81B548BBD000805BD /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B274C71B548BBD000805BD /* TodoCell.swift */; };
-		F6B274D01B548DDB000805BD /* badge-red.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B274CE1B548DDB000805BD /* badge-red.png */; };
-		F6B274D11B548DDB000805BD /* badge-green.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B274CF1B548DDB000805BD /* badge-green.png */; };
 		F6B274D31B548E14000805BD /* default-avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B274D21B548E14000805BD /* default-avatar.png */; };
 		F6C0F5A81B433A7600629E02 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C0F5A71B433A7600629E02 /* GroupsViewController.swift */; };
 		F6C0F5AC1B433EE900629E02 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C0F5AB1B433EE900629E02 /* UserViewController.swift */; };
@@ -438,7 +435,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Integer Studios";
 				TargetAttributes = {
 					E419C8191B3873710015FCC2 = {
@@ -481,17 +478,14 @@
 				F6F075061B5044CC00163CC6 /* username.png in Resources */,
 				F6F075021B5039EA00163CC6 /* logo.png in Resources */,
 				F604D29A1B826C0F0031E70D /* request-ride.png in Resources */,
-				F6B274D11B548DDB000805BD /* badge-green.png in Resources */,
 				F6B274C41B547DB9000805BD /* menu.png in Resources */,
 				E4D33C691B5497350090FA24 /* badge-red.png in Resources */,
 				F6B274B21B54675A000805BD /* info.png in Resources */,
 				F6B274D31B548E14000805BD /* default-avatar.png in Resources */,
 				F6B274B11B54675A000805BD /* add.png in Resources */,
 				F6B274BC1B547C54000805BD /* test.png in Resources */,
-				F6B274D01B548DDB000805BD /* badge-red.png in Resources */,
 				F682B8FD1B5D754E00CAF29D /* icon.png in Resources */,
 				E419C8251B3873720015FCC2 /* Main.storyboard in Resources */,
-				E4D33C6B1B54973D0090FA24 /* default-avatar.png in Resources */,
 				E4D33C601B545D3C0090FA24 /* 2.png in Resources */,
 				F6F075081B50549700163CC6 /* login.png in Resources */,
 				E4D33C611B545D3C0090FA24 /* 3.png in Resources */,
@@ -617,6 +611,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -690,6 +685,7 @@
 				);
 				INFOPLIST_FILE = Cocoon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.integerstudios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7dc89c1c-3a32-4638-89d6-53e42a9c4b5b";
 				SWIFT_OBJC_BRIDGING_HEADER = Cocoon/Bridge.h;
@@ -709,6 +705,7 @@
 				);
 				INFOPLIST_FILE = Cocoon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.integerstudios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7dc89c1c-3a32-4638-89d6-53e42a9c4b5b";
 				SWIFT_OBJC_BRIDGING_HEADER = Cocoon/Bridge.h;
@@ -729,6 +726,7 @@
 				);
 				INFOPLIST_FILE = CocoonTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.integerstudios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cocoon.app/Cocoon";
 			};
@@ -744,6 +742,7 @@
 				);
 				INFOPLIST_FILE = CocoonTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.integerstudios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cocoon.app/Cocoon";
 			};

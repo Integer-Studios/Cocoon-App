@@ -10,7 +10,7 @@ import Foundation
 
 class RequestManager {
     
-    func sendRequest(requestURL: String, parameters: NSMutableDictionary, debug: Bool = false, responseHandler: (Response) -> (), errorHandler: ((Error) -> ())?)  {
+    func sendRequest(requestURL: String, parameters: Dictionary<String, String>, debug: Bool = false, responseHandler: (Response) -> (), errorHandler: ((Error) -> ())?)  {
         
         let endpoint: String = "http://cocoon.integerstudios.com" + requestURL
         let parameters = authenticateParameters(parameters)
@@ -34,7 +34,7 @@ class RequestManager {
         
     }
     
-    func generateRequest(endpoint: String, parameters: NSMutableDictionary) -> NSMutableURLRequest {
+    func generateRequest(endpoint: String, parameters: Dictionary<String,String>) -> NSMutableURLRequest {
         
         let request = NSMutableURLRequest(URL: NSURL(string: endpoint)!)
         request.HTTPMethod = "POST"
@@ -58,7 +58,7 @@ class RequestManager {
         
     }
     
-    func authenticateParameters(parameters: NSMutableDictionary) -> NSMutableDictionary {
+    func authenticateParameters(var parameters: Dictionary<String, String>) -> Dictionary<String, String> {
         
         if (Cocoon.user != nil) {
             if (Cocoon.user!.facebook) {
@@ -86,7 +86,7 @@ struct Request {
     var responseHandler: (Response) -> ();
     var errorHandler: ((Error) -> ())?;
     var debug: Bool;
-    var parameters: NSMutableDictionary;
+    var parameters: Dictionary<String, String>;
     
 }
 

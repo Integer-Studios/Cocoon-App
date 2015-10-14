@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GroupViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
+class GroupViewController: UITableViewController {
     
 //    
 //    Outlets
@@ -35,8 +35,8 @@ class GroupViewController: UITableViewController, UITableViewDataSource, UITable
     override func viewWillAppear(animated: Bool) {
         
         super.viewWillAppear(animated)
-        Cocoon.requestManager.sendRequest("/group/info/", parameters: ["group": id], responseHandler: handleInfoResponse, errorHandler: handleInfoError)
-        Cocoon.requestManager.sendRequest("/group/events/", parameters: ["group": id], responseHandler: handleEventListResponse, errorHandler: handleEventListError)
+        Cocoon.requestManager.sendRequest("/group/info/", parameters: ["group": "\(id)"], responseHandler: handleInfoResponse, errorHandler: handleInfoError)
+        Cocoon.requestManager.sendRequest("/group/events/", parameters: ["group": "\(id)"], responseHandler: handleEventListResponse, errorHandler: handleEventListError)
         
     }
     

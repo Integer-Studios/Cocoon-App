@@ -190,7 +190,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
    @IBAction func facebookConnect(sender: AnyObject) {
         
         print("connect")
-    Cocoon.requestManager.sendRequest("/user/facebook/connect/", parameters: ["username": usernameField.text, "password": passwordField.text.sha1(), "facebook-id": FBSDKAccessToken.currentAccessToken().userID, "facebook-token": FBSDKAccessToken.currentAccessToken().tokenString], responseHandler: handleFacebookLoginResponse, errorHandler: handleConnectError)
+    Cocoon.requestManager.sendRequest("/user/facebook/connect/", parameters: ["username": usernameField.text!, "password": passwordField.text!.sha1(), "facebook-id": FBSDKAccessToken.currentAccessToken().userID, "facebook-token": FBSDKAccessToken.currentAccessToken().tokenString], responseHandler: handleFacebookLoginResponse, errorHandler: handleConnectError)
 
     
     }
@@ -203,7 +203,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func login(sender: AnyObject) {
         
-        Cocoon.requestManager.sendRequest("/user/login/auth/", parameters: ["username": usernameField.text, "password": passwordField.text.sha1()], responseHandler: handleLoginResponse, errorHandler: handleLoginError)
+        Cocoon.requestManager.sendRequest("/user/login/auth/", parameters: ["username": usernameField.text!, "password": passwordField.text!.sha1()], responseHandler: handleLoginResponse, errorHandler: handleLoginError)
         
     }
     
@@ -215,7 +215,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
                 print("The access token is: " + token)
                 
-                Cocoon.user = User(username: usernameField.text, accessToken: token)
+                Cocoon.user = User(username: usernameField.text!, accessToken: token)
                 Cocoon.user?.saveAuthentication()
                 Cocoon.user?.loadInfo(nil)
                 Cocoon.pushMain()

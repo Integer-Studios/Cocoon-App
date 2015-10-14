@@ -25,18 +25,20 @@ class ResponseManager {
                 print(dataString)
             }
             let jsonError: NSError?
-            let returnData: NSDictionary? = NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary
-            if jsonError != nil {
-                // got an error while parsing the data, need to handle it
-                if request.debug {
-                    print("Error Parsing JSON from response string: \(dataString)")
-                } else {
-                    print("Error Parsing JSON From Response")
-                }
-                error = Error(requestObject: request, error: 800)
-                
-            } else  {
-                
+            do {
+            let returnData: NSDictionary? = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary
+            
+//            if jsonError != nil {
+//                // got an error while parsing the data, need to handle it
+//                if request.debug {
+//                    print("Error Parsing JSON from response string: \(dataString)")
+//                } else {
+//                    print("Error Parsing JSON From Response")
+//                }
+//                error = Error(requestObject: request, error: 800)
+//                
+//            } else  {
+//                
                 if request.debug {
                     
                     print("Received Response from Server: \(returnData!.description)")
@@ -95,9 +97,14 @@ class ResponseManager {
                     
                 }
                 
+            
+            } catch {
+                print("Json Error")
             }
         }
         
+            
+            
         if (error == nil && response == nil) {
             error = Error(requestObject: request, error:700)
             

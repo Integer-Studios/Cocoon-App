@@ -69,7 +69,7 @@ class RegisterGroupViewController: InputScrollView {
     }
     
     @IBAction func registerGroup(sender: AnyObject) {
-        let params: NSMutableDictionary = ["name" : name.text, "address-name" : addressName.text, "street" : street.text, "street-two" : street2.text, "city" : city.text, "state" : state.text, "zipcode" : zipCode.text]
+        let params: Dictionary<String,String> = ["name" : name.text!, "address-name" : addressName.text!, "street" : street.text!, "street-two" : street2.text!, "city" : city.text!, "state" : state.text!, "zipcode" : zipCode.text!]
         
         Cocoon.requestManager.sendRequest("/group/register/", parameters: params, responseHandler: handleGroupRegisterResponse, errorHandler: handleGroupRegisterError)
     }

@@ -57,8 +57,13 @@ class RegisterKidViewController: InputScrollView {
     @IBAction func registerKid(sender: AnyObject) {
        
         let familyID = Cocoon.user?.family?.id
-        let params: NSMutableDictionary = [ "first-name": firstName.text, "last-name": lastName.text, "age": age.text, "sex": (genderSelector.selectedSegmentIndex == 0)]
-        params["family"] = familyID
+      
+        var params: Dictionary<String, String> =  Dictionary<String, String>()
+        params["first-name"] = firstName.text
+        params["last-name"] = lastName.text
+        params["age"] = age.text
+        params["sex"] = "\((genderSelector.selectedSegmentIndex == 0))"
+        params["family"] = "\(familyID)"
         Cocoon.requestManager.sendRequest("/kid/register/", parameters: params, responseHandler: handleKidRegisterResponse, errorHandler: handleKidRegisterError)
 
         

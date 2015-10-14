@@ -49,14 +49,14 @@ class TodoViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let addressDict = [kABPersonAddressStreetKey as NSString: "39 Via Conocido",            kABPersonAddressCityKey: "San Clemente", kABPersonAddressStateKey: "CA",           kABPersonAddressZIPKey:  "92675"]
+//        let addressDict = [kABPersonAddressStreetKey as NSString: "39 Via Conocido",            kABPersonAddressCityKey: "San Clemente", kABPersonAddressStateKey: "CA",           kABPersonAddressZIPKey:  "92675"]
         
-        let stringAddress = "\(addressDict[kABPersonAddressStreetKey]) \(addressDict[kABPersonAddressCityKey]) \(addressDict[kABPersonAddressStateKey]) \(addressDict[kABPersonAddressZIPKey]) "
-        let mapViewController = self.storyboard?.instantiateViewControllerWithIdentifier("map") as! MapViewController
-        mapViewController.addressString = stringAddress
-        mapViewController.addressDict = addressDict
+//        let stringAddress = "\(addressDict[kABPersonAddressStreetKey]) \(addressDict[kABPersonAddressCityKey]) \(addressDict[kABPersonAddressStateKey]) \(addressDict[kABPersonAddressZIPKey]) "
+//        let mapViewController = self.storyboard?.instantiateViewControllerWithIdentifier("map") as! MapViewController
+//        mapViewController.addressString = stringAddress
+//        mapViewController.addressDict = addressDict
         
-        (self.navigationController as! NavigationController).pushViewController(mapViewController, animated: true)
+//        (self.navigationController as! NavigationController).pushViewController(mapViewController, animated: true)
     
     }
 
