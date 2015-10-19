@@ -83,40 +83,7 @@ class TodoViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?  {
         let offerRideAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Offer" , handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
-            
-//            let geoCoder = CLGeocoder()
-//            
-//            let addressString = "39 Via Conocido San Clemente CA 92675"
-//            
-//            geoCoder.geocodeAddressString(addressString, completionHandler:
-//                {(placemarks: [AnyObject]!, error: NSError!) in
-//                    
-//                    if error != nil {
-//                        println("Geocode failed with error: \(error.localizedDescription)")
-//                    } else if placemarks.count > 0 {
-//                        let placemark = placemarks[0] as! CLPlacemark
-//                        let location = placemark.location
-//                        Cocoon.coords = location.coordinate
-//                        
-//                        let addressDict = [kABPersonAddressStreetKey as NSString: "39 Via Conocido",
-//                            kABPersonAddressCityKey: "San Clemente",
-//                            kABPersonAddressStateKey: "CA",
-//                            kABPersonAddressZIPKey:  "92675"]
-//                        
-//                        let place = MKPlacemark(coordinate: Cocoon.coords!,
-//                            addressDictionary: addressDict)
-//                        
-//                        let mapItem = MKMapItem(placemark: place)
-//                        
-//                        Cocoon.destinationTest = mapItem
-//                        
-//                        (self.navigationController as! NavigationController).pushView("map")
-//                        
-//                    }
-//            })
-            
-//            (self.navigationController as! NavigationController).pushView("offerRide")
-            
+            (self.navigationController as! NavigationController).pushView("offerRide")
         })
         
         offerRideAction.backgroundColor = UIColor(hue: 151/359, saturation: 75/100, brightness: 84/100, alpha: 1)
