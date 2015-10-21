@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		292818571BD579AD008351C9 /* OfferRideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292818561BD579AD008351C9 /* OfferRideCell.swift */; settings = {ASSET_TAGS = (); }; };
+		2945CA1D1BD83CB5001BD2E9 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2945CA1C1BD83CB5001BD2E9 /* checkmark.png */; settings = {ASSET_TAGS = (); }; };
 		E4107A081B447FB8003C5E9D /* Register1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4107A071B447FB8003C5E9D /* Register1ViewController.swift */; };
 		E4107A0C1B448043003C5E9D /* KidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4107A0B1B448043003C5E9D /* KidViewController.swift */; };
 		E4107A0E1B448051003C5E9D /* VehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4107A0D1B448051003C5E9D /* VehicleViewController.swift */; };
@@ -88,6 +89,7 @@
 
 /* Begin PBXFileReference section */
 		292818561BD579AD008351C9 /* OfferRideCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OfferRideCell.swift; path = Cells/OfferRideCell.swift; sourceTree = "<group>"; };
+		2945CA1C1BD83CB5001BD2E9 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
 		E4107A071B447FB8003C5E9D /* Register1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Register1ViewController.swift; path = ViewControllers/Register1ViewController.swift; sourceTree = "<group>"; };
 		E4107A0B1B448043003C5E9D /* KidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KidViewController.swift; path = ViewControllers/KidViewController.swift; sourceTree = "<group>"; };
 		E4107A0D1B448051003C5E9D /* VehicleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VehicleViewController.swift; path = ViewControllers/VehicleViewController.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 		E4D33C651B5496FC0090FA24 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				2945CA1C1BD83CB5001BD2E9 /* checkmark.png */,
 				E4D33C621B546D330090FA24 /* back-arrow.png */,
 				F6B274C31B547DB9000805BD /* menu.png */,
 				F6B274BB1B547C54000805BD /* test.png */,
@@ -500,6 +503,7 @@
 				E4D33C611B545D3C0090FA24 /* 3.png in Resources */,
 				E419C82A1B3873720015FCC2 /* LaunchScreen.xib in Resources */,
 				E4D33C631B546D330090FA24 /* back-arrow.png in Resources */,
+				2945CA1D1BD83CB5001BD2E9 /* checkmark.png in Resources */,
 				E419C8271B3873720015FCC2 /* Images.xcassets in Resources */,
 				F6F0750F1B505E3900163CC6 /* default.png in Resources */,
 			);

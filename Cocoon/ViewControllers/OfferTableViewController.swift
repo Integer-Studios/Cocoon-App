@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import CoreLocation
 
 class OfferTableViewController: UITableViewController {
+    
+    var items : [DetailedLink] = []
+    var eventID  = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,77 +23,75 @@ class OfferTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        requestData("/event/requests/", parameters: ["event": "\(eventID)"], debug: true)
+        
     }
-
-    // MARK: - Table view data source
+    
+    func handleTableResponse(response: Response) {
+        
+        self.items.removeAll(keepCapacity: false)
+        
+        for requestObject in response.content!["requests"] as! NSArray {
+            
+            items.append(DetailedLink.unwrapRideRequest(requestObject as! NSMutableDictionary))
+            
+        }
+        
+        self.tableView.reloadData()
+    }
+    
+    func handleTableError(error: Error) {
+        
+    }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return items.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCellWithIdentifier("offerCell", forIndexPath: indexPath) as! OfferRideCell
+        
+        let link = items[indexPath.row]
+        
+        cell.name?.text = link.info[2] as? String
+        cell.city?.text = link.info[3] as? String
+        cell.duration?.text = getDuration(link)
+        cell.parentVC = self
 
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        items[indexPath.row].open(self)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    
+    func getDuration(request: DetailedLink) -> String {
+        //TODO stub function
+        let loc = request.info[4] as? CLLocation
+        print(loc?.coordinate.longitude)
+        print(loc?.coordinate.latitude)
+        return "5 min"
     }
-    */
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    func requestData(request: String, parameters : Dictionary<String,String>, debug: Bool = false) {
+        
+        Cocoon.requestManager.sendRequest(request, parameters: parameters, debug: debug, responseHandler: handleTableResponse, errorHandler: handleTableError)
+        
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
