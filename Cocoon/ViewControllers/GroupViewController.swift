@@ -160,8 +160,8 @@ class GroupViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("todoCell", forIndexPath: indexPath) as! TodoCell
-        cell.title?.text = items[indexPath.row].info[0]
-        cell.kidName?.text = items[indexPath.row].info[1]
+        cell.title?.text = items[indexPath.row].info[0] as! String
+        cell.kidName?.text = items[indexPath.row].info[1] as! String
         cell.badgeLabel.text = "3"
         return cell
     }

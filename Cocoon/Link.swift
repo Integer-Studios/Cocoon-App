@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 class Link {
     
@@ -142,6 +143,12 @@ class Link {
         
     }
     
+    func openRideRequest(viewController: UIViewController) {
+        
+        print("No view controller for ride requests yet!")
+        
+    }
+    
     
     static func unwrapKid(kid : NSMutableDictionary) -> Link {
         return Link(id: Int((kid["id"] as! String))!, type: "kid", displayName: kid["first-name"] as! String)
@@ -162,13 +169,14 @@ class Link {
     static func unwrapVehicle(vehicle : NSMutableDictionary) -> Link {
         return Link(id: Int((vehicle["id"] as! String))!, type: "vehicle", displayName: vehicle["name"] as! String)
     }
+    
 }
 
 class DetailedLink : Link {
     
-    var info: [String]
+    var info: [NSObject]
     
-    init(id : Int, type : String, info: [String]) {
+    init(id : Int, type : String, info: [NSObject]) {
         
         self.info = info
         super.init(id: id, type: type, displayName: "")
@@ -177,6 +185,16 @@ class DetailedLink : Link {
     
     static func unwrapEvent(event : NSMutableDictionary) -> DetailedLink {
         return DetailedLink(id: Int((event["id"] as! String))!, type: "event", info: [event["title"] as! String, event["date"] as! String])
+    }
+    
+    static func unwrapRideRequest(request : NSMutableDictionary) -> DetailedLink {
+        
+        let longitude = (request["longitude"] as! NSString).doubleValue
+        let latitude = (request["latitude"] as! NSString).doubleValue
+        
+        let location = CLLocation(latitude: longitude, longitude: latitude)
+        
+        return DetailedLink(id: Int((request["id"] as! String))!, type: "ride-request", info: [(request["event"] as! NSString).integerValue, (request["kid"] as! NSString).integerValue, request["name"] as! String, "Stubtown", location])
     }
     
 }
