@@ -170,16 +170,19 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="ride" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tNR-gi-l30">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                 <animations/>
+                                <connections>
+                                    <outlet property="delegate" destination="UP7-YA-nX7" id="6FG-B0-Hfc"/>
+                                </connections>
                             </mapView>
                             <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NQ9-ux-Dzh">
                                 <rect key="frame" x="0.0" y="487" width="600" height="49"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <tabBarItem title="" systemItem="featured" id="Gq9-e5-Dvh"/>
-                                    <tabBarItem systemItem="recents" id="lRt-ef-DGN"/>
-                                    <tabBarItem systemItem="bookmarks" id="Vjx-vZ-OlJ"/>
-                                    <tabBarItem systemItem="more" id="l0Q-IA-htZ"/>
+                                    <tabBarItem tag="1" title="" systemItem="featured" id="Gq9-e5-Dvh"/>
+                                    <tabBarItem tag="2" systemItem="recents" id="lRt-ef-DGN"/>
+                                    <tabBarItem tag="3" systemItem="bookmarks" id="Vjx-vZ-OlJ"/>
+                                    <tabBarItem tag="4" systemItem="more" id="l0Q-IA-htZ"/>
                                 </items>
                             </tabBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ltr-2S-T5r">
@@ -231,6 +234,10 @@
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </segmentedControl>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="tNR-gi-l30" id="pgZ-TB-qiN"/>
+                        <outlet property="tabBar" destination="NQ9-ux-Dzh" id="5fD-zS-w9e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iqd-zC-2Hg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
