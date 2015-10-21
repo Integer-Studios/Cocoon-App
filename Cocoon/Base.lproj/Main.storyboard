@@ -155,10 +155,10 @@
             </objects>
             <point key="canvasLocation" x="1272" y="656"/>
         </scene>
-        <!--View Controller-->
+        <!--Request View Controller-->
         <scene sceneID="2bM-qI-oHt">
             <objects>
-                <viewController storyboardIdentifier="requestRide" id="UP7-YA-nX7" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="requestRide" id="UP7-YA-nX7" customClass="RequestViewController" customModule="Cocoon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="79n-Ot-25V"/>
                         <viewControllerLayoutGuide type="bottom" id="cay-gm-s0h"/>
@@ -270,7 +270,7 @@
         <!--Offer Rides-->
         <scene sceneID="4pc-DC-LbF">
             <objects>
-                <tableViewController storyboardIdentifier="offerRide" id="qMF-gX-Ydv" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="offerRide" id="qMF-gX-Ydv" customClass="OfferTableViewController" customModule="Cocoon" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="JWK-HT-M03">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
