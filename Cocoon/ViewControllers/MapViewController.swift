@@ -12,202 +12,239 @@ import Foundation
 import CoreLocation
 import AddressBook
 
-class MapViewController: UIViewController/*, MKMapViewDelegate, CLLocationManagerDelegate*/ {
+class MapViewController: UIViewController, MKMapViewDelegate {
 
-//    @IBOutlet weak var mapView: MKMapView!
-//    
-//    var destination: MKMapItem?
-//    var locations: [MKMapItem] = [MKMapItem]()
-//    var locationManager: CLLocationManager!
-//    var addressString: String?
-//    var addressDict: [NSObject : AnyObject]?
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        
-//        let geoCoder = CLGeocoder()
-//        let geoCoder1 = CLGeocoder()
-//        let geoCoder2 = CLGeocoder()
-//
-//        let addressDictDest1 = [kABPersonAddressStreetKey as NSString: "18 Courte Jaime",            kABPersonAddressCityKey: "San Clemente", kABPersonAddressStateKey: "CA",           kABPersonAddressZIPKey:  "92675"]
-//        let addressDictDest2 = [kABPersonAddressStreetKey as NSString: "15 Calle Careyes",            kABPersonAddressCityKey: "San Clemente", kABPersonAddressStateKey: "CA",           kABPersonAddressZIPKey:  "92675"]
-//        let stringAddress1 = "\(addressDictDest1[kABPersonAddressStreetKey]) \(addressDictDest1[kABPersonAddressCityKey]) \(addressDictDest1[kABPersonAddressStateKey]) \(addressDictDest1[kABPersonAddressZIPKey]) "
-//        let stringAddress2 = "\(addressDictDest2[kABPersonAddressStreetKey]) \(addressDictDest2[kABPersonAddressCityKey]) \(addressDictDest2[kABPersonAddressStateKey]) \(addressDictDest2[kABPersonAddressZIPKey]) "
-//
-//        geoCoder.geocodeAddressString(self.addressString!, completionHandler:
-//            {(placemarks: [AnyObject]!, error: NSError!) in
-//                
-//                if error != nil {
-//                    print("Geocode failed with error: \(error.localizedDescription)")
-//                } else if placemarks.count > 0 {
-//                    let placemark = placemarks[0] as! CLPlacemark
-//                    let location = placemark.location
-//                    let coords = location.coordinate
-//                    
-//                    
-//                    let place = MKPlacemark(coordinate: coords,
-//                        addressDictionary: self.addressDict!)
-//                    
-//                    let mapItem = MKMapItem(placemark: place)
-//                    
-//                    self.destination = mapItem
-//                    self.addressFound()
-//                }
-//        })
-//        geoCoder1.geocodeAddressString(stringAddress1, completionHandler: {(placemarks: [AnyObject]!, error: NSError!) in
-//            
-//            if error != nil {
-//                print("Geocode failed with error: \(error.localizedDescription)")
-//            } else if placemarks.count > 0 {
-//                let placemark = placemarks[0] as! CLPlacemark
-//                let location = placemark.location
-//                let coords = location.coordinate
-//                
-//                
-//                let place = MKPlacemark(coordinate: coords,
-//                    addressDictionary: addressDictDest2)
-//                
-//                let mapItem = MKMapItem(placemark: place)
-//                
-//                self.locations.append(mapItem)
-//                self.addressFound()
-//            }
-//        })
-//
-//        geoCoder2.geocodeAddressString(stringAddress2, completionHandler: {(placemarks: [AnyObject]!, error: NSError!) in
-//            
-//            if error != nil {
-//                print("Geocode failed with error: \(error.localizedDescription)")
-//            } else if placemarks.count > 0 {
-//                let placemark = placemarks[0] as! CLPlacemark
-//                let location = placemark.location
-//                let coords = location.coordinate
-//                
-//                
-//                let place = MKPlacemark(coordinate: coords,
-//                    addressDictionary: addressDictDest2)
-//                
-//                let mapItem = MKMapItem(placemark: place)
-//                
-//                self.locations.append(mapItem)
-//                self.addressFound()
-//            }
-//        })
-//
-//        locationManager = CLLocationManager()
-//        if CLLocationManager.authorizationStatus() == .NotDetermined {
-//            locationManager.requestAlwaysAuthorization()
-//        }
-//        if (CLLocationManager.locationServicesEnabled())
-//        {
-//            locationManager.delegate = self
-//            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//            locationManager.startUpdatingLocation()
-//        }
-//        // Do any additional setup after loading the view.
-//    }
-//
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//    }
-//    
-//    func addressFound() {
-//        
-//        print(locations.count)
-//        if (locations.count == 2) {
-//            
-//            self.getDirections()
-//            
-//        }
-//        
-//    }
-//    
-//    func getDirections() {
-//        
-//        let request = MKDirectionsRequest()
-////        request.setSource(MKMapItem.mapItemForCurrentLocation())
-//        request.setSource = locations[0]
-//        request.setDestination = destination!
-//        request.requestsAlternateRoutes = false
-//        
-//        let destinationLocation = destination!.placemark.location
-//        let latitudeDest = destination!.placemark.location.coordinate.latitude
-//        let longitudeDest = destination!.placemark.location.coordinate.latitude
-//
-//        let sourceLocation = locations[0].placemark.location
-//        let latitudeSource = locations[0].placemark.location.coordinate.latitude
-//        let longitudeSource = locations[0].placemark.location.coordinate.latitude
-//
-//        print(sourceLocation.distanceFromLocation(destinationLocation))
-//        
-//        print("DEST: X: \(latitudeDest) Y: \(longitudeDest)")
-//        print("SOUC: X: \(latitudeSource) Y: \(longitudeSource)")
-//
-//        let directions = MKDirections(request: request)
-//        
-//        directions.calculateDirectionsWithCompletionHandler({(response:
-//            MKDirectionsResponse!, error: NSError!) in
-//            
-//            if error != nil {
-//                print("Error getting directions")
-//            } else {
-//                self.showRoute(response)
-//            }
-//            
-//        })
-//        
-//    }
-//    
-//    func showRoute(response: MKDirectionsResponse) {
-//        
-//        for route in response.routes {
-//            
-//            mapView.addOverlay(route.polyline,
-//                level: MKOverlayLevel.AboveRoads)
-//            
-//            for step in route.steps {
-//                print(step.instructions)
-//            }
-//        }
-//        let userLocation = mapView.userLocation
-//        
-////        if (destination?.placemark.coordinate != nil && userLocation != nil) {
-////            let distanceY = abs(locations[0].placemark.location.coordinate.longitude - destination!.placemark.coordinate.longitude) * 2.2;
-////            let distanceX = abs(locations[0].placemark.location.coordinate.longitude - destination!.placemark.coordinate.latitude) * 2.2;
-////        
-////            let span = MKCoordinateSpanMake(distanceX, distanceY)
-////        
-////            let region = MKCoordinateRegionMake(destination!.placemark.coordinate, span)
-////            
-////            mapView.setRegion(region, animated: true)
-////        
-////        } else {
-//        
-//            let region = MKCoordinateRegionMakeWithDistance(destination!.placemark.coordinate, 1, 1)
-//            
-//            mapView.setRegion(region, animated: true)
-//            
-////        }
-//    
-//        
-//    }
-//    
-//    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer! {
-//            let renderer = MKPolylineRenderer(overlay: overlay)
-//            
-//            renderer.strokeColor = UIColor.blueColor()
-//            renderer.lineWidth = 5.0
-//        return renderer
-//    }
-//    
-//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        let location = locations.last as! CLLocation
-//        
-//        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-//        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001))
-//        
-////        self.mapView.setRegion(region, animated: true)
-//    }
+    @IBOutlet weak var mapView: MKMapView!
+   
+    var routeObjects: [RouteObject] = []
+    var userAnnotation: MKPointAnnotation?
+    var loaded = false
+    var eventCoordinate: CLLocationCoordinate2D?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if (Cocoon.selectedEvent != nil) {
+            
+            eventCoordinate = CLLocationCoordinate2D(latitude: Cocoon.selectedEvent?.info[4] as! Double, longitude: Cocoon.selectedEvent?.info[5] as! Double)
+            
+        }
+        
+        Cocoon.location!.retrieveCurrentLocation({
+            self.locationUpdated()
+        })
+        self.mapView.showsUserLocation = true
+        
+    }
+    
+    func location() {
+        
+        
+        
+    }
+    
+    func locationUpdated() {
+    
+        if loaded {
+            return
+        }
+        loaded = true
+        
+        var role: NSObject? = Cocoon.selectedEvent?.info[3]
+//        let request: NSMutableDictionary
+        let offers: Array<NSMutableDictionary>
+        switch (Cocoon.selectedEvent?.info[6] as! String) {
+            
+            case "offer":
+                offers = role as! Array<NSMutableDictionary>
+                var previous: NSMutableDictionary?
+                for o in offers {
+                    
+                    let offer = o 
+                    
+                    let destination = CLLocationCoordinate2D(latitude: (offer["latitude"] as! NSString).doubleValue, longitude: (offer["longitude"] as! NSString).doubleValue)
+                    
+                    let annotation = MKPointAnnotation()
+                    annotation.title = offer["kid-display"] as? String
+                    annotation.coordinate = destination
+                   
+                    let routeObject: RouteObject!
+                    
+                    if (previous == nil) {
+                        
+                        previous = offer
+                        routeObject = RouteObject(origin: MKMapItem.mapItemForCurrentLocation(), destination: MKMapItem(placemark: MKPlacemark(coordinate: destination, addressDictionary: nil)), destinationAnnotation: annotation)
+
+                    } else {
+                        
+                        let previousDestination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: (previous!["latitude"] as! NSString).doubleValue, longitude: (previous!["longitude"] as! NSString).doubleValue), addressDictionary: nil))
+                        
+                        routeObject = RouteObject(origin: previousDestination, destination: MKMapItem(placemark: MKPlacemark(coordinate: destination, addressDictionary: nil)), destinationAnnotation: annotation)
+                        previous = offer
+                        
+                    }
+                    
+                    routeObjects.append(routeObject)
+                    
+                }
+                
+                let annotation = MKPointAnnotation()
+                annotation.title = Cocoon.selectedEvent?.info[0] as? String
+                annotation.coordinate = self.eventCoordinate!
+                
+                let routeObject = RouteObject(origin: MKMapItem(placemark: MKPlacemark(coordinate: (routeObjects.last?.destination.placemark.coordinate)!, addressDictionary: nil)), destination: MKMapItem(placemark: MKPlacemark(coordinate: self.eventCoordinate!, addressDictionary: nil)), destinationAnnotation: annotation)
+                
+                routeObjects.append(routeObject)
+                
+                break;
+            case "request":
+                
+                let annotation = MKPointAnnotation()
+                annotation.title = Cocoon.selectedEvent?.info[0] as? String
+                annotation.coordinate = self.eventCoordinate!
+                
+                let routeObject = RouteObject(origin: MKMapItem(placemark: MKPlacemark(coordinate: Cocoon.location!.currentLocation!.coordinate, addressDictionary: nil)), destination: MKMapItem(placemark: MKPlacemark(coordinate: self.eventCoordinate!, addressDictionary: nil)), destinationAnnotation: annotation)
+                
+                routeObjects.append(routeObject)
+                
+//                request = role as! NSMutableDictionary
+                break;
+            case "none":
+                role = nil
+                let annotation = MKPointAnnotation()
+                annotation.title = Cocoon.selectedEvent?.info[0] as? String
+                annotation.coordinate = self.eventCoordinate!
+                
+                let routeObject = RouteObject(origin: MKMapItem(placemark: MKPlacemark(coordinate: Cocoon.location!.currentLocation!.coordinate, addressDictionary: nil)), destination: MKMapItem(placemark: MKPlacemark(coordinate: self.eventCoordinate!, addressDictionary: nil)), destinationAnnotation: annotation)
+                
+                routeObjects.append(routeObject)
+                break;
+            default:
+                role = nil
+                break;
+        }
+        
+        userAnnotation = MKPointAnnotation()
+        userAnnotation!.title = "Current Location"
+        userAnnotation!.coordinate = (Cocoon.location?.currentLocation?.coordinate)!
+    
+        
+        NSOperationQueue.mainQueue().addOperationWithBlock {
+        
+            self.route()
+            
+        }
+        
+    }
+   
+    
+    func route() {
+        
+        let semaphore = dispatch_semaphore_create(0)
+       
+        var routes: [MKRoute] = []
+        var annotations: [MKPointAnnotation] = []
+        
+        if (!self.routeObjects.isEmpty) {
+        
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
+        
+                for routeObject in self.routeObjects {
+                
+                    let directionsRequest = MKDirectionsRequest()
+                    directionsRequest.transportType = MKDirectionsTransportType.Automobile
+                    directionsRequest.source = routeObject.origin
+                    directionsRequest.destination = routeObject.destination
+                    directionsRequest.requestsAlternateRoutes = false
+                    
+                    let directions = MKDirections(request: directionsRequest)
+                    
+                    directions.calculateDirectionsWithCompletionHandler({(response:
+                        MKDirectionsResponse?, error: NSError?) in
+                        
+                        if error != nil {
+
+                            print("Route Error!")
+                            return;
+                        
+                        } else {
+
+                            let route = response?.routes.first
+                            routes.append(route!)
+                            annotations.append(routeObject.destinationAnnotation)
+                            
+                            
+                        }
+                        
+                        dispatch_semaphore_signal(semaphore)
+                        
+                    })
+
+                    
+                
+                }
+            
+            })
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
+                
+                var time: NSTimeInterval = 0.0
+                
+                for (index, _) in self.routeObjects.enumerate() {
+                    
+                    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);    // Wait until one semaphore is ready to consume
+                    dispatch_async(dispatch_get_main_queue(), {    // For each element, dispatch to the main queue to draw route and annotation corresponding to that  
+                        let route = routes[index]
+                        self.routeObjects[index].estimatedTime = route.expectedTravelTime.toETA()
+                        
+//                        print("\(self.routeObjects[index].estimatedTime!.hours) hours, \(self.routeObjects[index].estimatedTime!.minutes) minutes and \(self.routeObjects[index].estimatedTime!.seconds) seconds")
+                        
+                        time += route.expectedTravelTime
+                        self.mapView.addOverlay(route.polyline)
+                        self.mapView.addAnnotation(annotations[index])
+                    })
+                    
+                }
+                
+//                var minutes = (60*floor((time/60)))
+//                let seconds = time - minutes
+//                minutes /= 60
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    
+                    annotations.append(self.userAnnotation!)
+                    self.fitRegionToRoutes(annotations)
+                    
+                })
+                
+                
+                
+            })
+
+            
+        }
+        
+    }
+    
+    func fitRegionToRoutes(annotations: [MKPointAnnotation]) {
+              
+        self.mapView.showAnnotations(annotations, animated: true)
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    func mapView(mapView: MKMapView, rendererForOverlay
+        overlay: MKOverlay) -> MKOverlayRenderer {
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            
+            renderer.strokeColor = UIColor.blueColor()
+            renderer.lineWidth = 1.0
+            return renderer
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -220,3 +257,5 @@ class MapViewController: UIViewController/*, MKMapViewDelegate, CLLocationManage
     */
 
 }
+
+

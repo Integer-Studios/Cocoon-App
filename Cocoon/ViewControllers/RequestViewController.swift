@@ -15,24 +15,19 @@ class RequestViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     @IBOutlet weak var tabBar: UITabBar!;
     @IBOutlet weak var mapView: MKMapView!
 
-    var locationManager: CLLocationManager?
+    var locationManager: CLLocationManager! = CLLocationManager()
     var pointAnnotation: MKPointAnnotation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (locationManager == nil) {
-            
-            locationManager = CLLocationManager()
-            
-        }
         tabBar.delegate = self;
 
-        self.locationManager?.delegate = self;
-        self.locationManager?.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-        self.locationManager?.requestWhenInUseAuthorization()
+        self.locationManager.delegate = self;
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        self.locationManager.requestWhenInUseAuthorization()
         
-        self.locationManager?.startUpdatingLocation()
+        self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
         
         // Do any additional setup after loading the view.

@@ -24,14 +24,15 @@
 		E419C84B1B3877DE0015FCC2 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E419C84A1B3877DE0015FCC2 /* RequestManager.swift */; };
 		E419C84E1B387B980015FCC2 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E419C84D1B387B980015FCC2 /* TodoViewController.swift */; };
 		E419C8521B3880BF0015FCC2 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E419C8511B3880BE0015FCC2 /* KeychainWrapper.m */; };
+		E42AABF01BD8C2E000B8753C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42AABEF1BD8C2E000B8753C /* LocationManager.swift */; settings = {ASSET_TAGS = (); }; };
 		E443D1A51B5DBCD300055C0E /* RegisterConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E443D1A41B5DBCD300055C0E /* RegisterConnectViewController.swift */; };
 		E453043E1BD83169008F0045 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453043D1BD83169008F0045 /* RequestViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		E45304421BD83642008F0045 /* OfferTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45304411BD83642008F0045 /* OfferTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		E453044A1BD83A1A008F0045 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45304491BD83A1A008F0045 /* FBSDKCoreKit.framework */; };
-		E453044C1BD83A24008F0045 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E453044B1BD83A24008F0045 /* FBSDKLoginKit.framework */; };
 		E46E36241B3B499D00FE92C0 /* ResponseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E36231B3B499D00FE92C0 /* ResponseManager.swift */; };
+		E48596B81BD93F06002B502C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E489E90F1B5E321700E1F57B /* MapKit.framework */; };
+		E48596B91BD93F14002B502C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45304491BD83A1A008F0045 /* FBSDKCoreKit.framework */; };
+		E48596BA1BD93F21002B502C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E453044B1BD83A24008F0045 /* FBSDKLoginKit.framework */; };
 		E489E90E1B5E31E900E1F57B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489E90D1B5E31E900E1F57B /* MapViewController.swift */; };
-		E489E9101B5E321700E1F57B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E489E90F1B5E321700E1F57B /* MapKit.framework */; };
 		E489E9121B5EE16C00E1F57B /* InputScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489E9111B5EE16C00E1F57B /* InputScrollView.swift */; };
 		E4D33C5F1B545D3C0090FA24 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D33C5C1B545D3C0090FA24 /* 1.png */; };
 		E4D33C601B545D3C0090FA24 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D33C5D1B545D3C0090FA24 /* 2.png */; };
@@ -111,6 +112,7 @@
 		E419C84D1B387B980015FCC2 /* TodoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodoViewController.swift; path = ViewControllers/TodoViewController.swift; sourceTree = "<group>"; };
 		E419C8501B3880BE0015FCC2 /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
 		E419C8511B3880BE0015FCC2 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
+		E42AABEF1BD8C2E000B8753C /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		E443D1A41B5DBCD300055C0E /* RegisterConnectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterConnectViewController.swift; path = ViewControllers/RegisterConnectViewController.swift; sourceTree = "<group>"; };
 		E453043D1BD83169008F0045 /* RequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestViewController.swift; path = ViewControllers/RequestViewController.swift; sourceTree = "<group>"; };
 		E45304411BD83642008F0045 /* OfferTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OfferTableViewController.swift; path = ViewControllers/OfferTableViewController.swift; sourceTree = "<group>"; };
@@ -173,9 +175,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E453044C1BD83A24008F0045 /* FBSDKLoginKit.framework in Frameworks */,
-				E453044A1BD83A1A008F0045 /* FBSDKCoreKit.framework in Frameworks */,
-				E489E9101B5E321700E1F57B /* MapKit.framework in Frameworks */,
+				E48596BA1BD93F21002B502C /* FBSDKLoginKit.framework in Frameworks */,
+				E48596B91BD93F14002B502C /* FBSDKCoreKit.framework in Frameworks */,
+				E48596B81BD93F06002B502C /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +236,7 @@
 				F628BF1E1B38B7E4005E4002 /* User.swift */,
 				F628BF221B38C70C005E4002 /* Cocoon.swift */,
 				E489E9111B5EE16C00E1F57B /* InputScrollView.swift */,
+				E42AABEF1BD8C2E000B8753C /* LocationManager.swift */,
 				E419C8231B3873720015FCC2 /* Main.storyboard */,
 				E419C8261B3873720015FCC2 /* Images.xcassets */,
 				E419C8281B3873720015FCC2 /* LaunchScreen.xib */,
@@ -526,6 +529,7 @@
 				F6C954491B3B5B0200B07C1B /* Link.swift in Sources */,
 				F6C0F5AC1B433EE900629E02 /* UserViewController.swift in Sources */,
 				E443D1A51B5DBCD300055C0E /* RegisterConnectViewController.swift in Sources */,
+				E42AABF01BD8C2E000B8753C /* LocationManager.swift in Sources */,
 				F6431D601B3A19E300BBD20D /* Register2ViewController.swift in Sources */,
 				292818571BD579AD008351C9 /* OfferRideCell.swift in Sources */,
 				F61D1F3B1B447CD7007D57F8 /* GroupViewController.swift in Sources */,
@@ -695,11 +699,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/Quinn/Documents/FacebookSDK,
-					"$(PROJECT_DIR)/Cocoon",
-				);
+				FRAMEWORK_SEARCH_PATHS = "~/Documents/FacebookSDK/";
 				INFOPLIST_FILE = Cocoon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.integerstudios.$(PRODUCT_NAME:rfc1034identifier)";
@@ -716,11 +716,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/Quinn/Documents/FacebookSDK,
-					"$(PROJECT_DIR)/Cocoon",
-				);
+				FRAMEWORK_SEARCH_PATHS = "~/Documents/FacebookSDK/";
 				INFOPLIST_FILE = Cocoon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.integerstudios.$(PRODUCT_NAME:rfc1034identifier)";

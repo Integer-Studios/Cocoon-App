@@ -24,7 +24,6 @@ class ResponseManager {
             if (request.debug) {
                 print(dataString)
             }
-            let jsonError: NSError?
             do {
             let returnData: NSDictionary? = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary
             

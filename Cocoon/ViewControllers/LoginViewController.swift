@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import CoreLocation
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -37,7 +38,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
                 if error == nil {
 
-                    let userName : String = result.valueForKey("name") as! String
+//                    let userName : String = result.valueForKey("name") as! String
                     let firstName : String = result.valueForKey("first_name") as! String
                     let lastName : String = result.valueForKey("last_name") as! String
                     let userEmail : String = result.valueForKey("email") as! String
@@ -101,7 +102,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
                 if allPermsGranted {
                     // Do work
-                    let fbToken = result.token.tokenString
                     let fbUserID = result.token.userID
 
                     let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
@@ -217,7 +217,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
                 Cocoon.user = User(username: usernameField.text!, accessToken: token)
                 Cocoon.user?.saveAuthentication()
-                Cocoon.user?.loadInfo(nil)
+               
+                if (Cocoon.location == nil) {
+                    
+                    Cocoon.location = LocationManager()
+                    
+                }
+                
                 Cocoon.pushMain()
                 
             } else {

@@ -37,19 +37,19 @@ class Register2ViewController: UIViewController {
         switch (userType) {
         case 1: //student
             
-            scopes = SycamoreConstants.kStudentScopes.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+            scopes = SycamoreConstants.kStudentScopes.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
             break;
         case 2: //family
-            scopes = SycamoreConstants.kFamilyScopes.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+            scopes = SycamoreConstants.kFamilyScopes.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
             break;
         case 3: //teacher
-            scopes = SycamoreConstants.kEmployeeScopes.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+            scopes = SycamoreConstants.kEmployeeScopes.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
             break;
         default:
-            scopes = SycamoreConstants.kFamilyScopes.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+            scopes = SycamoreConstants.kFamilyScopes.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
         }
         
-        let encodedCallback = SycamoreConstants.kCallbackURI.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        let encodedCallback = SycamoreConstants.kCallbackURI.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
         
         let authURL: NSURL = NSURL(string: SycamoreConstants.kAuthURL(scopes, encoded_callback: encodedCallback))!
         

@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         
-        var urlString = url.absoluteString;
+        let urlString = url.absoluteString;
         
         //See if the url is the redirect URL for logging in to Sycamore
         if (urlString.rangeOfString(SycamoreConstants.kCallbackURI) != nil) {

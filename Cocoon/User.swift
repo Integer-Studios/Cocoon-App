@@ -13,6 +13,7 @@ class User {
     var friends : [Link] = []
     var groups : [Link] = []
     var families : [Link] = []
+    var events : [DetailedLink] = []
     
     var family : Link?
     
@@ -21,6 +22,7 @@ class User {
     var lastName: String = ""
     var facebook: Bool = false
     var infoCallback: (() -> ())?
+    var loaded: Bool = false
     
     init (username: String, accessToken: String) {
         
@@ -30,8 +32,9 @@ class User {
     
     func loadInfo(callback:(() -> ())?) {
         
+        loaded = true
         infoCallback = callback
-        Cocoon.requestManager.sendRequest("/user/info/", parameters: ["":""], responseHandler: handleInfoResponse, errorHandler: handleInfoError)
+        Cocoon.requestManager.sendRequest("/user/info/", parameters: ["latitude":"\(Cocoon.location!.currentLocation!.coordinate.latitude)", "longitude":"\(Cocoon.location!.currentLocation!.coordinate.longitude)"], debug: true, responseHandler: handleInfoResponse, errorHandler: handleInfoError)
         
     }
     
@@ -81,9 +84,15 @@ class User {
             } else {
             
                 let familyResponse = response.content!["family"] as! NSMutableDictionary
-            
+                let eventResponse = familyResponse["events"] as! NSArray
+                
                 families.append(Link.unwrapFamily(familyResponse))
-            
+                
+                for event in eventResponse {
+                    
+                    events.append(DetailedLink.unwrapEvent(event as! NSMutableDictionary))
+                }
+                
                 family = families[0]
                 //or load from data
             

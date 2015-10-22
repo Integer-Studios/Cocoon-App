@@ -18,6 +18,10 @@ class Cocoon {
     static var isAuthenticated = false
     static var user : User?
     static var menuItems : [Link] = []
+    static var selectedEvent: DetailedLink?
+    static var location: LocationManager?
+    static var loadCallback: (() -> ())?
+
     
     static func initializeApplication() {
         
@@ -32,9 +36,13 @@ class Cocoon {
                 user?.facebook = true
                 print("A")
             }
-            user?.loadInfo(nil)
+            if (location == nil) {
+                
+                location = LocationManager()
+                
+            }
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
             pushMain()
             
@@ -78,6 +86,13 @@ class Cocoon {
         
     }
     
+    static func setLoadCallback(callback:(() -> ())?) {
+     
+        self.loadCallback = callback
+        self.location!.callbackLoaded()
+        
+    }
+    
     static func updateMenu() {
         
         menuItems = [];
@@ -99,8 +114,8 @@ class Cocoon {
         
         menuItems.append(Link(id: 3, type: "menu", displayName: "Groups"))
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let menuView = storyboard.instantiateViewControllerWithIdentifier("menu") as! MenuViewController
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let menuView = storyboard.instantiateViewControllerWithIdentifier("menu") as! MenuViewController
         
     }
     

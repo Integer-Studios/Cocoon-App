@@ -15,12 +15,16 @@ class TodoViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
+        Cocoon.setLoadCallback({
+            if self.revealViewController() != nil {
+                self.menuButton.target = self.revealViewController()
+                self.menuButton.action = "revealToggle:"
+                self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            }
+            
+            self.tableView.reloadData()
+        })
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,30 +37,31 @@ class TodoViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return (Cocoon.user?.events.count)!
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("todoCell", forIndexPath: indexPath) as! TodoCell
-        cell.title?.text = "Fake Event"
-        cell.kidName?.text = "Jimmy"
+        
+        cell.title?.text = Cocoon.user!.events[indexPath.row].info[0] as? String
+        cell.kidName?.text = Cocoon.user!.events[indexPath.row].info[1] as? String
         cell.badgeLabel.text = "3"
+        
         return cell
     }
     
 
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+       
+        Cocoon.selectedEvent = Cocoon.user?.events[indexPath.row]
         
-//        let addressDict = [kABPersonAddressStreetKey as NSString: "39 Via Conocido",            kABPersonAddressCityKey: "San Clemente", kABPersonAddressStateKey: "CA",           kABPersonAddressZIPKey:  "92675"]
         
-//        let stringAddress = "\(addressDict[kABPersonAddressStreetKey]) \(addressDict[kABPersonAddressCityKey]) \(addressDict[kABPersonAddressStateKey]) \(addressDict[kABPersonAddressZIPKey]) "
-//        let mapViewController = self.storyboard?.instantiateViewControllerWithIdentifier("map") as! MapViewController
-//        mapViewController.addressString = stringAddress
-//        mapViewController.addressDict = addressDict
         
-//        (self.navigationController as! NavigationController).pushViewController(mapViewController, animated: true)
+        let mapViewController = self.storyboard?.instantiateViewControllerWithIdentifier("map") as! MapViewController
+        
+        (self.navigationController as! NavigationController).pushViewController(mapViewController, animated: true)
     
     }
 
@@ -83,12 +88,14 @@ class TodoViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?  {
         let offerRideAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Offer" , handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
+            Cocoon.selectedEvent = Cocoon.user?.events[indexPath.row]
             (self.navigationController as! NavigationController).pushView("offerRide")
         })
         
         offerRideAction.backgroundColor = UIColor(hue: 151/359, saturation: 75/100, brightness: 84/100, alpha: 1)
         
         let requestRideAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Request" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+            Cocoon.selectedEvent = Cocoon.user?.events[indexPath.row]
             (self.navigationController as! NavigationController).pushView("requestRide")
         })
         

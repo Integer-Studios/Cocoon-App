@@ -14,7 +14,6 @@ class RequestManager {
         
         let endpoint: String = "http://cocoon.integerstudios.com" + requestURL
         let parameters = authenticateParameters(parameters)
-        var error: NSError?
         let urlRequest = generateRequest(endpoint, parameters: parameters)
         let request = Request(url: requestURL, responseHandler: responseHandler, errorHandler: errorHandler, debug: debug, parameters: parameters)
 
@@ -45,6 +44,7 @@ class RequestManager {
             requestJSON = try NSJSONSerialization.dataWithJSONObject(parameters, options: [])
         } catch let error1 as NSError {
             error = error1
+            print(error)
             requestJSON = nil
         }
         if (requestJSON == nil) {

@@ -184,17 +184,13 @@ class DetailedLink : Link {
     }
     
     static func unwrapEvent(event : NSMutableDictionary) -> DetailedLink {
-        return DetailedLink(id: Int((event["id"] as! String))!, type: "event", info: [event["title"] as! String, event["date"] as! String])
+        return DetailedLink(id: Int((event["id"] as! String))!, type: "event", info: [event["title"] as! String, event["kid-display"] as! String, event["date"] as! String, event["role"] as! NSArray, (event["latitude"] as! NSString).doubleValue, (event["longitude"] as! NSString).doubleValue, event["role-type"] as! String])
     }
     
     static func unwrapRideRequest(request : NSMutableDictionary) -> DetailedLink {
         
-        let longitude = (request["longitude"] as! NSString).doubleValue
-        let latitude = (request["latitude"] as! NSString).doubleValue
         
-        let location = CLLocation(latitude: longitude, longitude: latitude)
-        
-        return DetailedLink(id: Int((request["id"] as! String))!, type: "ride-request", info: [(request["event"] as! NSString).integerValue, (request["kid"] as! NSString).integerValue, request["name"] as! String, "Stubtown", location])
+        return DetailedLink(id: Int((request["id"] as! String))!, type: "ride-request", info: [(request["event"] as! NSString).integerValue, (request["kid"] as! NSString).integerValue, request["name"] as! String, "Stubtown", (request["latitude"] as! NSString).doubleValue, (request["longitude"] as! NSString).doubleValue])
     }
     
 }
